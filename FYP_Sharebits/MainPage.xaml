@@ -7,9 +7,11 @@
              x:Class="FYP_Sharebits.MainPage">
 
     <StackLayout>
-        <Label Text="hi" />
-        <Entry x:Name="entry"/>
-        <Button x:Name="button" Text="Submit"/>
+        <!-- Place new controls here -->
+        <Label Text="Welcome to Xamarin.Forms!" 
+           HorizontalOptions="Center"
+           VerticalOptions="CenterAndExpand" />
+        <Label Text="Test Message"/>
     </StackLayout>
 
 </ContentPage>
