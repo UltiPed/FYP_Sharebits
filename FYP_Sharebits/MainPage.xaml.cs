@@ -16,13 +16,6 @@ namespace FYP_Sharebits
         public MainPage()
         {
             InitializeComponent();
-
-            button.Clicked += Button_Clicked;
         }
-           
-        private async void Button_Clicked(object sender, EventArgs e)
-        {
-            String name = entry.Text;
--        }
     }
 }

@@ -10,8 +10,8 @@ namespace FYP_Sharebits
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
-            //MainPage = new MyPage();
+            //MainPage = new MainPage();
+            MainPage = new MainTabbedPage();
         }
 
         protected override void OnStart()

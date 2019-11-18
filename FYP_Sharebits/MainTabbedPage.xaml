@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="FYP_Sharebits.MainTabbedPage"
+             xmlns:views="clr-namespace:FYP_Sharebits.Views;assembly=FYP_Sharebits"
+             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+             android:TabbedPage.ToolbarPlacement="Bottom"
+             android:TabbedPage.BarBackgroundColor="#2196F3"
+             android:TabbedPage.SelectedTabColor="White"
+             android:TabbedPage.UnselectedTabColor="#66FFFFFF">
+    
+    <NavigationPage Title="Habit" IconImageSource="habitmenu.png">
+        <x:Arguments>
+            <views:HabitMenu />
+        </x:Arguments>
+    </NavigationPage>
+    <NavigationPage Title="Social" IconImageSource="social.png">
+        <x:Arguments>
+            <views:SocialMenu/>
+        </x:Arguments>
+    </NavigationPage>
+    <NavigationPage Title="Coach" IconImageSource="mycoach.png">
+        <x:Arguments>
+            <views:MyCoachMenu/>
+        </x:Arguments>
+    </NavigationPage>
+    <NavigationPage Title="Profile" IconImageSource="myprofile">
+        <x:Arguments>
+            <views:MyProfile/>
+        </x:Arguments>
+    </NavigationPage>
+</TabbedPage>
