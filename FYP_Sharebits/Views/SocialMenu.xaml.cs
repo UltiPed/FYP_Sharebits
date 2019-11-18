@@ -20,5 +20,15 @@ namespace FYP_Sharebits.Views
         {
             await Navigation.PushAsync(new HabitMenu());
         }
+
+        private void SearchBar_Focused(object sender, FocusEventArgs e)
+        {
+            SearchBarFrame.BackgroundColor = Color.White;
+        }
+
+        private void SearchBar_Unfocused(object sender, FocusEventArgs e)
+        {
+            SearchBarFrame.BackgroundColor = Color.FromHex("#2196F3");
+        }
     }
 }

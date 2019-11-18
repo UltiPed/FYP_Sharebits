@@ -6,14 +6,24 @@
              mc:Ignorable="d"
              x:Class="FYP_Sharebits.Views.SocialMenu"
              Title="Social">
-    
+    <NavigationPage.TitleView>
+        <Frame x:Name="SearchBarFrame"
+               CornerRadius="25" 
+               BorderColor="Gray"
+               Padding="0"
+               Margin="0"
+               BackgroundColor="#2196F3">
+            <SearchBar Focused="SearchBar_Focused"
+                       Unfocused="SearchBar_Unfocused"/>
+        </Frame>
+    </NavigationPage.TitleView>
     <ContentPage.Content>
         <StackLayout>
             <Label Text="Welcome to Xamarin.Forms!"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
             <Button x:Name="Push"
-                    Text="Push"
+                    Text="Test Push"
                     Clicked="Push_Clicked"/>
         </StackLayout>
     </ContentPage.Content>
