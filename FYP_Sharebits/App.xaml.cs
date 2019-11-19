@@ -1,6 +1,8 @@
 ﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using FYP_Sharebits.Data;
+using System.IO;
 
 namespace FYP_Sharebits
 {
@@ -27,6 +29,20 @@ namespace FYP_Sharebits
         protected override void OnResume()
         {
             // Handle when your app resumes
+        }
+
+        static SharebitsDB database;
+
+        public static SharebitsDB Database
+        {
+            get
+            {
+                if (database == null)
+                {
+                    database = new SharebitsDB(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Sharebits.db3"));
+                }
+                return database;
+            }
         }
     }
 }
