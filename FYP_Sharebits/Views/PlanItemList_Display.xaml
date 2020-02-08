@@ -4,19 +4,8 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="FYP_Sharebits.Views.PlanItemList_Create"
+             x:Class="FYP_Sharebits.Views.PlanItemList_Display"
              xmlns:i18n="clr-namespace:FYP_Sharebits.Resources">
-
-    <ContentPage.ToolbarItems>
-        <ToolbarItem x:Name="newItemButton"
-                     Text="{x:Static i18n:ResxFile.tbi_AddItem}"
-                     Clicked="newItemButton_Clicked"/>
-        
-        <ToolbarItem x:Name="ProceedButton"
-                     Text="{x:Static i18n:ResxFile.btn_proceed}"
-                     Clicked="ProceedButton_Clicked"/>
-    </ContentPage.ToolbarItems>
-
     <ContentPage.Content>
         <StackLayout>
             <ListView x:Name="ItemListView" HasUnevenRows="True">
@@ -33,9 +22,9 @@
                                     <ColumnDefinition Width="*" />
                                     <ColumnDefinition Width="*" />
                                 </Grid.ColumnDefinitions>
-                                
+
                                 <Label Text="{Binding itemName}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1"/>
-                                
+
                                 <Label Text="{x:Static i18n:ResxFile.lbl_ActType}" Grid.Row="1" Grid.Column="0"/>
                                 <Label Text="{Binding itemType}" Grid.Row="1" Grid.Column="1"/>
 

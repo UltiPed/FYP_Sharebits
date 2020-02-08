@@ -15,6 +15,8 @@ namespace FYP_Sharebits.Views
 {
     public partial class HabitMenu : ContentPage
     {
+        ObservableCollection<HabitPlans> Plans;
+
         public HabitMenu()
         {
             InitializeComponent();
@@ -46,8 +48,19 @@ namespace FYP_Sharebits.Views
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-            ObservableCollection<HabitPlans> Plans = new ObservableCollection<HabitPlans>(await App.Database.GetPlansAsync());
+            Plans = new ObservableCollection<HabitPlans>(await App.Database.GetPlansAsync());
             PlanList.ItemsSource = Plans;
+        }
+
+        private async void PlanList_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            if (PlanList.SelectedItem == null) { return; }
+
+            HabitPlans planSelected = e.SelectedItem as HabitPlans;
+            await Navigation.PushAsync(new PlanItemList_Display(planSelected));
+            PlanList.SelectedItem = null;
+
+
         }
     }
 }

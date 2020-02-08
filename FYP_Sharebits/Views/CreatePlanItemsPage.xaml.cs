@@ -103,9 +103,12 @@ namespace FYP_Sharebits.Views
 
             PlanItems item = new PlanItems();
 
+            
+
             if (!MeasureTypePicker.SelectedItem.ToString().Equals(ResxFile.pker_YesNo))
             {
                 item.itemGoal = Decimal.Parse((AmountEntry.Text));
+                item.itemName = PatternPicker.SelectedItem.ToString().Replace("...", AmountEntry.Text);
 
                 if (MeasureTypePicker.SelectedItem.ToString().Equals(ResxFile.pker_Dist))
                 {
@@ -128,6 +131,7 @@ namespace FYP_Sharebits.Views
             } else
             {
                 item.itemType = "YesNo";
+                item.itemName = PatternPicker.SelectedItem.ToString();
             }
 
             PlanItemList_Create.ToAddItems.Add(item);
