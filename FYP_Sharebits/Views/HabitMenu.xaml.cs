@@ -34,11 +34,20 @@ namespace FYP_Sharebits.Views
             newUser.birthday = DateTime.Today.Date;
             newUser.gender = "Male";
 
-            int insertResult = await App.Database.InsertUser(newUser);
+            int insertResult = await App.Database.InsertRow<Users>(newUser);
 
             ObservableCollection<Users> NewUsers = new ObservableCollection<Users>(await App.Database.GetUsersAsync());
             userList.ItemsSource = NewUsers;
             */
+
+            await Navigation.PushAsync(new CreatePlanPage());
+        }
+
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+            ObservableCollection<HabitPlans> Plans = new ObservableCollection<HabitPlans>(await App.Database.GetPlansAsync());
+            PlanList.ItemsSource = Plans;
         }
     }
 }

@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="FYP_Sharebits.Views.CreatePlanPage"
+             xmlns:i18n="clr-namespace:FYP_Sharebits.Resources"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib">
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                
+                <Label Text="{x:Static i18n:ResxFile.lbl_PlanName}" Grid.Row="0" Grid.Column="0" />
+                <Entry x:Name="NameEntry" Grid.Row="0" Grid.Column="1"/>
+                
+                <Label Text="{x:Static i18n:ResxFile.lbl_PlanType}" Grid.Row="1" Grid.Column="0" />
+                <Picker x:Name="TypePicker" Grid.Row="1" Grid.Column="1" SelectedIndexChanged="TypePicker_SelectedIndexChanged"/>
+                
+                <Label Text="{x:Static i18n:ResxFile.lbl_StartDate}" Grid.Row="2" Grid.Column="0" />
+                <DatePicker x:Name="StartDatePicker" VerticalOptions="CenterAndExpand" Date="{x:Static sys:DateTime.Now}" Grid.Row="2" Grid.Column="1">
+                    <DatePicker.Format>dd-MM-yyyy</DatePicker.Format>
+                </DatePicker>
+                
+                <Label Text="{x:Static i18n:ResxFile.lbl_EndDate}" Grid.Row="3" Grid.Column="0" />
+                <DatePicker x:Name="EndDatePicker" VerticalOptions="CenterAndExpand" Grid.Row="3" Grid.Column="1">
+                    <DatePicker.Format>dd-MM-yyyy</DatePicker.Format>
+                </DatePicker>
+                
+            </Grid>
+            <Button x:Name="proceedButton" Text="{x:Static i18n:ResxFile.btn_proceed}" Clicked="Button_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

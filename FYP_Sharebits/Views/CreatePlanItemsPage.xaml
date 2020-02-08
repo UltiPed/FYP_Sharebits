@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="FYP_Sharebits.Views.CreatePlanItemsPage"
+             xmlns:i18n="clr-namespace:FYP_Sharebits.Resources">
+    <ContentPage.Content>
+        <StackLayout>
+            
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                
+                <Label Text="{x:Static i18n:ResxFile.lbl_ActCategory}" Grid.Row="0" Grid.Column="0"/>
+                <Picker x:Name="CategoryPicker" Grid.Row="0" Grid.Column="1" SelectedIndexChanged="CategoryPicker_SelectedIndexChanged"/>
+
+                <Label Text="{x:Static i18n:ResxFile.lbl_ActType}" Grid.Row="1" Grid.Column="0"/>
+                <Picker x:Name="MeasureTypePicker" Grid.Row="1" Grid.Column="1" SelectedIndexChanged="MeasureTypePicker_SelectedIndexChanged"/>
+
+                <Label Text="{x:Static i18n:ResxFile.lbl_ActPattern}" Grid.Row="2" Grid.Column="0"/>
+                <Picker x:Name="PatternPicker" Grid.Row="2" Grid.Column="1" SelectedIndexChanged="PatternPicker_SelectedIndexChanged"/>
+
+                <Label Text="{x:Static i18n:ResxFile.lbl_workAmt}" Grid.Row="3" Grid.Column="0"/>
+                <Entry x:Name="AmountEntry" Keyboard="Numeric" Grid.Row="3" Grid.Column="1"/>
+                
+            </Grid>
+            
+            <Button x:Name="AddButton" Text="{x:Static i18n:ResxFile.btn_Add}" Clicked="AddButton_Clicked" />
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

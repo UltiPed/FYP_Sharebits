@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using FYP_Sharebits.Models.DBModels;
 using System.Threading.Tasks;
+using System.Collections.ObjectModel;
 
 namespace FYP_Sharebits.Data
 {
@@ -14,10 +15,21 @@ namespace FYP_Sharebits.Data
         public SharebitsDB(string dbPath)
         {
             database = new SQLiteAsyncConnection(dbPath);
+
+            //Do it if and only if you have built these table before and you now have some changes to any model of them
+            //////////////////////////////////////////////////
+            database.DropTableAsync<Users>().Wait();
+            database.DropTableAsync<HabitPlans>().Wait();
+            database.DropTableAsync<PlanItems>().Wait();
+            database.DropTableAsync<PlanRecords>().Wait();
+            //////////////////////////////////////////////////
+
             database.CreateTableAsync<Users>().Wait();
             database.CreateTableAsync<HabitPlans>().Wait();
             database.CreateTableAsync<PlanItems>().Wait();
             database.CreateTableAsync<PlanRecords>().Wait();
+            
+
         }
 
         public Task<List<Users>> GetUsersAsync()
@@ -25,24 +37,31 @@ namespace FYP_Sharebits.Data
             return database.Table<Users>().ToListAsync();
         }
 
+        public Task<List<HabitPlans>> GetPlansAsync()
+        {
+            return database.Table<HabitPlans>().ToListAsync();
+        }
+        /*
         public Task<List<Users>> QueryTableAsync(String queryString)
         {
-            return database.QueryAsync<Users>(queryString);
+            return database.QueryAsync(;
         }
-
+        /*
         public Task<int> UpdateUsers(Users user)
         {
-            return database.UpdateAsync(user);
+            return database.UpdateAsync<Users>()
         }
-        
-        public Task<int> InsertUser(Users user)
+        */
+        public Task<int> InsertRow<T>(T anObject)
         {
-            return database.InsertAsync(user);
+            return database.InsertAsync(anObject);
         }
 
+        /*
         public Task<int> DeleteUserAsync(Users user)
         {
             return database.DeleteAsync(user);
         }
+        */
     }
 }

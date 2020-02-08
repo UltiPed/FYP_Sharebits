@@ -16,6 +16,18 @@ namespace FYP_Sharebits.Models.DBModels
 
         public String itemName { get; set; }
 
-        public String itemGoal { get; set; }
+        public Decimal itemGoal { get; set; }
+
+        public PlanItems() { }
+
+        /*
+        public PlanItems(int aHabitID, String anItemType, String anItemName, String anItemGoal)
+        {
+            this.habitID = aHabitID;
+            this.itemType = anItemType;
+            this.itemName = anItemName;
+            this.itemGoal = anItemGoal;
+        }
+        */
     }
 }

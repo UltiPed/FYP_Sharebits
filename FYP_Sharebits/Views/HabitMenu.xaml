@@ -13,13 +13,13 @@
 
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <ListView x:Name="userList" Margin="20">
+        <ListView x:Name="PlanList" Margin="20">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
                         <StackLayout Margin="20,0,0,0" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-                            <Label Text="{Binding userID}" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" />
-                            <Label Text="{Binding userName}" HorizontalOptions="End" />
+                            <Label Text="{Binding planID}" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" />
+                            <Label Text="{Binding habitName}" HorizontalOptions="End" />
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>
