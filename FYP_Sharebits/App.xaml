@@ -6,6 +6,10 @@
              mc:Ignorable="d"
              x:Class="FYP_Sharebits.App">
     <Application.Resources>
-
+        <ResourceDictionary>
+            <ControlTemplate x:Key="Main">
+                
+            </ControlTemplate>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

@@ -20,7 +20,7 @@ namespace FYP_Sharebits.Views
             InitializeComponent();
         }
 
-        private async void test_Clicked(object sender, EventArgs e)
+        private async void add_Clicked(object sender, EventArgs e)
         {
             //Just some sample code for testing local db(users)
             /*

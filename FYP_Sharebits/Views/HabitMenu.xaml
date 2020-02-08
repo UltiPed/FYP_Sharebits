@@ -5,25 +5,56 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="FYP_Sharebits.Views.HabitMenu"
-             Title="HabitMenu">
+             Title="HabitMenu"
+             Padding="5">
     <ContentPage.ToolbarItems>
-        <ToolbarItem x:Name="test"
-                     Text="test"
-                     Clicked="test_Clicked"/>
-
+        <ToolbarItem x:Name="add"
+                     IconImageSource="add.png"
+                     Clicked="add_Clicked"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <ListView x:Name="PlanList" Margin="20">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <StackLayout Margin="20,0,0,0" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-                            <Label Text="{Binding planID}" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" />
-                            <Label Text="{Binding habitName}" HorizontalOptions="End" />
-                        </StackLayout>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+        <StackLayout BackgroundColor="LightGray">
+            <Frame CornerRadius="4"
+                   BackgroundColor="White">
+            <Grid>         
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label Text="Su"
+                       Grid.Column="0"/>
+                <Label Text="Mo"
+                       Grid.Column="1"/>
+                <Label Text="Tu"
+                       Grid.Column="2"/>
+                <Label Text="We"
+                       Grid.Column="3"/>
+                <Label Text="Th"
+                       Grid.Column="4"/>
+                <Label Text="Fr"
+                       Grid.Column="5"/>
+                <Label Text="Sa"
+                       Grid.Column="6"/>
+            </Grid>
+            </Frame>
+            <ListView x:Name="PlanList"
+                      Margin="10,0,0,0">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                <Label Text="{Binding planID}" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" />
+                                <Label Text="{Binding habitName}" HorizontalOptions="End" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>
