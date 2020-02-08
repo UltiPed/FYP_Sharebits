@@ -13,7 +13,7 @@
 
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <ListView x:Name="PlanList" Margin="20">
+        <ListView x:Name="PlanList" Margin="20" ItemSelected="PlanList_ItemSelected">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>

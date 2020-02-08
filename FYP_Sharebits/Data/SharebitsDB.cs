@@ -18,10 +18,12 @@ namespace FYP_Sharebits.Data
 
             //Do it if and only if you have built these table before and you now have some changes to any model of them
             //////////////////////////////////////////////////
+            /*
             database.DropTableAsync<Users>().Wait();
             database.DropTableAsync<HabitPlans>().Wait();
             database.DropTableAsync<PlanItems>().Wait();
             database.DropTableAsync<PlanRecords>().Wait();
+            */
             //////////////////////////////////////////////////
 
             database.CreateTableAsync<Users>().Wait();
@@ -55,6 +57,11 @@ namespace FYP_Sharebits.Data
         public Task<int> InsertRow<T>(T anObject)
         {
             return database.InsertAsync(anObject);
+        }
+
+        public Task<List<PlanItems>> QueryPlanItems(String QueryString)
+        {
+            return database.QueryAsync<PlanItems>(QueryString);
         }
 
         /*
