@@ -63,12 +63,12 @@ namespace FYP_Sharebits.Views
                     Patterns.Add(ResxFile.pat_Walk_Dur_minutes);
                     Patterns.Add(ResxFile.pat_Walk_Dur_hours);
 
-                } else if (CategoryPicker.SelectedItem.ToString().Equals(ResxFile.pker_Steps))
+                } else if (MeasureTypePicker.SelectedItem.ToString().Equals(ResxFile.pker_Steps))
                 {
                     Patterns = new List<string>();
                     Patterns.Add(ResxFile.pat_Walk_Steps);
 
-                } else if (CategoryPicker.SelectedItem.ToString().Equals(ResxFile.pker_Dist))
+                } else if (MeasureTypePicker.SelectedItem.ToString().Equals(ResxFile.pker_Dist))
                 {
                     Patterns = new List<string>();
                     Patterns.Add(ResxFile.pat_Walk_Dist_meter);
@@ -82,7 +82,7 @@ namespace FYP_Sharebits.Views
                     Patterns.Add(ResxFile.pat_Run_Dur_minutes);
                     Patterns.Add(ResxFile.pat_Run_Dur_hours);
 
-                } else if (CategoryPicker.SelectedItem.ToString().Equals(ResxFile.pker_Dist))
+                } else if (MeasureTypePicker.SelectedItem.ToString().Equals(ResxFile.pker_Dist))
                 {
                     Patterns = new List<string>();
                     Patterns.Add(ResxFile.pat_Run_Dist_meter);
