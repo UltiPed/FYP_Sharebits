@@ -44,6 +44,9 @@
     <EmbeddedResource Update="Views\CreatePlanPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Views\EnterProgressPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\HabitMenu.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>

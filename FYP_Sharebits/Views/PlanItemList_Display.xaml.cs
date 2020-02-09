@@ -36,5 +36,16 @@ namespace FYP_Sharebits.Views
             currentItems = new ObservableCollection<PlanItems>(await App.Database.QueryPlanItems(queryString));
             ItemListView.ItemsSource = currentItems;
         }
+
+        private async void ItemListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            if (e.SelectedItem == null) { return; }
+
+            PlanItems selectedItem = e.SelectedItem as PlanItems;
+
+            await Navigation.PushAsync(new EnterProgressPage(selectedItem));
+
+            ItemListView.SelectedItem = null;
+        }
     }
 }

@@ -114,11 +114,11 @@ namespace FYP_Sharebits.Views
                 {
                     item.itemType = "Distance";
                 
-                } else if (!MeasureTypePicker.SelectedItem.ToString().Equals(ResxFile.pker_Dur))
+                } else if (MeasureTypePicker.SelectedItem.ToString().Equals(ResxFile.pker_Dur))
                 {
                     item.itemType = "Duration";
 
-                } else if (!MeasureTypePicker.SelectedItem.ToString().Equals(ResxFile.pker_Steps))
+                } else if (MeasureTypePicker.SelectedItem.ToString().Equals(ResxFile.pker_Steps))
                 {
                     item.itemType = "Steps";
 
