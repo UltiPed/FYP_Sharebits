@@ -64,6 +64,7 @@ namespace FYP_Sharebits.Views
                     return;
                 }
 
+                /*
                 if (ToAddPlan.startDate.Date.Equals(DateTime.Now.Date))
                 {
                     PlanRecords ToAddRecord = new PlanRecords();
@@ -83,6 +84,7 @@ namespace FYP_Sharebits.Views
                         return;
                     }
                 }
+                //*/
             }
 
             await DisplayAlert(ResxFile.msg_Success, ResxFile.msg_SuccNewPlan, ResxFile.btn_ok);

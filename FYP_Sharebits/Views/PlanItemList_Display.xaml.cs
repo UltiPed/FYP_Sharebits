@@ -1,4 +1,5 @@
 ﻿using FYP_Sharebits.Models.DBModels;
+using FYP_Sharebits.Resources;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -40,6 +41,13 @@ namespace FYP_Sharebits.Views
         private async void ItemListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             if (e.SelectedItem == null) { return; }
+
+            if (DateTime.Compare(selectedPlan.startDate, DateTime.Now.Date) > 0)
+            {
+                await DisplayAlert(ResxFile.msg_InvalidAction, ResxFile.msg_NotStarted, ResxFile.btn_ok);
+                await Navigation.PopAsync();
+                return;
+            }
 
             PlanItems selectedItem = e.SelectedItem as PlanItems;
 

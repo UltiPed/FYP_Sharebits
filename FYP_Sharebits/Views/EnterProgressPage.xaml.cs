@@ -44,6 +44,30 @@ namespace FYP_Sharebits.Views
                     EnterButton.IsEnabled = false;
                     AmountEntry.IsEnabled = false;
                 }
+            } else
+            {
+                PlanRecords ToAddRecord = new PlanRecords();
+
+                ToAddRecord.itemID = selectedItem.itemID;
+                ToAddRecord.recordDate = DateTime.Now.Date;
+                ToAddRecord.progress = 0;
+                ToAddRecord.isDone = false;
+                ToAddRecord.recordID = ToAddRecord.itemID + "-" + ToAddRecord.recordDate.ToString();
+
+                var result3 = await App.Database.InsertRow(ToAddRecord);
+                if (result3 == 0)
+                {
+                    await DisplayAlert(ResxFile.str_error, ResxFile.str_error, ResxFile.err_confirm);
+                    await Navigation.PopAsync();
+                    return;
+                }
+
+                QueryResult = await App.Database.QueryPlanRecords(QueryString, selectedItem.itemID, DateTime.Now.Date);
+                if (QueryResult.Count > 0)
+                {
+                    recordToUpdate = QueryResult[0];
+                    DoneLabel.Text = recordToUpdate.progress.ToString();
+                }
             }
 
         }

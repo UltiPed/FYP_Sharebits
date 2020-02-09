@@ -232,6 +232,15 @@ namespace FYP_Sharebits.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Invalid Action.
+        /// </summary>
+        public static string msg_InvalidAction {
+            get {
+                return ResourceManager.GetString("msg_InvalidAction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to You have achieved today&apos;s goal!.
         /// </summary>
         public static string msg_itemFin {
@@ -246,6 +255,15 @@ namespace FYP_Sharebits.Resources {
         public static string msg_ItemFin_title {
             get {
                 return ResourceManager.GetString("msg_ItemFin_title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This habit plan has not started yet..
+        /// </summary>
+        public static string msg_NotStarted {
+            get {
+                return ResourceManager.GetString("msg_NotStarted", resourceCulture);
             }
         }
         

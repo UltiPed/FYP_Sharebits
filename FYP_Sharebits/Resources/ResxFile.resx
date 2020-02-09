@@ -174,11 +174,17 @@
   <data name="lbl_workAmt" xml:space="preserve">
     <value>Activity amount</value>
   </data>
+  <data name="msg_InvalidAction" xml:space="preserve">
+    <value>Invalid Action</value>
+  </data>
   <data name="msg_itemFin" xml:space="preserve">
     <value>You have achieved today's goal!</value>
   </data>
   <data name="msg_ItemFin_title" xml:space="preserve">
     <value>Congratulation!</value>
+  </data>
+  <data name="msg_NotStarted" xml:space="preserve">
+    <value>This habit plan has not started yet.</value>
   </data>
   <data name="msg_Success" xml:space="preserve">
     <value>Success</value>
