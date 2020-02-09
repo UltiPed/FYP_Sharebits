@@ -70,6 +70,15 @@ namespace FYP_Sharebits.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ENTER.
+        /// </summary>
+        public static string btn_Enter {
+            get {
+                return ResourceManager.GetString("btn_Enter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to OK.
         /// </summary>
         public static string btn_ok {
@@ -151,11 +160,38 @@ namespace FYP_Sharebits.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Amount of work done.
+        /// </summary>
+        public static string lbl_Done {
+            get {
+                return ResourceManager.GetString("lbl_Done", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to End Date.
         /// </summary>
         public static string lbl_EndDate {
             get {
                 return ResourceManager.GetString("lbl_EndDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Amount of newly done.
+        /// </summary>
+        public static string lbl_NewDone {
+            get {
+                return ResourceManager.GetString("lbl_NewDone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Plan Item&apos;s Name.
+        /// </summary>
+        public static string lbl_PIName {
+            get {
+                return ResourceManager.GetString("lbl_PIName", resourceCulture);
             }
         }
         
@@ -196,6 +232,42 @@ namespace FYP_Sharebits.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Invalid Action.
+        /// </summary>
+        public static string msg_InvalidAction {
+            get {
+                return ResourceManager.GetString("msg_InvalidAction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You have achieved today&apos;s goal!.
+        /// </summary>
+        public static string msg_itemFin {
+            get {
+                return ResourceManager.GetString("msg_itemFin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Congratulation!.
+        /// </summary>
+        public static string msg_ItemFin_title {
+            get {
+                return ResourceManager.GetString("msg_ItemFin_title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This habit plan has not started yet..
+        /// </summary>
+        public static string msg_NotStarted {
+            get {
+                return ResourceManager.GetString("msg_NotStarted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Success.
         /// </summary>
         public static string msg_Success {
@@ -210,6 +282,24 @@ namespace FYP_Sharebits.Resources {
         public static string msg_SuccNewPlan {
             get {
                 return ResourceManager.GetString("msg_SuccNewPlan", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You have updated the amount of work done! Keep going and try to achieve today&apos;s target!.
+        /// </summary>
+        public static string msg_UpdateRecSucc {
+            get {
+                return ResourceManager.GetString("msg_UpdateRecSucc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Update record successfully.
+        /// </summary>
+        public static string msg_UpdateRecSucc_title {
+            get {
+                return ResourceManager.GetString("msg_UpdateRecSucc_title", resourceCulture);
             }
         }
         

@@ -23,7 +23,7 @@ namespace FYP_Sharebits.Data
             database.DropTableAsync<HabitPlans>().Wait();
             database.DropTableAsync<PlanItems>().Wait();
             database.DropTableAsync<PlanRecords>().Wait();
-            */
+            //*/
             //////////////////////////////////////////////////
 
             database.CreateTableAsync<Users>().Wait();
@@ -42,6 +42,11 @@ namespace FYP_Sharebits.Data
         public Task<List<HabitPlans>> GetPlansAsync()
         {
             return database.Table<HabitPlans>().ToListAsync();
+        }
+
+        public Task<List<PlanItems>> GetItemsAsync()
+        {
+            return database.Table<PlanItems>().ToListAsync();
         }
         /*
         public Task<List<Users>> QueryTableAsync(String queryString)
@@ -64,11 +69,21 @@ namespace FYP_Sharebits.Data
             return database.QueryAsync<PlanItems>(QueryString);
         }
 
+        public Task<List<PlanRecords>> QueryPlanRecords(String QueryString, int itemID, DateTime todayDate)
+        {
+            return database.QueryAsync<PlanRecords>(QueryString, itemID, todayDate);
+        }
+
         /*
         public Task<int> DeleteUserAsync(Users user)
         {
             return database.DeleteAsync(user);
         }
         */
+
+        public Task<int> UpdateRow<T>(T aRow)
+        {
+            return database.UpdateAsync(aRow);
+        }
     }
 }

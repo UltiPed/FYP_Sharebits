@@ -120,6 +120,9 @@
   <data name="btn_Add" xml:space="preserve">
     <value>ADD</value>
   </data>
+  <data name="btn_Enter" xml:space="preserve">
+    <value>ENTER</value>
+  </data>
   <data name="btn_ok" xml:space="preserve">
     <value>OK</value>
   </data>
@@ -147,8 +150,17 @@
   <data name="lbl_ActType" xml:space="preserve">
     <value>Measurement</value>
   </data>
+  <data name="lbl_Done" xml:space="preserve">
+    <value>Amount of work done</value>
+  </data>
   <data name="lbl_EndDate" xml:space="preserve">
     <value>End Date</value>
+  </data>
+  <data name="lbl_NewDone" xml:space="preserve">
+    <value>Amount of newly done</value>
+  </data>
+  <data name="lbl_PIName" xml:space="preserve">
+    <value>Plan Item's Name</value>
   </data>
   <data name="lbl_PlanName" xml:space="preserve">
     <value>Plan Name</value>
@@ -162,11 +174,29 @@
   <data name="lbl_workAmt" xml:space="preserve">
     <value>Activity amount</value>
   </data>
+  <data name="msg_InvalidAction" xml:space="preserve">
+    <value>Invalid Action</value>
+  </data>
+  <data name="msg_itemFin" xml:space="preserve">
+    <value>You have achieved today's goal!</value>
+  </data>
+  <data name="msg_ItemFin_title" xml:space="preserve">
+    <value>Congratulation!</value>
+  </data>
+  <data name="msg_NotStarted" xml:space="preserve">
+    <value>This habit plan has not started yet.</value>
+  </data>
   <data name="msg_Success" xml:space="preserve">
     <value>Success</value>
   </data>
   <data name="msg_SuccNewPlan" xml:space="preserve">
     <value>Added a new habit plan successfully!</value>
+  </data>
+  <data name="msg_UpdateRecSucc" xml:space="preserve">
+    <value>You have updated the amount of work done! Keep going and try to achieve today's target!</value>
+  </data>
+  <data name="msg_UpdateRecSucc_title" xml:space="preserve">
+    <value>Update record successfully</value>
   </data>
   <data name="pat_Run_Dist_meter" xml:space="preserve">
     <value>Run ... meter per day</value>

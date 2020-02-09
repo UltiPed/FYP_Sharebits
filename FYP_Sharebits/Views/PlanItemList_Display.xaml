@@ -8,7 +8,7 @@
              xmlns:i18n="clr-namespace:FYP_Sharebits.Resources">
     <ContentPage.Content>
         <StackLayout>
-            <ListView x:Name="ItemListView" HasUnevenRows="True">
+            <ListView x:Name="ItemListView" HasUnevenRows="True" ItemSelected="ItemListView_ItemSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
