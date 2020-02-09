@@ -7,9 +7,14 @@
              x:Class="FYP_Sharebits.App">
     <Application.Resources>
         <ResourceDictionary>
-            <ControlTemplate x:Key="Main">
-                
-            </ControlTemplate>
+            <Style TargetType="ContentPage" x:Key="ContentPageStyle">
+                <Setter Property="BackgroundColor" Value="LightGray"/>
+                <Setter Property="Padding" Value="5"/>
+            </Style>
+            <Style TargetType="Frame" x:Key="FrameStyle">
+                <Setter Property="CornerRadius" Value="4"/>
+                <Setter Property="BackgroundColor" Value="White"/>
+            </Style>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

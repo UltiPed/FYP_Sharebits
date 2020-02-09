@@ -31,7 +31,7 @@ namespace FYP_Sharebits.Views
             TypePicker.SelectedIndex = 0;
         }
 
-        private async void Button_Clicked(object sender, EventArgs e)
+        private async void proceedButton_Clicked(object sender, EventArgs e)
         {
             if (String.IsNullOrEmpty(NameEntry.Text))
             {

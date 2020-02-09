@@ -41,7 +41,6 @@ namespace FYP_Sharebits.Views
             ObservableCollection<Users> NewUsers = new ObservableCollection<Users>(await App.Database.GetUsersAsync());
             userList.ItemsSource = NewUsers;
             */
-
             await Navigation.PushAsync(new CreatePlanPage());
         }
 

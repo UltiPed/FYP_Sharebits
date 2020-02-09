@@ -141,6 +141,18 @@
   <data name="err_NullPlanName" xml:space="preserve">
     <value>Plan name cannot be empty!</value>
   </data>
+  <data name="lblCoach" xml:space="preserve">
+    <value>Coach</value>
+  </data>
+  <data name="lblHabit" xml:space="preserve">
+    <value>Habit</value>
+  </data>
+  <data name="lblProfile" xml:space="preserve">
+    <value>Profile</value>
+  </data>
+  <data name="lblSocial" xml:space="preserve">
+    <value>Social</value>
+  </data>
   <data name="lbl_ActCategory" xml:space="preserve">
     <value>Activity Category</value>
   </data>

@@ -6,9 +6,30 @@
              mc:Ignorable="d"
              x:Class="FYP_Sharebits.Views.CreatePlanItemsPage"
              xmlns:i18n="clr-namespace:FYP_Sharebits.Resources">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label" x:Key="LabelStyle">
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="HorizontalOptions" Value="Start"/>
+            </Style>
+            <Style TargetType="Entry" x:Key="EntryStyle">
+                <Setter Property="VerticalOptions" Value="Center"/>
+            </Style>
+            <Style TargetType="DatePicker" x:Key="DatePickerStyle">
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="Format" Value="dd-MM-yyyy"/>
+            </Style>
+            <Style TargetType="Picker" x:Key="PickerStyle">
+                <Setter Property="VerticalOptions" Value="Center"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
-        <StackLayout>
-            
+        <StackLayout BackgroundColor="LightGray"
+                     Padding="5">
+            <Frame CornerRadius="3"
+                   BackgroundColor="White">
+                <StackLayout>
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />
@@ -17,27 +38,36 @@
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
 
-                <Label Text="{x:Static i18n:ResxFile.lbl_ActCategory}" Grid.Row="0" Grid.Column="0"/>
-                <Picker x:Name="CategoryPicker" Grid.Row="0" Grid.Column="1" SelectedIndexChanged="CategoryPicker_SelectedIndexChanged"/>
+                <Label Text="{x:Static i18n:ResxFile.lbl_ActCategory}" Grid.Row="0" Grid.Column="0"
+                       Style="{StaticResource LabelStyle}"/>
+                <Picker x:Name="CategoryPicker" Grid.Row="0" Grid.Column="1" SelectedIndexChanged="CategoryPicker_SelectedIndexChanged"
+                        Style="{StaticResource PickerStyle}"/>
 
-                <Label Text="{x:Static i18n:ResxFile.lbl_ActType}" Grid.Row="1" Grid.Column="0"/>
-                <Picker x:Name="MeasureTypePicker" Grid.Row="1" Grid.Column="1" SelectedIndexChanged="MeasureTypePicker_SelectedIndexChanged"/>
+                <Label Text="{x:Static i18n:ResxFile.lbl_ActType}" Grid.Row="1" Grid.Column="0"
+                       Style="{StaticResource LabelStyle}"/>
+                <Picker x:Name="MeasureTypePicker" Grid.Row="1" Grid.Column="1" SelectedIndexChanged="MeasureTypePicker_SelectedIndexChanged"
+                        Style="{StaticResource PickerStyle}"/>
 
-                <Label Text="{x:Static i18n:ResxFile.lbl_ActPattern}" Grid.Row="2" Grid.Column="0"/>
-                <Picker x:Name="PatternPicker" Grid.Row="2" Grid.Column="1" SelectedIndexChanged="PatternPicker_SelectedIndexChanged"/>
+                <Label Text="{x:Static i18n:ResxFile.lbl_ActPattern}" Grid.Row="2" Grid.Column="0"
+                       Style="{StaticResource LabelStyle}"/>
+                <Picker x:Name="PatternPicker" Grid.Row="2" Grid.Column="1" SelectedIndexChanged="PatternPicker_SelectedIndexChanged"
+                        Style="{StaticResource PickerStyle}"/>
 
-                <Label Text="{x:Static i18n:ResxFile.lbl_workAmt}" Grid.Row="3" Grid.Column="0"/>
-                <Entry x:Name="AmountEntry" Keyboard="Numeric" Grid.Row="3" Grid.Column="1"/>
+                <Label Text="{x:Static i18n:ResxFile.lbl_workAmt}" Grid.Row="3" Grid.Column="0"
+                       Style="{StaticResource LabelStyle}"/>
+                <Entry x:Name="AmountEntry" Keyboard="Numeric" Grid.Row="3" Grid.Column="1"
+                       Style="{StaticResource EntryStyle}"/>
 
 
             </Grid>
             
             <Button x:Name="AddButton" Text="{x:Static i18n:ResxFile.btn_Add}" Clicked="AddButton_Clicked" />
-            
+                </StackLayout>
+            </Frame>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

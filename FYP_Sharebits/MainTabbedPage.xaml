@@ -6,28 +6,29 @@
              mc:Ignorable="d"
              x:Class="FYP_Sharebits.MainTabbedPage"
              xmlns:views="clr-namespace:FYP_Sharebits.Views;assembly=FYP_Sharebits"
+             xmlns:i18n="clr-namespace:FYP_Sharebits.Resources"
              xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
              android:TabbedPage.ToolbarPlacement="Bottom"
              android:TabbedPage.BarBackgroundColor="#2196F3"
              android:TabbedPage.SelectedTabColor="White"
              android:TabbedPage.UnselectedTabColor="#66FFFFFF">
-    
-    <NavigationPage Title="Habit" IconImageSource="habitmenu.png">
+
+    <NavigationPage Title="{x:Static i18n:ResxFile.lblHabit}" IconImageSource="habitmenu.png">
         <x:Arguments>
             <views:HabitMenu />
         </x:Arguments>
     </NavigationPage>
-    <NavigationPage Title="Social" IconImageSource="social.png">
+    <NavigationPage Title="{x:Static i18n:ResxFile.lblSocial}" IconImageSource="social.png">
         <x:Arguments>
             <views:SocialMenu/>
         </x:Arguments>
     </NavigationPage>
-    <NavigationPage Title="Coach" IconImageSource="mycoach.png">
+    <NavigationPage Title="{x:Static i18n:ResxFile.lblCoach}" IconImageSource="mycoach.png">
         <x:Arguments>
             <views:MyCoachMenu/>
         </x:Arguments>
     </NavigationPage>
-    <NavigationPage Title="Profile" IconImageSource="myprofile">
+    <NavigationPage Title="{x:Static i18n:ResxFile.lblProfile}" IconImageSource="myprofile">
         <x:Arguments>
             <views:MyProfile/>
         </x:Arguments>
