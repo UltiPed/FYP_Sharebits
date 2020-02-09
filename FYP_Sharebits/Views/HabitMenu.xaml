@@ -55,7 +55,7 @@
                             <Frame CornerRadius="5"
                                    BackgroundColor="White"
                                    HasShadow="False"
-                                   Margin="0,3,0,0">
+                                   Margin="0,3,0,3">
                             <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
                                 <Label Text="{Binding planID}" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" />
                                 <Label Text="{Binding habitName}" HorizontalOptions="End" />
