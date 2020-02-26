@@ -11,6 +11,9 @@
         <ToolbarItem x:Name="add"
                      IconImageSource="add.png"
                      Clicked="add_Clicked"/>
+        <ToolbarItem x:Name="testing"
+                     Text="TEST"
+                     Clicked="testing_Clicked" />
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout BackgroundColor="LightGray"
@@ -48,7 +51,8 @@
             </Frame>
             <ListView x:Name="PlanList"
                       Margin="5,0,5,0"
-                      HasUnevenRows="True">
+                      HasUnevenRows="True"
+                      ItemSelected="PlanList_ItemSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -57,7 +61,7 @@
                                    HasShadow="False"
                                    Margin="0,3,0,3">
                             <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-                                <Label Text="{Binding planID}" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" />
+                                <Label Text="{Binding habitID}" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" />
                                 <Label Text="{Binding habitName}" HorizontalOptions="End" />
                             </StackLayout>
                             </Frame>

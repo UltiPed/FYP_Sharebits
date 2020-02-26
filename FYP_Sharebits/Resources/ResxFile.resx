@@ -214,7 +214,7 @@
     <value>Run ... meter per day</value>
   </data>
   <data name="pat_Run_Dur_hours" xml:space="preserve">
-    <value>Run for ... minutes per day</value>
+    <value>Run for ... hours per day</value>
   </data>
   <data name="pat_Run_Dur_minutes" xml:space="preserve">
     <value>Run for ... minutes per day</value>

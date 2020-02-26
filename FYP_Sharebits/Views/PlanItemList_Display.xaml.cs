@@ -33,7 +33,7 @@ namespace FYP_Sharebits.Views
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-            String queryString = "SELECT * FROM PlanItems WHERE [habitID]='" + selectedPlan.planID.ToString() + "'";
+            String queryString = "SELECT * FROM PlanItems WHERE [habitID]='" + selectedPlan.habitID.ToString() + "'";
             currentItems = new ObservableCollection<PlanItems>(await App.Database.QueryPlanItems(queryString));
             ItemListView.ItemsSource = currentItems;
         }

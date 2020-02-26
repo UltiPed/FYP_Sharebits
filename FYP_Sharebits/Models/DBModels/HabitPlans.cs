@@ -8,7 +8,7 @@ namespace FYP_Sharebits.Models.DBModels
     public class HabitPlans
     {
         [PrimaryKey, AutoIncrement]
-        public int planID { get; set; }
+        public int habitID { get; set; }
 
         public String habitName { get; set; }
 

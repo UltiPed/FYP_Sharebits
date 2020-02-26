@@ -18,5 +18,7 @@ namespace FYP_Sharebits.Models.DBModels
         public DateTime birthday { get; set; }
 
         public String gender { get; set; }
+
+        public String sessionToken { get; set; }
     }
 }

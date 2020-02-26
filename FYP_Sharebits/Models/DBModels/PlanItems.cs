@@ -18,6 +18,8 @@ namespace FYP_Sharebits.Models.DBModels
 
         public Decimal itemGoal { get; set; }
 
+        public int habitID_DB { get; set; }
+
         public PlanItems() { }
 
         /*

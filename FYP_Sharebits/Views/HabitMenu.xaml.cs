@@ -10,6 +10,7 @@ using Xamarin.Forms.Xaml;
 using FYP_Sharebits.Data;
 using System.Collections.ObjectModel;
 using FYP_Sharebits.Models.DBModels;
+using FYP_Sharebits.Models.Functional;
 
 namespace FYP_Sharebits.Views
 {
@@ -60,6 +61,12 @@ namespace FYP_Sharebits.Views
             PlanList.SelectedItem = null;
 
 
+        }
+
+        private async void testing_Clicked(object sender, EventArgs e)
+        {
+            String queryString = "query{ HabitPlan { _id, habitName habitType, startDate, endDate, createdItems{ _id, itemType,itemGoal, createdRecords{ recordDate, progress, isDone } }, creator{ userName, password, email, height, weight } }}";
+            await APIConnection.GetAllPlans();
         }
     }
 }
