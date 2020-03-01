@@ -21,7 +21,32 @@ namespace FYP_Sharebits.Models.Functional
 
             GraphQLRequest graphQLRequest = new GraphQLRequest
             {
-                Query = @queryString
+                Query = @"
+                        HabitPlan {
+                            _id,
+                            habitName,
+                            habitType,
+                            startDate,
+                            endDate,
+                            createdItems{
+                                _id,
+                                itemType,
+                                itemGoal,
+                                createdRecords{
+                                    recordDate,
+                                    progress,
+                                    isDone
+                                }
+                            },
+                            creator{
+                                userName,
+                                password,
+                                email,
+                                height,
+                                weight
+                            }
+                        }"
+
             };
 
             var graphQLResponse = await GraphQLClient.SendQueryAsync<HabitPlan>(graphQLRequest);

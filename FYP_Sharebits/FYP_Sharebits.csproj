@@ -20,7 +20,6 @@
 
   <ItemGroup>
     <Folder Include="Converters\" />
-    <Folder Include="Interfaces\" />
     <Folder Include="ViewModels\" />
   </ItemGroup>
 
@@ -66,6 +65,9 @@
     </EmbeddedResource>
     <EmbeddedResource Update="Views\SocialMenu.xaml">
       <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\TestStepCounter.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
 </Project>

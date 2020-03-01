@@ -65,8 +65,13 @@ namespace FYP_Sharebits.Views
 
         private async void testing_Clicked(object sender, EventArgs e)
         {
-            String queryString = "query{ HabitPlan { _id, habitName habitType, startDate, endDate, createdItems{ _id, itemType,itemGoal, createdRecords{ recordDate, progress, isDone } }, creator{ userName, password, email, height, weight } }}";
+            String queryString = "query{ HabitPlan { _id, habitName habitType, startDate, endDate, createdItems{ _id, itemType, itemGoal, createdRecords{ recordDate, progress, isDone } }, creator{ userName, password, email, height, weight }        }    }";
             await APIConnection.GetAllPlans();
+        }
+
+        private async void testStep_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new TestStepCounter());
         }
     }
 }
