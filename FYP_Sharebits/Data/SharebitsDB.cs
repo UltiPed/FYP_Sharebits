@@ -85,5 +85,21 @@ namespace FYP_Sharebits.Data
         {
             return database.UpdateAsync(aRow);
         }
+
+        public async Task SetSessionToken(String tokenString)
+        {
+            var user = (await database.QueryAsync<Users>("SELECT * FROM Users"))[0];
+
+            user.sessionToken = tokenString;
+            var result = await UpdateRow(user);
+
+            if (result > 0)
+            {
+                //Success...
+            } else
+            {
+                //Fail...
+            }
+        }
     }
 }
