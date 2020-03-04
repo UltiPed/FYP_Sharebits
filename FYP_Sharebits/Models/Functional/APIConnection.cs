@@ -60,6 +60,8 @@ namespace FYP_Sharebits.Models.Functional
         {
             client = new HttpClient();
 
+            client.DefaultRequestHeaders.Add("Authentication", "Bearer xxxxxxxxxx");
+
             StringContent stringContent = new StringContent("{\"query\": \"query{ HabitPlan { _id, habitName habitType, startDate, endDate, createdItems{ _id, itemType, itemGoal, createdRecords{ recordDate, progress, isDone } }, creator{ userName, password, email, height, weight }        }    }\"}", System.Text.Encoding.UTF8, "application/json");
 
             var httpResponse = await client.PostAsync(GraphQLURL, stringContent);
