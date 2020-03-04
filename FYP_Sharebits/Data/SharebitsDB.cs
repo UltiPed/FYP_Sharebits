@@ -30,7 +30,14 @@ namespace FYP_Sharebits.Data
             database.CreateTableAsync<HabitPlans>().Wait();
             database.CreateTableAsync<PlanItems>().Wait();
             database.CreateTableAsync<PlanRecords>().Wait();
-            
+
+            //Do it if you need a demo user
+            //////////////////////////////////////////////////
+            /*
+            InsertDemoUser().Wait();
+            //*/
+            //////////////////////////////////////////////////
+
 
         }
 
@@ -86,9 +93,29 @@ namespace FYP_Sharebits.Data
             return database.UpdateAsync(aRow);
         }
 
-        public async Task SetSessionToken(String tokenString)
+        public Task<int> InsertDemoUser()
         {
-            var user = (await database.QueryAsync<Users>("SELECT * FROM Users"))[0];
+            Users user = new Users();
+            user.birthday = new DateTime(1989, 6, 4);
+            user.userID = "DemoUser01";
+            user.userName = "01DemoUser";
+            user.gender = "M";
+            user.height = 165;
+            user.weight = 55;
+            user.sessionToken = "";
+
+            return InsertRow(user);
+        }
+
+        public async Task<Boolean> SetSessionToken(String tokenString)
+        {
+            var users = (await database.QueryAsync<Users>("SELECT * FROM Users"));
+            if (users.Count == 0)
+            {
+                return false;
+            }
+
+            var user = users[0];
 
             user.sessionToken = tokenString;
             var result = await UpdateRow(user);
@@ -96,9 +123,11 @@ namespace FYP_Sharebits.Data
             if (result > 0)
             {
                 //Success...
+                return true;
             } else
             {
                 //Fail...
+                return false;
             }
         }
     }
