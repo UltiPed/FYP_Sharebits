@@ -70,6 +70,12 @@ namespace FYP_Sharebits.Models.Functional
 
             var result = JsonConvert.DeserializeObject<Testing>(json);
 
+            Array a = new Array[1, 2, 3];
+            var a1 = a.ToString();
+
+            List<String> l = new List<string>() { "1", "2", "3" };
+            var l1 = l.ToString();
+
             return result;
         }
 
