@@ -19,6 +19,9 @@ namespace FYP_Sharebits.Models.Functional
     {
         [JsonProperty("data")]
         public Data Data { get; set; }
+
+        [JsonProperty("errors")]
+        public Errors[] Errors { get; set; }
     }
 
     public partial class Data
@@ -60,7 +63,7 @@ namespace FYP_Sharebits.Models.Functional
         public string ItemType { get; set; }
 
         [JsonProperty("itemGoal")]
-        public long ItemGoal { get; set; }
+        public long? ItemGoal { get; set; }
 
         [JsonProperty("createdRecords")]
         public CreatedRecord[] CreatedRecords { get; set; }
@@ -72,7 +75,7 @@ namespace FYP_Sharebits.Models.Functional
         public DateTimeOffset RecordDate { get; set; }
 
         [JsonProperty("progress")]
-        public long Progress { get; set; }
+        public long? Progress { get; set; }
 
         [JsonProperty("isDone")]
         public bool IsDone { get; set; }
@@ -90,10 +93,16 @@ namespace FYP_Sharebits.Models.Functional
         public string Email { get; set; }
 
         [JsonProperty("height")]
-        public object Height { get; set; }
+        public double? Height { get; set; }
 
         [JsonProperty("weight")]
-        public object Weight { get; set; }
+        public double? Weight { get; set; }
+    }
+
+    public partial class Errors
+    {
+        [JsonProperty("message")]
+        public String Message { get; set; }
     }
 
     public partial class Testing
