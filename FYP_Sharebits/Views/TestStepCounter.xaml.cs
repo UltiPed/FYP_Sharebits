@@ -1,4 +1,5 @@
 ﻿using FYP_Sharebits.Interfaces;
+using FYP_Sharebits.Models.Functional;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,22 +18,22 @@ namespace FYP_Sharebits.Views
         {
             InitializeComponent();
 
-            if (DependencyService.Get<IStepCounter>().IsAvailable())
-            {
-                DependencyService.Get<IStepCounter>().InitSensorService();
-
-                myBtn.IsVisible = true;
-            }
         }
 
-        private void Button_Clicked(object sender, EventArgs e)
+        private async void Button_Clicked(object sender, EventArgs e)
         {
+            mylabel.Text = "Count in DB: " + (await StepController.GetTodaySteps_DB()).ToString();
 
+            mylabel2.Text = "Count in Properties: " + (await StepController.GetTodaySteps_Properties()).ToString();
 
-            mylabel.Text = DependencyService.Get<IStepCounter>().Steps.ToString();
+            mylabel3.Text = "Count in StepCounter.cs: " + (DependencyService.Get<IStepCounter>().Steps);
 
+        }
 
-
+        private async void Button_Clicked_1(object sender, EventArgs e)
+        {
+            await StepController.UpdateTodaySteps_DB();
+            await StepController.UpdateTodaySteps_Properties();
         }
     }
 }

@@ -8,8 +8,13 @@
     <ContentPage.Content>
         <StackLayout>
             <Label x:Name="mylabel"/>
+            <Label Text=" "/>
+            <Label x:Name="mylabel2"/>
+            <Label Text=" "/>
+            <Label x:Name="mylabel3"/>
             <!-- Place new controls here -->
             <Button Text="click" Clicked="Button_Clicked" x:Name="myBtn" />
+            <!--<Button Text="TestUpdate" Clicked="Button_Clicked_1"/>-->
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -3,6 +3,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using FYP_Sharebits.Data;
 using System.IO;
+using FYP_Sharebits.Interfaces;
 
 namespace FYP_Sharebits
 {
@@ -14,6 +15,12 @@ namespace FYP_Sharebits
 
             //MainPage = new MainPage();
             MainPage = new MainTabbedPage();
+
+
+            if (DependencyService.Get<IStepCounter>().IsAvailable())
+            {
+                DependencyService.Get<IStepCounter>().InitSensorService();
+            }
         }
 
         protected override void OnStart()

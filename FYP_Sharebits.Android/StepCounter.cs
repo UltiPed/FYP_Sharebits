@@ -12,6 +12,7 @@ using Android.Views;
 using Android.Widget;
 using FYP_Sharebits.Droid;
 using FYP_Sharebits.Interfaces;
+using FYP_Sharebits.Models.Functional;
 using Xamarin.Forms;
 
 [assembly: Dependency(typeof(StepCounter))]
@@ -19,8 +20,7 @@ namespace FYP_Sharebits.Droid
 {
     class StepCounter : Java.Lang.Object, IStepCounter, ISensorEventListener
     {
-
-        private int StepsCounter = 0;
+        int StepsCounter = 0;
         private SensorManager sManager;
 
         public int Steps
@@ -50,11 +50,13 @@ namespace FYP_Sharebits.Droid
             Console.WriteLine("OnAccuracyChanged called");
         }
 
-        public void OnSensorChanged(SensorEvent e)
+        public async void OnSensorChanged(SensorEvent e)
         {
-            StepsCounter++;
+            await StepController.UpdateTodaySteps_DB();
 
+            await StepController.UpdateTodaySteps_Properties();
 
+            Steps++;
 
             Console.WriteLine(e.ToString());
         }

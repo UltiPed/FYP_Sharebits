@@ -23,6 +23,7 @@ namespace FYP_Sharebits.Data
             database.DropTableAsync<HabitPlans>().Wait();
             database.DropTableAsync<PlanItems>().Wait();
             database.DropTableAsync<PlanRecords>().Wait();
+            database.DropTableAsync<StepCounts>().Wait();
             //*/
             //////////////////////////////////////////////////
 
@@ -30,6 +31,7 @@ namespace FYP_Sharebits.Data
             database.CreateTableAsync<HabitPlans>().Wait();
             database.CreateTableAsync<PlanItems>().Wait();
             database.CreateTableAsync<PlanRecords>().Wait();
+            database.CreateTableAsync<StepCounts>().Wait();
 
             //Do it if you need a demo user
             //////////////////////////////////////////////////
@@ -56,7 +58,7 @@ namespace FYP_Sharebits.Data
             return database.Table<PlanItems>().ToListAsync();
         }
         /*
-        public Task<List<Users>> QueryTableAsync(String queryString)
+        public Task<List<Users>> QueryTaAsync(String queryString)
         {
             return database.QueryAsync(;
         }
@@ -129,6 +131,54 @@ namespace FYP_Sharebits.Data
                 //Fail...
                 return false;
             }
+        }
+
+        public async Task<Boolean> UpdateStepRecord()
+        {
+            int result;
+
+            String queryString = "Update StepCounts SET stepCount=stepCount+1 WHERE recordDate = ?";
+
+            var StepCounts = await database.Table<StepCounts>().ToListAsync();
+            var TodayCount = StepCounts.Find(x => x.recordDate == DateTime.Today.Date);
+
+            if (TodayCount == null)
+            {
+                TodayCount = new StepCounts();
+                TodayCount.recordDate = DateTime.Today.Date;
+                TodayCount.stepCount = 1;
+                result = await InsertRow(TodayCount);
+            }
+            else
+            {
+                result = await database.ExecuteAsync(queryString, DateTime.Today.Date);
+            }
+
+            if (result > 0)
+            {
+                return true;
+            } else
+            {
+                return false;
+            }
+
+        }
+
+        public async Task<int> GetTodayStepCount()
+        {
+            var Counts = await database.Table<StepCounts>().ToListAsync();
+            var todayCounts = Counts.Find(x => x.recordDate == DateTime.Today.Date);
+
+            if (todayCounts != null)
+            {
+                return todayCounts.stepCount;
+            }
+            else
+            {
+                return 0;
+            }
+            
+
         }
     }
 }

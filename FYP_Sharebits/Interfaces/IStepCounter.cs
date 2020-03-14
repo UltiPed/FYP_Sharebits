@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Xamarin.Forms;
 
 namespace FYP_Sharebits.Interfaces
 {
@@ -14,4 +15,5 @@ namespace FYP_Sharebits.Interfaces
 
         void StopSensorService();
     }
+    
 }
