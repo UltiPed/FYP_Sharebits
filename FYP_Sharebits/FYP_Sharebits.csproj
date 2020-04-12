@@ -51,6 +51,9 @@
     <EmbeddedResource Update="Views\HabitMenu.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Views\LoginPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\MyCoachMenu.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>

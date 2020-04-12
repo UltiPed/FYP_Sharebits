@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,18 +7,37 @@ namespace FYP_Sharebits.Models.APIModels
 {
     public class HabitPlan
     {
-        public int _id { get; set; }
+        [JsonProperty("_id")]
+        public string Id { get; set; }
 
-        public String habitName { get; set; }
+        [JsonProperty("habitName")]
+        public string HabitName { get; set; }
 
-        public String habitType { get; set; }
+        [JsonProperty("habitType")]
+        public string HabitType { get; set; }
 
-        public DateTime startDate { get; set; }
+        [JsonProperty("startDate")]
+        public DateTimeOffset StartDate { get; set; }
 
-        public DateTime? endDate { get; set; }
+        [JsonProperty("endDate")]
+        public DateTimeOffset? EndDate { get; set; }
 
-        public Creator creator { get; set; }
+        [JsonProperty("isPublished")]
+        public bool IsPublished { get; set; }
 
-        public CreatedItems[] createdItems { get; set; }
+        [JsonProperty("creator")]
+        public User Creator { get; set; }
+
+        [JsonProperty("isActive")]
+        public bool IsActive { get; set; }
+
+        [JsonProperty("createdItems")]
+        public PlanItem[] CreatedItems { get; set; }
+
+        [JsonProperty("newItems")]
+        public PlanItem[] NewItems { get; set; }
+
+        [JsonProperty("localID")]
+        public int? LocalId { get; set; }
     }
 }

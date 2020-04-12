@@ -18,7 +18,7 @@ namespace FYP_Sharebits.Views
 
         private async void Push_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new HabitMenu());
+            await Navigation.PushAsync(new LoginPage());
         }
 
         private void SearchBar_Focused(object sender, FocusEventArgs e)

@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="FYP_Sharebits.Views.LoginPage"
+             xmlns:i18n="clr-namespace:FYP_Sharebits.Resources">
+
+    <StackLayout>
+        <!--<Label Text="{x:Static i18n:ResxFile.lblEmail}"/>-->
+        <Entry x:Name="email"
+               Placeholder="{x:Static i18n:ResxFile.lblEmail}"/>
+        <!--<Label Text="{x:Static i18n:ResxFile.lblPassword}"/>-->
+        <Entry x:Name="password"
+               IsPassword="True"
+               Placeholder="{x:Static i18n:ResxFile.lblPassword}"/>
+        <Button x:Name="btnLogin"
+                Text="{x:Static i18n:ResxFile.btnLogin}"
+                Clicked="btnLogin_Clicked"/>
+
+    </StackLayout>
+</ContentPage>
