@@ -126,11 +126,17 @@
   <data name="btn_Enter" xml:space="preserve">
     <value>ENTER</value>
   </data>
+  <data name="btn_Logout" xml:space="preserve">
+    <value>Logout</value>
+  </data>
   <data name="btn_ok" xml:space="preserve">
     <value>OK</value>
   </data>
   <data name="btn_proceed" xml:space="preserve">
     <value>PROCEED</value>
+  </data>
+  <data name="btn_Signup" xml:space="preserve">
+    <value>Signup</value>
   </data>
   <data name="err_confirm" xml:space="preserve">
     <value>CONFIRM</value>
@@ -171,11 +177,26 @@
   <data name="lbl_ActType" xml:space="preserve">
     <value>Measurement</value>
   </data>
+  <data name="lbl_confirm_password" xml:space="preserve">
+    <value>Confirm password</value>
+  </data>
   <data name="lbl_Done" xml:space="preserve">
     <value>Amount of work done</value>
   </data>
   <data name="lbl_EndDate" xml:space="preserve">
     <value>End Date</value>
+  </data>
+  <data name="lbl_gender" xml:space="preserve">
+    <value>Gender</value>
+  </data>
+  <data name="lbl_gender_female" xml:space="preserve">
+    <value>Female</value>
+  </data>
+  <data name="lbl_gender_male" xml:space="preserve">
+    <value>Male</value>
+  </data>
+  <data name="lbl_height" xml:space="preserve">
+    <value>Height</value>
   </data>
   <data name="lbl_NewDone" xml:space="preserve">
     <value>Amount of newly done</value>
@@ -192,6 +213,12 @@
   <data name="lbl_StartDate" xml:space="preserve">
     <value>Start Date</value>
   </data>
+  <data name="lbl_username" xml:space="preserve">
+    <value>Username</value>
+  </data>
+  <data name="lbl_weight" xml:space="preserve">
+    <value>Weight</value>
+  </data>
   <data name="lbl_workAmt" xml:space="preserve">
     <value>Activity amount</value>
   </data>
@@ -207,6 +234,12 @@
   <data name="msg_LoginEmpty" xml:space="preserve">
     <value>Please enter your email and password to login.</value>
   </data>
+  <data name="msg_Login_Fail" xml:space="preserve">
+    <value>Incorrect email or password!</value>
+  </data>
+  <data name="msg_Logout_Fail" xml:space="preserve">
+    <value>Logout failed! Please try it later.</value>
+  </data>
   <data name="msg_NotStarted" xml:space="preserve">
     <value>This habit plan has not started yet.</value>
   </data>
@@ -215,6 +248,9 @@
   </data>
   <data name="msg_SuccNewPlan" xml:space="preserve">
     <value>Added a new habit plan successfully!</value>
+  </data>
+  <data name="msg_Unauthenticated" xml:space="preserve">
+    <value>Please login to use this function!</value>
   </data>
   <data name="msg_UpdateRecSucc" xml:space="preserve">
     <value>You have updated the amount of work done! Keep going and try to achieve today's target!</value>

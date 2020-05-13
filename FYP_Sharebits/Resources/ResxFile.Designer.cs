@@ -79,6 +79,15 @@ namespace FYP_Sharebits.Resources {
         }
         
         /// <summary>
+        ///   查詢類似 Logout 的當地語系化字串。
+        /// </summary>
+        public static string btn_Logout {
+            get {
+                return ResourceManager.GetString("btn_Logout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查詢類似 OK 的當地語系化字串。
         /// </summary>
         public static string btn_ok {
@@ -93,6 +102,15 @@ namespace FYP_Sharebits.Resources {
         public static string btn_proceed {
             get {
                 return ResourceManager.GetString("btn_proceed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查詢類似 Signup 的當地語系化字串。
+        /// </summary>
+        public static string btn_Signup {
+            get {
+                return ResourceManager.GetString("btn_Signup", resourceCulture);
             }
         }
         
@@ -169,6 +187,15 @@ namespace FYP_Sharebits.Resources {
         }
         
         /// <summary>
+        ///   查詢類似 Confirm password 的當地語系化字串。
+        /// </summary>
+        public static string lbl_confirm_password {
+            get {
+                return ResourceManager.GetString("lbl_confirm_password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查詢類似 Amount of work done 的當地語系化字串。
         /// </summary>
         public static string lbl_Done {
@@ -183,6 +210,42 @@ namespace FYP_Sharebits.Resources {
         public static string lbl_EndDate {
             get {
                 return ResourceManager.GetString("lbl_EndDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查詢類似 Gender 的當地語系化字串。
+        /// </summary>
+        public static string lbl_gender {
+            get {
+                return ResourceManager.GetString("lbl_gender", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查詢類似 Female 的當地語系化字串。
+        /// </summary>
+        public static string lbl_gender_female {
+            get {
+                return ResourceManager.GetString("lbl_gender_female", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查詢類似 Male 的當地語系化字串。
+        /// </summary>
+        public static string lbl_gender_male {
+            get {
+                return ResourceManager.GetString("lbl_gender_male", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查詢類似 Height 的當地語系化字串。
+        /// </summary>
+        public static string lbl_height {
+            get {
+                return ResourceManager.GetString("lbl_height", resourceCulture);
             }
         }
         
@@ -228,6 +291,24 @@ namespace FYP_Sharebits.Resources {
         public static string lbl_StartDate {
             get {
                 return ResourceManager.GetString("lbl_StartDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查詢類似 Username 的當地語系化字串。
+        /// </summary>
+        public static string lbl_username {
+            get {
+                return ResourceManager.GetString("lbl_username", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查詢類似 Weight 的當地語系化字串。
+        /// </summary>
+        public static string lbl_weight {
+            get {
+                return ResourceManager.GetString("lbl_weight", resourceCulture);
             }
         }
         
@@ -322,11 +403,29 @@ namespace FYP_Sharebits.Resources {
         }
         
         /// <summary>
+        ///   查詢類似 Incorrect email or password! 的當地語系化字串。
+        /// </summary>
+        public static string msg_Login_Fail {
+            get {
+                return ResourceManager.GetString("msg_Login_Fail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查詢類似 Please enter your email and password to login. 的當地語系化字串。
         /// </summary>
         public static string msg_LoginEmpty {
             get {
                 return ResourceManager.GetString("msg_LoginEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查詢類似 Logout failed! Please try it later. 的當地語系化字串。
+        /// </summary>
+        public static string msg_Logout_Fail {
+            get {
+                return ResourceManager.GetString("msg_Logout_Fail", resourceCulture);
             }
         }
         
@@ -354,6 +453,15 @@ namespace FYP_Sharebits.Resources {
         public static string msg_SuccNewPlan {
             get {
                 return ResourceManager.GetString("msg_SuccNewPlan", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查詢類似 Please login to use this function! 的當地語系化字串。
+        /// </summary>
+        public static string msg_Unauthenticated {
+            get {
+                return ResourceManager.GetString("msg_Unauthenticated", resourceCulture);
             }
         }
         

@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="FYP_Sharebits.Views.SignupPage"
+             xmlns:i18n="clr-namespace:FYP_Sharebits.Resources"
+             Title="{x:Static i18n:ResxFile.btn_Signup}">
+    <ContentPage.Content>
+        <ScrollView BackgroundColor="LightGray"
+                    Padding="5">
+            <Frame CornerRadius="3"
+                   BackgroundColor="White"
+                   VerticalOptions="CenterAndExpand">
+                <StackLayout>
+                    <Entry x:Name="email"
+                           Placeholder="{x:Static i18n:ResxFile.lblEmail}"
+                           Keyboard="Email"/>
+                    <Entry x:Name="userName"
+                           Placeholder="{x:Static i18n:ResxFile.lbl_username}"/>
+                    <Entry x:Name="height"
+                           Placeholder="{x:Static i18n:ResxFile.lbl_height}"
+                           Keyboard="Numeric"/>
+                    <Entry x:Name="weight"
+                           Placeholder="{x:Static i18n:ResxFile.lbl_weight}"
+                           Keyboard="Numeric"/>
+                    <Picker x:Name="gender"
+                            Title="{x:Static i18n:ResxFile.lbl_gender}">
+                    </Picker>
+                    <Entry x:Name="pwd"
+                           IsPassword="True"
+                           Placeholder="{x:Static i18n:ResxFile.lblPassword}"/>
+                    <Entry x:Name="con_pwd"
+                           IsPassword="True"
+                           Placeholder="{x:Static i18n:ResxFile.lbl_confirm_password}"/>
+                    <Button x:Name="btn_signup"
+                            Text="{x:Static i18n:ResxFile.btn_Signup}"
+                            Clicked="btn_signup_Clicked"/>
+                </StackLayout>
+            </Frame>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

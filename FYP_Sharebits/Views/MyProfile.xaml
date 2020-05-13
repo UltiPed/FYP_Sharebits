@@ -5,12 +5,31 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="FYP_Sharebits.Views.MyProfile"
-             Title="Profile">
+             Title="Profile"
+             xmlns:i18n="clr-namespace:FYP_Sharebits.Resources">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout BackgroundColor="LightGray"
+                     Padding="5">
+            <StackLayout x:Name="unauthenticated_layout"
+                         IsVisible="True"
+                         VerticalOptions="CenterAndExpand">
+                <Label Text="{x:Static i18n:ResxFile.msg_Unauthenticated}"
+                       VerticalOptions="Center" 
+                       HorizontalOptions="CenterAndExpand" />
+                <Button x:Name="toLogin"
+                        Text="{x:Static i18n:ResxFile.btnLogin}"
+                        Clicked="toLogin_Clicked"/>
+            </StackLayout>
+            <StackLayout x:Name="authenticated_layout" 
+                         IsVisible="False">
+                <Label Text="Welcome to Xamarin.Forms!"
+                       VerticalOptions="CenterAndExpand" 
+                       HorizontalOptions="CenterAndExpand" />
+                <Button Text="{x:Static i18n:ResxFile.btn_Logout}"
+                        x:Name="btn_logout"
+                        Clicked="btn_logout_Clicked"
+                        VerticalOptions="End"/>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -39,7 +39,7 @@ namespace FYP_Sharebits.Models.APIModels
         public AuthData Login { get; set; }
 
         [JsonProperty("logout")]
-        public Message Logout { get; set; }
+        public Msg Logout { get; set; }
 
         [JsonProperty("createUser")]
         public User CreateUser { get; set; }
@@ -57,7 +57,7 @@ namespace FYP_Sharebits.Models.APIModels
         public HabitPlan[] SearchPlan { get; set; }
 
         [JsonProperty("setPublish")]
-        public Message SetPublish { get; set; }
+        public Msg SetPublish { get; set; }
 
         [JsonProperty("pushPlans")]
         public HabitPlan[] PushPlans { get; set; }

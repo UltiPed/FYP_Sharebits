@@ -5,7 +5,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="FYP_Sharebits.Views.SocialMenu"
-             Title="Social">
+             Title="Social"
+             xmlns:i18n="clr-namespace:FYP_Sharebits.Resources">
     <NavigationPage.TitleView>
         <Frame x:Name="SearchBarFrame"
                CornerRadius="25" 
@@ -13,18 +14,27 @@
                Padding="0"
                Margin="0"
                BackgroundColor="#2196F3">
-            <SearchBar Focused="SearchBar_Focused"
+            <SearchBar x:Name="social_search_bar"
+                       Focused="SearchBar_Focused"
                        Unfocused="SearchBar_Unfocused"/>
         </Frame>
     </NavigationPage.TitleView>
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-            <Button x:Name="Push"
-                    Text="Test Push"
-                    Clicked="Push_Clicked"/>
+            <StackLayout x:Name="unauthenticated_layout"
+                         IsVisible="True"
+                         VerticalOptions="CenterAndExpand">
+                <Label Text="{x:Static i18n:ResxFile.msg_Unauthenticated}"
+                       VerticalOptions="CenterAndExpand" 
+                       HorizontalOptions="CenterAndExpand" />
+                <Button x:Name="toLogin"
+                        Text="{x:Static i18n:ResxFile.btnLogin}"
+                        Clicked="ToLogin_Clicked"/>
+            </StackLayout>
+            <StackLayout x:Name="authenticated_layout" 
+                         IsVisible="False">
+                <Label Text="Content here"/>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

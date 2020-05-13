@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using FYP_Sharebits.Models;
 
 namespace FYP_Sharebits.Views
 {
@@ -16,7 +17,7 @@ namespace FYP_Sharebits.Views
             InitializeComponent();
         }
 
-        private async void Push_Clicked(object sender, EventArgs e)
+        private async void ToLogin_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new LoginPage());
         }
@@ -29,6 +30,25 @@ namespace FYP_Sharebits.Views
         private void SearchBar_Unfocused(object sender, FocusEventArgs e)
         {
             SearchBarFrame.BackgroundColor = Color.FromHex("#2196F3");
+        }
+
+        protected async override void OnAppearing()
+        {
+            base.OnAppearing();
+            if (await Constants.IsAuth())
+            {
+                //locading
+                authenticated_layout.IsVisible = true;
+                unauthenticated_layout.IsVisible = false;               
+                social_search_bar.IsEnabled = true;
+            }
+            else
+            {
+                //loading
+                authenticated_layout.IsVisible = false;
+                unauthenticated_layout.IsVisible = true;                 
+                social_search_bar.IsEnabled = false;
+            }
         }
     }
 }

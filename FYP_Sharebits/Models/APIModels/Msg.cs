@@ -5,9 +5,9 @@ using System.Text;
 
 namespace FYP_Sharebits.Models.APIModels
 {
-    public partial class Message
+    public partial class Msg
     {
         [JsonProperty("message")]
-        public string Msg { get; set; }
+        public string Message { get; set; }
     }
 }

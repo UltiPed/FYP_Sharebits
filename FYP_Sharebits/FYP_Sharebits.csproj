@@ -66,6 +66,9 @@
     <EmbeddedResource Update="Views\PlanItemList_Display.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Views\SignupPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\SocialMenu.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
