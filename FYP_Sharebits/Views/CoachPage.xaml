@@ -4,14 +4,11 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="FYP_Sharebits.Views.MyCoachMenu"
-             Title="Coach"
+             x:Class="FYP_Sharebits.Views.CoachPage"
              xmlns:i18n="clr-namespace:FYP_Sharebits.Resources">
     <ContentPage.Content>
         <StackLayout>
-            <Button x:Name="coachListButton" Text="{x:Static i18n:ResxFile.btn_coachList}" Clicked="coachListButton_Clicked" />
-            <Button x:Name="findCoachButton" Text="{x:Static i18n:ResxFile.btn_findCoach}" Clicked="findCoachButton_Clicked" />
-            <Button x:Name="checkRecommendButton" Text="{x:Static i18n:ResxFile.btn_checkNewRec}" Clicked="checkRecommendButton_Clicked" />
+            <Button Text="$" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

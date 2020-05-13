@@ -123,11 +123,23 @@
   <data name="btn_Add" xml:space="preserve">
     <value>ADD</value>
   </data>
+  <data name="btn_chat" xml:space="preserve">
+    <value>CHAT</value>
+  </data>
+  <data name="btn_checkNewRec" xml:space="preserve">
+    <value>Check recommended plan(s) from coach</value>
+  </data>
+  <data name="btn_coachList" xml:space="preserve">
+    <value>Coach List</value>
+  </data>
   <data name="btn_Enter" xml:space="preserve">
     <value>ENTER</value>
   </data>
   <data name="btn_Logout" xml:space="preserve">
     <value>Logout</value>
+  </data>
+  <data name="btn_findCoach" xml:space="preserve">
+    <value>Find coach</value>
   </data>
   <data name="btn_ok" xml:space="preserve">
     <value>OK</value>
@@ -137,6 +149,9 @@
   </data>
   <data name="btn_Signup" xml:space="preserve">
     <value>Signup</value>
+  </data>
+  <data name="btn_remove" xml:space="preserve">
+    <value>REMOVE</value>
   </data>
   <data name="err_confirm" xml:space="preserve">
     <value>CONFIRM</value>
