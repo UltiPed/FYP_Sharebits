@@ -53,5 +53,32 @@ namespace FYP_Sharebits.Models
                 return authData;
             }
         }
+
+        public async static Task<String> GetToken()
+        {
+            String token = String.Empty;
+            try
+            {
+                token = await SecureStorage.GetAsync("Token");
+                return token;
+            } catch(Exception)
+            {
+                return token;
+            }
+        }
+
+        public async static Task<String> GetUserId()
+        {
+            String userId = String.Empty;
+            try
+            {
+                userId = await SecureStorage.GetAsync("UserId");
+                return userId;
+            }
+            catch (Exception)
+            {
+                return userId;
+            }
+        }
     }
 }
