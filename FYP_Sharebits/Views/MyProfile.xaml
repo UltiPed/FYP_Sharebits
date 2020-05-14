@@ -13,12 +13,18 @@
             <StackLayout x:Name="unauthenticated_layout"
                          IsVisible="True"
                          VerticalOptions="CenterAndExpand">
-                <Label Text="{x:Static i18n:ResxFile.msg_Unauthenticated}"
-                       VerticalOptions="Center" 
-                       HorizontalOptions="CenterAndExpand" />
-                <Button x:Name="toLogin"
-                        Text="{x:Static i18n:ResxFile.btnLogin}"
-                        Clicked="toLogin_Clicked"/>
+                <Frame CornerRadius="3"
+                       BackgroundColor="White"
+                       VerticalOptions="CenterAndExpand">
+                    <StackLayout>
+                        <Label Text="{x:Static i18n:ResxFile.msg_Unauthenticated}"
+                               VerticalOptions="CenterAndExpand" 
+                               HorizontalOptions="CenterAndExpand" />
+                        <Button x:Name="toLogin"
+                                Text="{x:Static i18n:ResxFile.btnLogin}"
+                                Clicked="toLogin_Clicked"/>
+                    </StackLayout>
+                </Frame>
             </StackLayout>
             <StackLayout x:Name="authenticated_layout" 
                          IsVisible="False">

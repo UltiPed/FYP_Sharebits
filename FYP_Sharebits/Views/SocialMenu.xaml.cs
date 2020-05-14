@@ -17,7 +17,7 @@ namespace FYP_Sharebits.Views
             InitializeComponent();
         }
 
-        private async void ToLogin_Clicked(object sender, EventArgs e)
+        private async void toLogin_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new LoginPage());
         }

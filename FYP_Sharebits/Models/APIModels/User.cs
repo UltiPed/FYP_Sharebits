@@ -20,10 +20,10 @@ namespace FYP_Sharebits.Models.APIModels
         public string UserName { get; set; }
 
         [JsonProperty("height")]
-        public Decimal? Height { get; set; }
+        public float Height { get; set; }
 
         [JsonProperty("weight")]
-        public Decimal? Weight { get; set; }
+        public float Weight { get; set; }
 
         [JsonProperty("gender")]
         public string Gender { get; set; }

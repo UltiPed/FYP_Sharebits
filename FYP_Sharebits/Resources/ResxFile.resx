@@ -327,4 +327,19 @@
   <data name="tbi_AddItem" xml:space="preserve">
     <value>Add Item</value>
   </data>
+  <data name="msg_info_empty" xml:space="preserve">
+    <value>Please fill in all the informations.</value>
+  </data>
+  <data name="msg_operation_fail" xml:space="preserve">
+    <value>Operation failed! Please try it later.</value>
+  </data>
+  <data name="msg_pwd_diff" xml:space="preserve">
+    <value>Two passwords are not the same.</value>
+  </data>
+  <data name="msg_signup_repeat_user" xml:space="preserve">
+    <value>User already exists! Please use another email.</value>
+  </data>
+  <data name="msg_signup_succ" xml:space="preserve">
+    <value>You have created an account successfully!</value>
+  </data>
 </root>

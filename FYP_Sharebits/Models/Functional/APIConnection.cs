@@ -103,7 +103,7 @@ namespace FYP_Sharebits.Models.Functional
         public static async  Task<BaseModel> Signup(User user)
         {
             client = new HttpClient();
-            String query = String.Format("{{\"query\":\"mutation{{createUser(userinput: {{ userName: \\\"{0}\\\", email: \\\"{1}\\\", password: \\\"{2}\\\", height: \\\"{3}\\\", weight: \\\"{4}\\\", gender: \\\"{4}\\\" }}){{ _id }}}}\"}}", user.UserName, user.Email, user.Password, user.Height, user.Weight, user.Gender);
+            String query = String.Format("{{\"query\":\"mutation{{createUser(userInput: {{ userName: \\\"{0}\\\", email: \\\"{1}\\\", password: \\\"{2}\\\", height: {3}, weight: {4}, gender: \\\"{5}\\\" }}){{ _id }}}}\"}}", user.UserName, user.Email, user.Password, user.Height, user.Weight, user.Gender);
             StringContent stringContent = new StringContent(query, Encoding.UTF8, "application/json");
             var httpResponse = await client.PostAsync(GraphQLURL, stringContent);
             var json = await httpResponse.Content.ReadAsStringAsync();
