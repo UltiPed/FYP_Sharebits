@@ -72,6 +72,11 @@ namespace FYP_Sharebits.Data
             return database.Table<HabitPlans>().ToListAsync();
         }
 
+        public Task<List<Coachs>> GetCoachs()
+        {
+            return database.Table<Coachs>().ToListAsync();
+        }
+
         public Task<List<PlanItems>> GetItemsAsync()
         {
             return database.Table<PlanItems>().ToListAsync();
@@ -110,6 +115,15 @@ namespace FYP_Sharebits.Data
         public Task<List<CoachingRequest>> QueryRequests(String QueryString)
         {
             return database.QueryAsync<CoachingRequest>(QueryString);
+        }
+        public Task<List<CoachPlans>> QueryCoachPlans(String QueryString)
+        {
+            return database.QueryAsync<CoachPlans>(QueryString);
+        }
+
+        public Task<List<CoachPlanItems>> QueryCoachPlanItems(String QueryString)
+        {
+            return database.QueryAsync<CoachPlanItems>(QueryString);
         }
 
         public Task<List<PlanRecords>> QueryPlanRecords(String QueryString, int itemID, DateTime todayDate)

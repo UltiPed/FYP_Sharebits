@@ -366,11 +366,20 @@
   <data name="btn_yes" xml:space="preserve">
     <value>YES</value>
   </data>
+  <data name="err_coachAlready" xml:space="preserve">
+    <value>He/She is coaching you already!</value>
+  </data>
   <data name="err_deleteRequest" xml:space="preserve">
     <value>Error occured while deleting request from database.</value>
   </data>
   <data name="err_insertStudent" xml:space="preserve">
     <value>Error occured while inserting row to Students.</value>
+  </data>
+  <data name="err_reqAlready" xml:space="preserve">
+    <value>You have sent a request to him/her already!</value>
+  </data>
+  <data name="err_sendCoachReq" xml:space="preserve">
+    <value>Error occured while sending coaching request.</value>
   </data>
   <data name="msg_acceptRequest" xml:space="preserve">
     <value>Coaching Request Accepted</value>
@@ -380,6 +389,9 @@
   </data>
   <data name="msg_declineRequest" xml:space="preserve">
     <value>Coaching Request Declined</value>
+  </data>
+  <data name="msg_sendCoachReq" xml:space="preserve">
+    <value>Coaching request sent!</value>
   </data>
   <data name="msg_unknownErr" xml:space="preserve">
     <value>Unknown error occurred.</value>

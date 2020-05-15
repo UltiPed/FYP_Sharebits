@@ -232,6 +232,15 @@ namespace FYP_Sharebits.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to He/She is coaching you already!.
+        /// </summary>
+        public static string err_coachAlready {
+            get {
+                return ResourceManager.GetString("err_coachAlready", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to CONFIRM.
         /// </summary>
         public static string err_confirm {
@@ -282,6 +291,24 @@ namespace FYP_Sharebits.Resources {
         public static string err_NullPlanName {
             get {
                 return ResourceManager.GetString("err_NullPlanName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You have sent a request to him/her already!.
+        /// </summary>
+        public static string err_reqAlready {
+            get {
+                return ResourceManager.GetString("err_reqAlready", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error occured while sending coaching request..
+        /// </summary>
+        public static string err_sendCoachReq {
+            get {
+                return ResourceManager.GetString("err_sendCoachReq", resourceCulture);
             }
         }
         
@@ -624,6 +651,15 @@ namespace FYP_Sharebits.Resources {
         public static string msg_pwd_diff {
             get {
                 return ResourceManager.GetString("msg_pwd_diff", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Coaching request sent!.
+        /// </summary>
+        public static string msg_sendCoachReq {
+            get {
+                return ResourceManager.GetString("msg_sendCoachReq", resourceCulture);
             }
         }
         
