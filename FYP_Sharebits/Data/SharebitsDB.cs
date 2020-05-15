@@ -166,8 +166,8 @@ namespace FYP_Sharebits.Data
         {
             Coachs coach = new Coachs();
             coach.birthday = new DateTime(1989, 6, 4);
-            coach.userID = "democoach01";
-            coach.password = "demopw01";
+            coach.userID = "test@test.com";
+            coach.password = "tester";
             coach.userName = "democoach_1";
             coach.gender = "M";
             coach.height = 165;
@@ -177,8 +177,8 @@ namespace FYP_Sharebits.Data
 
             Coachs coach2 = new Coachs();
             coach2.birthday = new DateTime(1989, 6, 4);
-            coach2.userID = "democoach02";
-            coach2.password = "demopw02";
+            coach2.userID = "test2@test.com";
+            coach2.password = "tester";
             coach2.userName = "democoach_2";
             coach2.gender = "M";
             coach2.height = 165;
@@ -188,8 +188,8 @@ namespace FYP_Sharebits.Data
 
             Coachs coach3 = new Coachs();
             coach3.birthday = new DateTime(1989, 6, 4);
-            coach3.userID = "democoach03";
-            coach3.password = "demopw03";
+            coach3.userID = "test3@test.com";
+            coach3.password = "tester";
             coach3.userName = "democoach_3";
             coach3.gender = "M";
             coach3.height = 165;
