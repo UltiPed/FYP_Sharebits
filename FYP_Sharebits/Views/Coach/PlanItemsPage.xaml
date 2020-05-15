@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="FYP_Sharebits.Views.Coach.PlanItemsPage"
+             xmlns:i18n="clr-namespace:FYP_Sharebits.Resources">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="newItemButton"
+                     Text="{x:Static i18n:ResxFile.tbi_AddItem}"
+                     Clicked="newItemButton_Clicked"/>
+
+        <ToolbarItem x:Name="ProceedButton"
+                     Text="{x:Static i18n:ResxFile.btn_proceed}"
+                     Clicked="ProceedButton_Clicked"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView x:Name="ItemListView" HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <Label Text="{Binding itemName}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1"/>
+
+                                <Label Text="{x:Static i18n:ResxFile.lbl_ActType}" Grid.Row="1" Grid.Column="0"/>
+                                <Label Text="{Binding itemType}" Grid.Row="1" Grid.Column="1"/>
+
+                                <Label Text="{x:Static i18n:ResxFile.lbl_workAmt}" Grid.Row="2" Grid.Column="0"/>
+                                <Label Text="{Binding itemGoal}" Grid.Row="2" Grid.Column="1"/>
+
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

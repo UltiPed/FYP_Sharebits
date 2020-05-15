@@ -4,13 +4,21 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="FYP_Sharebits.Views.CoachPage"
+             x:Class="FYP_Sharebits.Views.Coach.StudentListPage"
              xmlns:i18n="clr-namespace:FYP_Sharebits.Resources">
     <ContentPage.Content>
         <StackLayout>
-            <Button x:Name="studentListButton" Text="{x:Static i18n:ResxFile.btn_studentList}" Clicked="studentListButton_Clicked"/>
-            <Button x:Name="assignPlanButton" Text="{x:Static i18n:ResxFile.btn_assignPlan}" Clicked="assignPlanButton_Clicked"/>
-            <Button x:Name="checkRequestButton" Text="{x:Static i18n:ResxFile.btn_checkRequest}" Clicked="checkRequestButton_Clicked"/>
+            <ListView x:Name="StudentsListView" HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+
+                            <Label Text="{Binding studentID}"/>
+
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

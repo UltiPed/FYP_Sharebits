@@ -33,11 +33,30 @@ namespace FYP_Sharebits.Data
             database.CreateTableAsync<PlanRecords>().Wait();
             database.CreateTableAsync<StepCounts>().Wait();
 
+            //For demo only
+            //////////////////////////////////////////////////
+            database.CreateTableAsync<Coachs>().Wait();
+            database.CreateTableAsync<CoachPlans>().Wait();
+            database.CreateTableAsync<CoachPlanItems>().Wait();
+            database.CreateTableAsync<Students>().Wait();
+            database.CreateTableAsync<CoachingRequest>().Wait();
+            /*
+            database.DropTableAsync<Coachs>().Wait();
+            database.DropTableAsync<CoachPlans>().Wait();
+            database.DropTableAsync<CoachPlanItems>().Wait();
+            database.DropTableAsync<Students>().Wait();
+            database.DropTableAsync<CoachingRequest>().Wait();
+            */
+            //////////////////////////////////////////////////
+
             //Do it if you need a demo user
             //////////////////////////////////////////////////
-            /*
-            InsertDemoUser().Wait();
-            //*/
+
+            //InsertDemoUser().Wait();
+
+            //Just execute once only for every time you create tables first time or after dropping them for demo
+            InsertDemoCoach().Wait();
+            //
             //////////////////////////////////////////////////
 
 
@@ -78,6 +97,21 @@ namespace FYP_Sharebits.Data
             return database.QueryAsync<PlanItems>(QueryString);
         }
 
+        public Task<List<Coachs>> QueryCoachs(String QueryString)
+        {
+            return database.QueryAsync<Coachs>(QueryString);
+        }
+
+        public Task<List<Students>> QueryStudents(String QueryString)
+        {
+            return database.QueryAsync<Students>(QueryString);
+        }
+
+        public Task<List<CoachingRequest>> QueryRequests(String QueryString)
+        {
+            return database.QueryAsync<CoachingRequest>(QueryString);
+        }
+
         public Task<List<PlanRecords>> QueryPlanRecords(String QueryString, int itemID, DateTime todayDate)
         {
             return database.QueryAsync<PlanRecords>(QueryString, itemID, todayDate);
@@ -90,6 +124,11 @@ namespace FYP_Sharebits.Data
         }
         */
 
+        public Task<int> ExecuteQuery(String queryString)
+        {
+            return database.ExecuteAsync(queryString);
+        }
+        
         public Task<int> UpdateRow<T>(T aRow)
         {
             return database.UpdateAsync(aRow);
@@ -107,6 +146,42 @@ namespace FYP_Sharebits.Data
             user.sessionToken = "";
 
             return InsertRow(user);
+        }
+
+        public Task<int> InsertDemoCoach()
+        {
+            Coachs coach = new Coachs();
+            coach.birthday = new DateTime(1989, 6, 4);
+            coach.userID = "democoach01";
+            coach.password = "demopw01";
+            coach.userName = "democoach_1";
+            coach.gender = "M";
+            coach.height = 165;
+            coach.weight = 55;
+
+            InsertRow(coach);
+
+            Coachs coach2 = new Coachs();
+            coach2.birthday = new DateTime(1989, 6, 4);
+            coach2.userID = "democoach02";
+            coach2.password = "demopw02";
+            coach2.userName = "democoach_2";
+            coach2.gender = "M";
+            coach2.height = 165;
+            coach2.weight = 55;
+
+            InsertRow(coach2);
+
+            Coachs coach3 = new Coachs();
+            coach3.birthday = new DateTime(1989, 6, 4);
+            coach3.userID = "democoach03";
+            coach3.password = "demopw03";
+            coach3.userName = "democoach_3";
+            coach3.gender = "M";
+            coach3.height = 165;
+            coach3.weight = 55;
+
+            return InsertRow(coach3);
         }
 
         public async Task<Boolean> SetSessionToken(String tokenString)

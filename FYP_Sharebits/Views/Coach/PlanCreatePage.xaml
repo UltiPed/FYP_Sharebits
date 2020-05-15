@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="FYP_Sharebits.Views.Coach.PlanCreatePage"
+             xmlns:i18n="clr-namespace:FYP_Sharebits.Resources"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label" x:Key="LabelStyle">
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="HorizontalOptions" Value="Start"/>
+            </Style>
+            <Style TargetType="Entry" x:Key="EntryStyle">
+                <Setter Property="VerticalOptions" Value="Center"/>
+            </Style>
+            <Style TargetType="DatePicker" x:Key="DatePickerStyle">
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="Format" Value="dd-MM-yyyy"/>
+            </Style>
+            <Style TargetType="Picker" x:Key="PickerStyle">
+                <Setter Property="VerticalOptions" Value="Center"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="LightGray"
+                     Padding="5">
+            <Frame CornerRadius="3"
+                   BackgroundColor="White">
+                <StackLayout>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label Text="{x:Static i18n:ResxFile.lbl_student}" 
+                           Grid.Row="0" 
+                           Grid.Column="0" 
+                           Style="{StaticResource LabelStyle}"/>
+                        <Picker x:Name="StudentPicker" 
+                            Grid.Row="0" 
+                            Grid.Column="1" 
+                            SelectedIndexChanged="StudentPicker_SelectedIndexChanged"
+                            Style="{StaticResource PickerStyle}"/>
+                        
+                        <Label Text="{x:Static i18n:ResxFile.lbl_PlanName}"
+                           Grid.Row="1"
+                           Grid.Column="0" 
+                           Style="{StaticResource LabelStyle}"/>
+                        <Entry x:Name="NameEntry"
+                           Grid.Row="1" 
+                           Grid.Column="1"
+                           Style="{StaticResource EntryStyle}"/>
+
+                        <Label Text="{x:Static i18n:ResxFile.lbl_PlanType}" 
+                           Grid.Row="2" 
+                           Grid.Column="0" 
+                           Style="{StaticResource LabelStyle}"/>
+                        <Picker x:Name="TypePicker" 
+                            Grid.Row="2" 
+                            Grid.Column="1" 
+                            SelectedIndexChanged="TypePicker_SelectedIndexChanged"
+                            Style="{StaticResource PickerStyle}"/>
+
+                        <Label Text="{x:Static i18n:ResxFile.lbl_StartDate}" 
+                           Grid.Row="3" 
+                           Grid.Column="0" 
+                           Style="{StaticResource LabelStyle}"/>
+                        <DatePicker x:Name="StartDatePicker" 
+                                VerticalOptions="CenterAndExpand" 
+                                Date="{x:Static sys:DateTime.Now}" 
+                                Grid.Row="3" Grid.Column="1"
+                                Style="{StaticResource DatePickerStyle}">
+                        </DatePicker>
+
+                        <Label Text="{x:Static i18n:ResxFile.lbl_EndDate}"
+                           Grid.Row="4" 
+                           Grid.Column="0" 
+                           Style="{StaticResource LabelStyle}"/>
+                        <DatePicker x:Name="EndDatePicker" 
+                                VerticalOptions="CenterAndExpand" 
+                                Grid.Row="4" 
+                                Grid.Column="1"
+                                Style="{StaticResource DatePickerStyle}">
+                        </DatePicker>
+
+                    </Grid>
+                    <Button x:Name="proceedButton" 
+                    Text="{x:Static i18n:ResxFile.btn_proceed}" Clicked="proceedButton_Clicked"/>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

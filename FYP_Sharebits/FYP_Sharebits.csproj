@@ -32,6 +32,12 @@
     <Compile Update="Views\CoachPage.xaml.cs">
       <DependentUpon>CoachPage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\Coach\PlanItemsPage.xaml.cs">
+      <DependentUpon>PlanItemsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Coach\PlanItemCreatePage.xaml.cs">
+      <DependentUpon>PlanItemCreatePage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
@@ -42,10 +48,25 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>ResxFile.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\CoachListPage.xaml">
+    <EmbeddedResource Update="Views\Coach\CheckRequestPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\CoachPlanListPage.xaml">
+    <EmbeddedResource Update="Views\Coach\PlanCreatePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Coach\StudentListPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Student\CoachListPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Coach\PlanItemCreatePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Coach\PlanItemsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Student\CoachPlanListPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\CreatePlanItemsPage.xaml">
@@ -57,7 +78,7 @@
     <EmbeddedResource Update="Views\EnterProgressPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\FindCoachPage.xaml">
+    <EmbeddedResource Update="Views\Student\FindCoachPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\HabitMenu.xaml">

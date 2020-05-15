@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FYP_Sharebits.Views.Coach;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,21 @@ namespace FYP_Sharebits.Views
         public CoachPage()
         {
             InitializeComponent();
+        }
+
+        private async void studentListButton_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new StudentListPage());
+        }
+
+        private async void assignPlanButton_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new PlanCreatePage());
+        }
+
+        private async void checkRequestButton_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new CheckRequestPage());
         }
     }
 }

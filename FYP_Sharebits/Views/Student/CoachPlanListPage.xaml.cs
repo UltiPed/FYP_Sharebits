@@ -10,11 +10,16 @@ using Xamarin.Forms.Xaml;
 namespace FYP_Sharebits.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class FindCoachPage : ContentPage
+    public partial class CoachPlanListPage : ContentPage
     {
-        public FindCoachPage()
+        public CoachPlanListPage()
         {
             InitializeComponent();
+        }
+
+        private void PlanList_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+
         }
     }
 }

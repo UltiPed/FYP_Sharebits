@@ -342,4 +342,46 @@
   <data name="msg_signup_succ" xml:space="preserve">
     <value>You have created an account successfully!</value>
   </data>
+  <data name="btn_assignPlan" xml:space="preserve">
+    <value>Assign Plan to Student</value>
+  </data>
+  <data name="btn_studentList" xml:space="preserve">
+    <value>Student List</value>
+  </data>
+  <data name="lbl_student" xml:space="preserve">
+    <value>Student</value>
+  </data>
+  <data name="btn_accept" xml:space="preserve">
+    <value>ACCEPT</value>
+  </data>
+  <data name="btn_checkRequest" xml:space="preserve">
+    <value>Check Coaching Request</value>
+  </data>
+  <data name="btn_decline" xml:space="preserve">
+    <value>DECLINE</value>
+  </data>
+  <data name="btn_no" xml:space="preserve">
+    <value>NO</value>
+  </data>
+  <data name="btn_yes" xml:space="preserve">
+    <value>YES</value>
+  </data>
+  <data name="err_deleteRequest" xml:space="preserve">
+    <value>Error occured while deleting request from database.</value>
+  </data>
+  <data name="err_insertStudent" xml:space="preserve">
+    <value>Error occured while inserting row to Students.</value>
+  </data>
+  <data name="msg_acceptRequest" xml:space="preserve">
+    <value>Coaching Request Accepted</value>
+  </data>
+  <data name="msg_acceptStudent" xml:space="preserve">
+    <value>Accept this coaching request?</value>
+  </data>
+  <data name="msg_declineRequest" xml:space="preserve">
+    <value>Coaching Request Declined</value>
+  </data>
+  <data name="msg_unknownErr" xml:space="preserve">
+    <value>Unknown error occurred.</value>
+  </data>
 </root>
