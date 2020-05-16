@@ -41,6 +41,7 @@ namespace FYP_Sharebits.Data
             database.DropTableAsync<CoachPlanItems>().Wait();
             database.DropTableAsync<Students>().Wait();
             database.DropTableAsync<CoachingRequest>().Wait();
+            
             */
             ///*
             database.CreateTableAsync<Coachs>().Wait();
@@ -48,6 +49,10 @@ namespace FYP_Sharebits.Data
             database.CreateTableAsync<CoachPlanItems>().Wait();
             database.CreateTableAsync<Students>().Wait();
             database.CreateTableAsync<CoachingRequest>().Wait();
+
+            //Just execute once only for every time you create tables first time or after dropping them for demo
+            //InsertDemoCoach().Wait();
+
             //*/
             //////////////////////////////////////////////////
 
@@ -56,8 +61,6 @@ namespace FYP_Sharebits.Data
 
             //InsertDemoUser().Wait();
 
-            //Just execute once only for every time you create tables first time or after dropping them for demo
-            //InsertDemoCoach().Wait();
             //
             //////////////////////////////////////////////////
 

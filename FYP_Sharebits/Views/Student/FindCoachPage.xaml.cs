@@ -41,6 +41,7 @@ namespace FYP_Sharebits.Views
             CoachingRequest request = new CoachingRequest();
             request.coachID = coach.coachID;
             request.studentID = await Constants.GetUserId();
+            request.studentName = await Constants.GetUserName();
 
 
             //Checking the coach has coaching user already or not
