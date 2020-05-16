@@ -51,7 +51,7 @@ namespace FYP_Sharebits.Views.Coach
                 return;
             }
 
-            var CurrentPlans = await App.Database.GetPlansAsync();
+            var CurrentPlans = await App.Database.GetCoachPlansAsync();
             int planCount = CurrentPlans.Count;
             foreach (CoachPlanItems anItem in ToAddItems)
             {

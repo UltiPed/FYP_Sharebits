@@ -49,6 +49,7 @@ namespace FYP_Sharebits.Views
                 {
                     await SecureStorage.SetAsync("UserId", result.Data.Login.UserId);
                     await SecureStorage.SetAsync("Token", result.Data.Login.Token);
+                    await SecureStorage.SetAsync("UserName", result.Data.Login.UserName);
                 } catch (Exception)
                 {
                     await DisplayAlert(ResxFile.btnLogin, ResxFile.msg_Login_Fail, ResxFile.btn_ok);

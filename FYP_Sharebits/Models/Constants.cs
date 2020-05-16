@@ -39,8 +39,9 @@ namespace FYP_Sharebits.Models
         {
             AuthData authData = new AuthData()
             {
+                UserName = "",
                 UserId = "",
-                Token = ""
+                Token = ""                
             };
             try
             {
@@ -78,6 +79,20 @@ namespace FYP_Sharebits.Models
             catch (Exception)
             {
                 return userId;
+            }
+        }
+
+        public async static Task<String> GetUserName()
+        {
+            String userName = String.Empty;
+            try
+            {
+                userName = await SecureStorage.GetAsync("UserName");
+                return userName;
+            }
+            catch (Exception)
+            {
+                return userName;
             }
         }
     }

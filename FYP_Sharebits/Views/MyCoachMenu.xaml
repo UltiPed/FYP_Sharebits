@@ -12,6 +12,7 @@
             <Button x:Name="coachListButton" Text="{x:Static i18n:ResxFile.btn_coachList}" Clicked="coachListButton_Clicked" />
             <Button x:Name="findCoachButton" Text="{x:Static i18n:ResxFile.btn_findCoach}" Clicked="findCoachButton_Clicked" />
             <Button x:Name="checkRecommendButton" Text="{x:Static i18n:ResxFile.btn_checkNewRec}" Clicked="checkRecommendButton_Clicked" />
+            <Button x:Name="manageStudentButton" Text="{x:Static i18n:ResxFile.btn_my_student}" Clicked="manageStudentButton_Clicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

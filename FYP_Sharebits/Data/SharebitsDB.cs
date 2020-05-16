@@ -55,7 +55,7 @@ namespace FYP_Sharebits.Data
             //InsertDemoUser().Wait();
 
             //Just execute once only for every time you create tables first time or after dropping them for demo
-            InsertDemoCoach().Wait();
+            //InsertDemoCoach().Wait();
             //
             //////////////////////////////////////////////////
 
@@ -70,6 +70,11 @@ namespace FYP_Sharebits.Data
         public Task<List<HabitPlans>> GetPlansAsync()
         {
             return database.Table<HabitPlans>().ToListAsync();
+        }
+
+        public Task<List<CoachPlans>> GetCoachPlansAsync()
+        {
+            return database.Table<CoachPlans>().ToListAsync();
         }
 
         public Task<List<Coachs>> GetCoachs()
@@ -188,7 +193,7 @@ namespace FYP_Sharebits.Data
 
             Coachs coach3 = new Coachs();
             coach3.birthday = new DateTime(1989, 6, 4);
-            coach3.userID = "test3@test.com";
+            coach3.userID = "5e38108179c493001751aabb";
             coach3.password = "tester";
             coach3.userName = "democoach_3";
             coach3.gender = "M";

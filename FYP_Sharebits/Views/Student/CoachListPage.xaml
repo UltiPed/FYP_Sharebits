@@ -8,7 +8,7 @@
              xmlns:i18n="clr-namespace:FYP_Sharebits.Resources">
     <ContentPage.Content>
         <StackLayout>
-            <ListView x:Name="CoachListView" HasUnevenRows="True" ItemSelected="CoachListView_ItemSelected">
+            <ListView x:Name="CoachListView" HasUnevenRows="True">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>

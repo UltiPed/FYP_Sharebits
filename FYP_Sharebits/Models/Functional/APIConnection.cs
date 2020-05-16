@@ -80,7 +80,7 @@ namespace FYP_Sharebits.Models.Functional
         {
             client = new HttpClient();
             //{\"query\":\"query{login(email: \"{0}\", password: \"{1}\"){token, userId}}\"}
-            String query = String.Format("{{\"query\":\"query{{login(email: \\\"{0}\\\", password: \\\"{1}\\\"){{token, userId}}}}\"}}", email, password);
+            String query = String.Format("{{\"query\":\"query{{login(email: \\\"{0}\\\", password: \\\"{1}\\\"){{token, userId, userName}}}}\"}}", email, password);
             StringContent stringContent = new StringContent(query, Encoding.UTF8, "application/json");
             var httpResponse = await client.PostAsync(GraphQLURL, stringContent);
             var json = await httpResponse.Content.ReadAsStringAsync();

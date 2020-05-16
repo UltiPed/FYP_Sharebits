@@ -29,7 +29,7 @@ namespace FYP_Sharebits.Views.Coach
 
             String userID = await Constants.GetUserId();
 
-            String coachQuery = "SELECT * FROM [Coashs] WHERE userID='" + userID + "'";
+            String coachQuery = "SELECT * FROM [Coachs] WHERE userID='" + userID + "'";
 
             var coachCheck = await App.Database.QueryCoachs(coachQuery);
 

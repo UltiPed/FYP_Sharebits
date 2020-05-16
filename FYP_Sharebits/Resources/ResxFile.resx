@@ -396,4 +396,7 @@
   <data name="msg_unknownErr" xml:space="preserve">
     <value>Unknown error occurred.</value>
   </data>
+  <data name="btn_my_student" xml:space="preserve">
+    <value>My Student</value>
+  </data>
 </root>

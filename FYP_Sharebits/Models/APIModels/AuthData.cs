@@ -16,6 +16,9 @@ namespace FYP_Sharebits.Models.APIModels
 {
     public partial class AuthData
     {
+        [JsonProperty("userName")]
+        public string UserName { get; set; }
+
         [JsonProperty("token")]
         public string Token { get; set; }
 

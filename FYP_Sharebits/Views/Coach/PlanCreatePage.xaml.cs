@@ -22,6 +22,8 @@ namespace FYP_Sharebits.Views.Coach
 
         String selectedID;
 
+        int coachId;
+
         public PlanCreatePage()
         {
             InitializeComponent();
@@ -41,15 +43,15 @@ namespace FYP_Sharebits.Views.Coach
 
             String userID = await Constants.GetUserId();
 
-            String coachQuery = "SELECT * FROM [Coashs] WHERE userID='" + userID + "'";
+            String coachQuery = "SELECT * FROM [Coachs] WHERE userID='" + userID + "'";
 
             var coachCheck = await App.Database.QueryCoachs(coachQuery);
 
             if (coachCheck.Count > 0)
             {
-                int coachID = coachCheck[0].coachID;
+                coachId = coachCheck[0].coachID;
 
-                String studentQuery = "SELECT * FROM [Students] WHERE coachID=" + coachID;
+                String studentQuery = "SELECT * FROM [Students] WHERE coachID=" + coachId;
 
                 students = new ObservableCollection<Students>(await App.Database.QueryStudents(studentQuery));
 
@@ -88,7 +90,7 @@ namespace FYP_Sharebits.Views.Coach
                 plan.habitType = "Challenge";
                 plan.endDate = EndDatePicker.Date;
             }
-
+            plan.coachID = coachId;
             plan.studentID = selectedID;
 
             plan.startDate = StartDatePicker.Date;

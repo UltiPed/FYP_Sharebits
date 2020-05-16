@@ -30,7 +30,7 @@ namespace FYP_Sharebits.Views.Coach
 
             String userID = await Constants.GetUserId();
 
-            String coachQuery = "SELECT * FROM [Coashs] WHERE userID='" + userID + "'";
+            String coachQuery = "SELECT * FROM [Coachs] WHERE userID='" + userID + "'";
 
             var coachCheck = await App.Database.QueryCoachs(coachQuery);
 
@@ -69,7 +69,7 @@ namespace FYP_Sharebits.Views.Coach
 
                 if (result > 0)
                 {
-                    String deleteQuery = "DELETE FROM [CoachingRequest] WHERE coachID=" + coachID + " AND userID='" + newStu.studentID + "'";
+                    String deleteQuery = "DELETE FROM [CoachingRequest] WHERE coachID=" + coachID + " AND studentID='" + newStu.studentID + "'";
 
                     int result2 = await App.Database.ExecuteQuery(deleteQuery);
 
@@ -86,7 +86,7 @@ namespace FYP_Sharebits.Views.Coach
                 }
             } else
             {
-                String deleteQuery = "DELETE FROM [CoachingRequest] WHERE coachID=" + coachID + " AND userID='" + newStu.studentID + "'";
+                String deleteQuery = "DELETE FROM [CoachingRequest] WHERE coachID=" + coachID + " AND studentID='" + newStu.studentID + "'";
 
                 int result2 = await App.Database.ExecuteQuery(deleteQuery);
 

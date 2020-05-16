@@ -31,5 +31,10 @@ namespace FYP_Sharebits.Views
         {
             await Navigation.PushAsync(new CoachPlanListPage());
         }
+
+        private async void manageStudentButton_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new CoachPage());
+        }
     }
 }

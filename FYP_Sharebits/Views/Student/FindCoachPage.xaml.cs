@@ -57,7 +57,7 @@ namespace FYP_Sharebits.Views
 
 
             //Checking the same request has been made already or not
-            String requestQuery = "SELECT * FROM [CoachingRequest] WHERE coachID=" + coach.coachID + "AND studentID='" + request.studentID + "'";
+            String requestQuery = "SELECT * FROM [CoachingRequest] WHERE coachID=" + coach.coachID + " AND studentID='" + request.studentID + "'";
 
             var checkRequests = await App.Database.QueryRequests(requestQuery);
 
