@@ -18,6 +18,7 @@ namespace FYP_Sharebits.Views.Coach
     {
         private ObservableCollection<CoachingRequest> requests;
         private int coachID;
+        private String coachName;
 
         public CheckRequestPage()
         {
@@ -29,6 +30,8 @@ namespace FYP_Sharebits.Views.Coach
             base.OnAppearing();
 
             String userID = await Constants.GetUserId();
+
+            coachName = await Constants.GetUserName();
 
             String coachQuery = "SELECT * FROM [Coachs] WHERE userID='" + userID + "'";
 
@@ -60,6 +63,10 @@ namespace FYP_Sharebits.Views.Coach
             newStu = new Students();
 
             newStu.coachID = coachID;
+
+            newStu.coachName = coachName;
+
+            newStu.studentName = (e.SelectedItem as CoachingRequest).studentName;
 
             newStu.studentID = (e.SelectedItem as CoachingRequest).studentID;
 

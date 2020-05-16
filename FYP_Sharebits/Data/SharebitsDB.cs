@@ -24,7 +24,7 @@ namespace FYP_Sharebits.Data
             database.DropTableAsync<PlanItems>().Wait();
             database.DropTableAsync<PlanRecords>().Wait();
             database.DropTableAsync<StepCounts>().Wait();
-            //*/
+            */
             //////////////////////////////////////////////////
 
             database.CreateTableAsync<Users>().Wait();
@@ -35,11 +35,6 @@ namespace FYP_Sharebits.Data
 
             //For demo only
             //////////////////////////////////////////////////
-            database.CreateTableAsync<Coachs>().Wait();
-            database.CreateTableAsync<CoachPlans>().Wait();
-            database.CreateTableAsync<CoachPlanItems>().Wait();
-            database.CreateTableAsync<Students>().Wait();
-            database.CreateTableAsync<CoachingRequest>().Wait();
             /*
             database.DropTableAsync<Coachs>().Wait();
             database.DropTableAsync<CoachPlans>().Wait();
@@ -47,6 +42,13 @@ namespace FYP_Sharebits.Data
             database.DropTableAsync<Students>().Wait();
             database.DropTableAsync<CoachingRequest>().Wait();
             */
+            ///*
+            database.CreateTableAsync<Coachs>().Wait();
+            database.CreateTableAsync<CoachPlans>().Wait();
+            database.CreateTableAsync<CoachPlanItems>().Wait();
+            database.CreateTableAsync<Students>().Wait();
+            database.CreateTableAsync<CoachingRequest>().Wait();
+            //*/
             //////////////////////////////////////////////////
 
             //Do it if you need a demo user

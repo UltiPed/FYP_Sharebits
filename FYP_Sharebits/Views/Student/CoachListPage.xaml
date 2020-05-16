@@ -23,7 +23,7 @@
 
                                 <Label Text="{Binding coachID}" Grid.Row="0" Grid.Column="0"/>
 
-                                <Label Text="{Binding userID}" Grid.Row="0" Grid.Column="1"/>
+                                <Label Text="{Binding userName}" Grid.Row="0" Grid.Column="1"/>
 
 
                             </Grid>

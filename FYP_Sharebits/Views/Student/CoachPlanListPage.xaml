@@ -20,7 +20,7 @@
                                    HasShadow="False"
                                    Margin="0,3,0,3">
                                 <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-                                    <Label Text="{Binding coachID}" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" />
+                                    <Label Text="{Binding coachName}" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" />
                                     <Label Text="{Binding habitName}" HorizontalOptions="End" />
                                 </StackLayout>
                             </Frame>

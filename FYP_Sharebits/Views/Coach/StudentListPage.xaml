@@ -12,8 +12,20 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
 
-                            <Label Text="{Binding studentID}"/>
+                                <Label Text="{Binding studentID}" Grid.Row="0" Grid.Column="0"/>
+                                <Label Text="{Binding studnetName}" Grid.Row="0" Grid.Column="1"/>
+
+
+                            </Grid>
 
                         </ViewCell>
                     </DataTemplate>

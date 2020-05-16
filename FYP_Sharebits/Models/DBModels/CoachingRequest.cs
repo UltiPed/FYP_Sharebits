@@ -14,6 +14,8 @@ namespace FYP_Sharebits.Models.DBModels
 
         public String studentID { get; set; }
 
+        public String studentName { get; set; }
+
         public String message { get; set; }
     }
 }
