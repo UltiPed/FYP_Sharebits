@@ -18,7 +18,7 @@ namespace FYP_Sharebits.Data
 
             //Do it if and only if you have built these table before and you now have some changes to any model of them
             //////////////////////////////////////////////////
-            /*
+            
             database.DropTableAsync<Users>().Wait();
             database.DropTableAsync<HabitPlans>().Wait();
             database.DropTableAsync<PlanItems>().Wait();
@@ -40,13 +40,13 @@ namespace FYP_Sharebits.Data
             database.CreateTableAsync<CoachPlanItems>().Wait();
             database.CreateTableAsync<Students>().Wait();
             database.CreateTableAsync<CoachingRequest>().Wait();
-            /*
+            
             database.DropTableAsync<Coachs>().Wait();
             database.DropTableAsync<CoachPlans>().Wait();
             database.DropTableAsync<CoachPlanItems>().Wait();
             database.DropTableAsync<Students>().Wait();
             database.DropTableAsync<CoachingRequest>().Wait();
-            */
+            
             //////////////////////////////////////////////////
 
             //Do it if you need a demo user
