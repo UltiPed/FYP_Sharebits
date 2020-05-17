@@ -18,13 +18,13 @@ namespace FYP_Sharebits.Data
 
             //Do it if and only if you have built these table before and you now have some changes to any model of them
             //////////////////////////////////////////////////
-            
+            /*
             database.DropTableAsync<Users>().Wait();
             database.DropTableAsync<HabitPlans>().Wait();
             database.DropTableAsync<PlanItems>().Wait();
             database.DropTableAsync<PlanRecords>().Wait();
             database.DropTableAsync<StepCounts>().Wait();
-            //*/
+            */
             //////////////////////////////////////////////////
 
             database.CreateTableAsync<Users>().Wait();
@@ -35,18 +35,25 @@ namespace FYP_Sharebits.Data
 
             //For demo only
             //////////////////////////////////////////////////
-            database.CreateTableAsync<Coachs>().Wait();
-            database.CreateTableAsync<CoachPlans>().Wait();
-            database.CreateTableAsync<CoachPlanItems>().Wait();
-            database.CreateTableAsync<Students>().Wait();
-            database.CreateTableAsync<CoachingRequest>().Wait();
-            
+            /*
             database.DropTableAsync<Coachs>().Wait();
             database.DropTableAsync<CoachPlans>().Wait();
             database.DropTableAsync<CoachPlanItems>().Wait();
             database.DropTableAsync<Students>().Wait();
             database.DropTableAsync<CoachingRequest>().Wait();
             
+            */
+            ///*
+            database.CreateTableAsync<Coachs>().Wait();
+            database.CreateTableAsync<CoachPlans>().Wait();
+            database.CreateTableAsync<CoachPlanItems>().Wait();
+            database.CreateTableAsync<Students>().Wait();
+            database.CreateTableAsync<CoachingRequest>().Wait();
+
+            //Just execute once only for every time you create tables first time or after dropping them for demo
+            //InsertDemoCoach().Wait();
+
+            //*/
             //////////////////////////////////////////////////
 
             //Do it if you need a demo user
@@ -54,8 +61,6 @@ namespace FYP_Sharebits.Data
 
             //InsertDemoUser().Wait();
 
-            //Just execute once only for every time you create tables first time or after dropping them for demo
-            //InsertDemoCoach().Wait();
             //
             //////////////////////////////////////////////////
 

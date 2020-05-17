@@ -12,6 +12,8 @@ namespace FYP_Sharebits.Models.DBModels
 
         public int coachID { get; set; }
 
+        public String coachName { get; set; }
+
         public String studentID { get; set; }
 
         public String habitName { get; set; }

@@ -18,7 +18,9 @@ namespace FYP_Sharebits.Views.Coach
     {
         ObservableCollection<String> pickerContents;
 
-        ObservableCollection<String> studentIDs = new ObservableCollection<string>();
+        ObservableCollection<Students> students;
+
+        ObservableCollection<String> studentNames = new ObservableCollection<string>();
 
         String selectedID;
 
@@ -39,7 +41,6 @@ namespace FYP_Sharebits.Views.Coach
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-            ObservableCollection<Students> students;
 
             String userID = await Constants.GetUserId();
 
@@ -57,16 +58,16 @@ namespace FYP_Sharebits.Views.Coach
 
                 foreach(Students stu in students)
                 {
-                    studentIDs.Add(stu.studentID);
+                    studentNames.Add(stu.studentName);
                 }
 
-                StudentPicker.ItemsSource = studentIDs;
+                StudentPicker.ItemsSource = studentNames;
             }
         }
 
         private void StudentPicker_SelectedIndexChanged(object sender, EventArgs e)
         {
-            selectedID = StudentPicker.SelectedItem.ToString();
+            selectedID = students[StudentPicker.SelectedIndex].studentID;
         }
 
         private async void proceedButton_Clicked(object sender, EventArgs e)
