@@ -11,8 +11,8 @@
         <ToolbarItem x:Name="add"
                      IconImageSource="add.png"
                      Clicked="add_Clicked"/>
-        <ToolbarItem x:Name="testing"
-                     Text="TEST"
+        <ToolbarItem x:Name="tbi_record"
+                     Text="{x:Static i18n:ResxFile.tbi_records}"
                      Clicked="testing_Clicked" />
         <ToolbarItem x:Name="testStep"
                      Text="step"

@@ -399,4 +399,13 @@
   <data name="btn_my_student" xml:space="preserve">
     <value>My Student</value>
   </data>
+  <data name="lbl_isDone" xml:space="preserve">
+    <value>Finished:</value>
+  </data>
+  <data name="lbl_progress" xml:space="preserve">
+    <value>Progress:</value>
+  </data>
+  <data name="tbi_records" xml:space="preserve">
+    <value>Records</value>
+  </data>
 </root>

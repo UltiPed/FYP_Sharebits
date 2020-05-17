@@ -7,9 +7,23 @@
              x:Class="FYP_Sharebits.Views.RecordDatesPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <ListView x:Name="DateList"
+                      Margin="5,0,5,0"
+                      HasUnevenRows="True"
+                      ItemSelected="DateList_ItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame CornerRadius="5"
+                                   BackgroundColor="White"
+                                   HasShadow="False"
+                                   Margin="0,3,0,3">
+                                <Label Text="{Binding recordDate}" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" />
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

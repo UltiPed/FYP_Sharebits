@@ -4,12 +4,37 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="FYP_Sharebits.Views.RecordListPage">
+             x:Class="FYP_Sharebits.Views.RecordListPage"
+             xmlns:i18n="clr-namespace:FYP_Sharebits.Resources">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <ListView x:Name="RecordListView" HasUnevenRows="True" ItemSelected="RecordListView_ItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <Label Text="{Binding itemName}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1"/>
+
+                                <Label Text="{x:Static i18n:ResxFile.lbl_Done}" Grid.Row="1" Grid.Column="0"/>
+                                <Label Text="{Binding progress}" Grid.Row="1" Grid.Column="1"/>
+
+                                <Label Text="{x:Static i18n:ResxFile.lbl_isDone}" Grid.Row="2" Grid.Column="0"/>
+                                <Label Text="{Binding isDone}" Grid.Row="2" Grid.Column="1"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -12,6 +12,8 @@ namespace FYP_Sharebits.Models.DBModels
 
         public int itemID { get; set; }
 
+        public String itemName { get; set; }
+
         public DateTime recordDate { get; set; }
 
         public Decimal progress { get; set; }

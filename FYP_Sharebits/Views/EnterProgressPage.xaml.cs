@@ -49,6 +49,7 @@ namespace FYP_Sharebits.Views
                 PlanRecords ToAddRecord = new PlanRecords();
 
                 ToAddRecord.itemID = selectedItem.itemID;
+                ToAddRecord.itemName = selectedItem.itemName;
                 ToAddRecord.recordDate = DateTime.Now.Date;
                 ToAddRecord.progress = 0;
                 ToAddRecord.isDone = false;
