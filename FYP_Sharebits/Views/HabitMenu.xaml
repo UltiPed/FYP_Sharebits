@@ -21,17 +21,73 @@
                      Text="step"
                      Clicked="testStep_Clicked" />
     </ContentPage.ToolbarItems>
+    <!--
     <ContentPage.BindingContext>
         <viewModel:CalendarViewModel />
-    </ContentPage.BindingContext>
+    </ContentPage.BindingContext>-->
     <ContentPage.Content>
-        <syncfusion:SfCalendar x:Name="calendar" 
+        <!--<syncfusion:SfCalendar x:Name="calendar" 
                                DataSource="{Binding Appointments}" 
                                VerticalOptions="FillAndExpand"
                                HorizontalOptions="FillAndExpand"
-                               ShowInlineEvents="True"/>
+                               ShowInlineEvents="True"/>-->
+        <StackLayout BackgroundColor="LightGray"
+                     Padding="5">
+            <Frame CornerRadius="3"
+                   BackgroundColor="White">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Label Text="Su"
+                           Grid.Column="0"/>
+                    <Label Text="Mo"
+                           Grid.Column="1"/>
+                    <Label Text="Tu"
+                           Grid.Column="2"/>
+                    <Label Text="We"
+                           Grid.Column="3"/>
+                    <Label Text="Th"
+                           Grid.Column="4"/>
+                    <Label Text="Fr"
+                           Grid.Column="5"/>
+                    <Label Text="Sa"
+                           Grid.Column="6"/>
+                </Grid>
+            </Frame>
+            <ListView x:Name="PlanList"
+                      Margin="5,0,5,0"
+                      HasUnevenRows="True"
+                      ItemSelected="PlanList_ItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame CornerRadius="5"
+                                   BackgroundColor="White"
+                                   HasShadow="False"
+                                   Margin="0,3,0,3">
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                    <Label Text="{Binding habitID}" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" />
+                                    <Label Text="{Binding habitName}" HorizontalOptions="End" />
+                                </StackLayout>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
     </ContentPage.Content>
+    <!--
     <ContentPage.Behaviors>
         <behavior:CalendarBehavior />
-     </ContentPage.Behaviors>
+     </ContentPage.Behaviors>-->
 </ContentPage>

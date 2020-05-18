@@ -20,9 +20,9 @@ namespace FYP_Sharebits.Views
         ObservableCollection<HabitPlans> Plans;
         public HabitMenu()
         {
-            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MjQyMDg1QDMxMzgyZTMxMmUzME0yU1pCV2xwWGl0bGVZQkJlTE13djRZajh2LzBYejlsdk5XRUNydlRncEk9");
+            //Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MjQyMDg1QDMxMzgyZTMxMmUzME0yU1pCV2xwWGl0bGVZQkJlTE13djRZajh2LzBYejlsdk5XRUNydlRncEk9");
             InitializeComponent();
-            calendar.InlineItemTapped += Calendar_InlineItemTapped;
+            //calendar.InlineItemTapped += Calendar_InlineItemTapped;
         }
 
         private async void add_Clicked(object sender, EventArgs e)
@@ -51,16 +51,16 @@ namespace FYP_Sharebits.Views
         {
             base.OnAppearing();
             Plans = new ObservableCollection<HabitPlans>(await App.Database.GetPlansAsync());
-           // PlanList.ItemsSource = Plans;
+           PlanList.ItemsSource = Plans;
         }
 
         private async void PlanList_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            //if (PlanList.SelectedItem == null) { return; }
+            if (PlanList.SelectedItem == null) { return; }
 
             HabitPlans planSelected = e.SelectedItem as HabitPlans;
             await Navigation.PushAsync(new PlanItemList_Display(planSelected));
-            //PlanList.SelectedItem = null;
+            PlanList.SelectedItem = null;
 
 
         }
