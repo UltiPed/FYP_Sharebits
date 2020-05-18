@@ -1,5 +1,6 @@
 ﻿using FYP_Sharebits.Models.DBModels;
 using FYP_Sharebits.Resources;
+using FYP_Sharebits.Views.Social;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -54,6 +55,29 @@ namespace FYP_Sharebits.Views
             await Navigation.PushAsync(new EnterProgressPage(selectedItem));
 
             ItemListView.SelectedItem = null;
+        }
+
+        private async void shareButton_Clicked(object sender, EventArgs e)
+        {
+            HabitPlans aPlan = new HabitPlans();
+            int newTempID = TempData.plans.Count + 1;
+            aPlan.habitID = newTempID;
+            aPlan.habitName = selectedPlan.habitName;
+            aPlan.habitType = selectedPlan.habitType;
+            TempData.plans.Add(aPlan);
+
+            foreach(PlanItems item in currentItems)
+            {
+                PlanItems newTempItem = new PlanItems();
+                newTempItem.habitID = newTempID;
+                newTempItem.itemGoal = item.itemGoal;
+                newTempItem.itemName = item.itemName;
+                newTempItem.itemType = item.itemType;
+                TempData.planItems.Add(newTempItem);
+            }
+
+            await DisplayAlert(ResxFile.msg_Success, ResxFile.msg_succShare, ResxFile.btn_ok);
+            await Navigation.PopToRootAsync();
         }
     }
 }

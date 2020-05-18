@@ -8,12 +8,15 @@
              xmlns:i18n="clr-namespace:FYP_Sharebits.Resources"
              Title="{x:Static i18n:ResxFile.btnLogin}">
 
-    <StackLayout BackgroundColor="LightGray"
+    <ScrollView BackgroundColor="LightGray"
                  Padding="5">
         <Frame CornerRadius="3"
                BackgroundColor="White"
                VerticalOptions="CenterAndExpand">
             <StackLayout>
+                <Image Source="login.png"
+                       HorizontalOptions="CenterAndExpand"
+                       WidthRequest="100"/>
                 <Entry x:Name="email"
                        Placeholder="{x:Static i18n:ResxFile.lblEmail}"
                        Keyboard="Email"/>
@@ -33,5 +36,5 @@
                 </Label>
             </StackLayout>
         </Frame>
-    </StackLayout>
+    </ScrollView>
 </ContentPage>

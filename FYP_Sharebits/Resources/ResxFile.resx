@@ -408,4 +408,19 @@
   <data name="tbi_records" xml:space="preserve">
     <value>Records</value>
   </data>
+  <data name="tbi_clone" xml:space="preserve">
+    <value>Clone</value>
+  </data>
+  <data name="tbi_user" xml:space="preserve">
+    <value>User</value>
+  </data>
+  <data name="btn_viewShare" xml:space="preserve">
+    <value>View shared plans</value>
+  </data>
+  <data name="msg_succShare" xml:space="preserve">
+    <value />
+  </data>
+  <data name="tbi_share" xml:space="preserve">
+    <value>Share</value>
+  </data>
 </root>

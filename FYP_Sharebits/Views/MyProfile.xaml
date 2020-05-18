@@ -14,9 +14,11 @@
                          IsVisible="True"
                          VerticalOptions="CenterAndExpand">
                 <Frame CornerRadius="3"
-                       BackgroundColor="White"
-                       VerticalOptions="CenterAndExpand">
+                       BackgroundColor="White">
                     <StackLayout>
+                        <Image Source="unauthenticated.png"
+                               HorizontalOptions="CenterAndExpand"
+                               WidthRequest="100"/>
                         <Label Text="{x:Static i18n:ResxFile.msg_Unauthenticated}"
                                VerticalOptions="CenterAndExpand" 
                                HorizontalOptions="CenterAndExpand" />
@@ -27,14 +29,22 @@
                 </Frame>
             </StackLayout>
             <StackLayout x:Name="authenticated_layout" 
-                         IsVisible="False">
-                <Label Text="Welcome to Xamarin.Forms!"
-                       VerticalOptions="CenterAndExpand" 
-                       HorizontalOptions="CenterAndExpand" />
-                <Button Text="{x:Static i18n:ResxFile.btn_Logout}"
-                        x:Name="btn_logout"
-                        Clicked="btn_logout_Clicked"
-                        VerticalOptions="End"/>
+                         IsVisible="False"
+                         VerticalOptions="FillAndExpand">
+                <Frame CornerRadius="3"
+                       BackgroundColor="White"
+                       VerticalOptions="FillAndExpand">
+                    <StackLayout>
+                        <Image Source="user.png"
+                               HorizontalOptions="CenterAndExpand"
+                               WidthRequest="100"
+                               VerticalOptions="Start"/>
+                        <Button Text="{x:Static i18n:ResxFile.btn_Logout}"
+                                x:Name="btn_logout"
+                                Clicked="btn_logout_Clicked"
+                                VerticalOptions="EndAndExpand"/>
+                    </StackLayout>
+                </Frame>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

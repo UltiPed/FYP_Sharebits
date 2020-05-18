@@ -4,16 +4,20 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="FYP_Sharebits.Views.PlanItemList_Display"
+             x:Class="FYP_Sharebits.Views.Social.SharedPlanItemPage"
              xmlns:i18n="clr-namespace:FYP_Sharebits.Resources">
     <ContentPage.ToolbarItems>
-        <ToolbarItem x:Name="shareButton"
-                     Text="{x:Static i18n:ResxFile.tbi_share}"
-                     Clicked="shareButton_Clicked"/>
+        <ToolbarItem x:Name="userButton"
+                     Text="{x:Static i18n:ResxFile.tbi_user}"
+                     Clicked="userButton_Clicked"/>
+
+        <ToolbarItem x:Name="cloneButton"
+                     Text="{x:Static i18n:ResxFile.tbi_clone}"
+                     Clicked="cloneButton_Clicked"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout>
-            <ListView x:Name="ItemListView" HasUnevenRows="True" ItemSelected="ItemListView_ItemSelected">
+            <ListView x:Name="ItemListView" HasUnevenRows="True">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>

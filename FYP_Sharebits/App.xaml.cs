@@ -4,6 +4,7 @@ using Xamarin.Forms.Xaml;
 using FYP_Sharebits.Data;
 using System.IO;
 using FYP_Sharebits.Interfaces;
+using FYP_Sharebits.Views.Social;
 
 namespace FYP_Sharebits
 {
@@ -21,6 +22,8 @@ namespace FYP_Sharebits
             {
                 DependencyService.Get<IStepCounter>().InitSensorService();
             }
+
+            TempData.createDummyPlans();
         }
 
         protected override void OnStart()

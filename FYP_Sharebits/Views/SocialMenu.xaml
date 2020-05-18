@@ -29,6 +29,9 @@
                        BackgroundColor="White"
                        VerticalOptions="CenterAndExpand">
                     <StackLayout>
+                        <Image Source="unauthenticated.png"
+                               HorizontalOptions="CenterAndExpand"
+                               WidthRequest="100"/>
                         <Label Text="{x:Static i18n:ResxFile.msg_Unauthenticated}"
                                VerticalOptions="CenterAndExpand" 
                                HorizontalOptions="CenterAndExpand" />
@@ -40,7 +43,7 @@
             </StackLayout>
             <StackLayout x:Name="authenticated_layout" 
                          IsVisible="False">
-                <Label Text="Content here"/>
+                <Button x:Name="viewShareButton" Text="{x:Static i18n:ResxFile.btn_viewShare}" Clicked="viewShareButton_Clicked" />
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

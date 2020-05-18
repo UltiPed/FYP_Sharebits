@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="FYP_Sharebits.Views.Social.SharedPlanUserPage"
+             xmlns:i18n="clr-namespace:FYP_Sharebits.Resources">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label" x:Key="LabelStyle">
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="HorizontalOptions" Value="Start"/>
+            </Style>
+            <Style TargetType="Entry" x:Key="EntryStyle">
+                <Setter Property="VerticalOptions" Value="Center"/>
+            </Style>
+            <Style TargetType="DatePicker" x:Key="DatePickerStyle">
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="Format" Value="dd-MM-yyyy"/>
+            </Style>
+            <Style TargetType="Picker" x:Key="PickerStyle">
+                <Setter Property="VerticalOptions" Value="Center"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="LightGray"
+                     Padding="5">
+            <Frame CornerRadius="3"
+                   BackgroundColor="White">
+                <StackLayout>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label Text="{x:Static i18n:ResxFile.lbl_username}"
+                           Grid.Row="0"
+                           Grid.Column="0" 
+                           Style="{StaticResource LabelStyle}"/>
+                        <Label x:Name="NameLabel"
+                           Grid.Row="0" 
+                           Grid.Column="1"
+                           Style="{StaticResource LabelStyle}"/>
+
+                        <Label Text="{x:Static i18n:ResxFile.lbl_gender}" 
+                           Grid.Row="1" 
+                           Grid.Column="0" 
+                           Style="{StaticResource LabelStyle}"/>
+                        <Label x:Name="genderLabel"
+                            Grid.Row="1" 
+                            Grid.Column="1" 
+                            Style="{StaticResource LabelStyle}"/>
+
+                        <Label Text="{x:Static i18n:ResxFile.lbl_height}" 
+                           Grid.Row="2" 
+                           Grid.Column="0" 
+                           Style="{StaticResource LabelStyle}"/>
+                        <Label x:Name="heightLabel"
+                           Grid.Row="2" 
+                           Grid.Column="1"
+                           Style="{StaticResource LabelStyle}"/>
+
+
+                        <Label Text="{x:Static i18n:ResxFile.lbl_weight}"
+                           Grid.Row="3" 
+                           Grid.Column="0" 
+                           Style="{StaticResource LabelStyle}"/>
+                        <Label x:Name="weightLabel"
+                           VerticalOptions="CenterAndExpand" 
+                           Grid.Row="3" 
+                           Grid.Column="1"
+                           Style="{StaticResource LabelStyle}"/>
+
+                    </Grid>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -50,5 +50,10 @@ namespace FYP_Sharebits.Views
                 social_search_bar.IsEnabled = false;
             }
         }
+
+        private async void viewShareButton_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Social.ViewSharedPlanPage());
+        }
     }
 }

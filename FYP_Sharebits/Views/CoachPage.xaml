@@ -7,10 +7,79 @@
              x:Class="FYP_Sharebits.Views.CoachPage"
              xmlns:i18n="clr-namespace:FYP_Sharebits.Resources">
     <ContentPage.Content>
-        <StackLayout>
-            <Button x:Name="studentListButton" Text="{x:Static i18n:ResxFile.btn_studentList}" Clicked="studentListButton_Clicked"/>
-            <Button x:Name="assignPlanButton" Text="{x:Static i18n:ResxFile.btn_assignPlan}" Clicked="assignPlanButton_Clicked"/>
-            <Button x:Name="checkRequestButton" Text="{x:Static i18n:ResxFile.btn_checkRequest}" Clicked="checkRequestButton_Clicked"/>
-        </StackLayout>
+        <ScrollView BackgroundColor="LightGray"
+                    Padding="5">
+            <StackLayout Orientation="Vertical"
+                         VerticalOptions="CenterAndExpand">
+                <Grid HorizontalOptions="Center"
+                      ColumnSpacing="20"
+                      Margin="0,7">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Frame CornerRadius="6"
+                           BackgroundColor="White"
+                           Grid.Row="0"
+                           Grid.Column="0"
+                           Padding="3,6"
+                           HasShadow="True">
+                        <StackLayout Orientation="Vertical">
+                            <Image Source="studentList.png">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="studentListButton_Clicked"/>
+                                </Image.GestureRecognizers>
+                            </Image>
+                            <Label Text="{x:Static i18n:ResxFile.btn_studentList}"
+                                   HorizontalOptions="CenterAndExpand"/>
+                        </StackLayout>
+                    </Frame>
+
+                    <Frame CornerRadius="6"
+                           BackgroundColor="White"
+                           Grid.Row="0"
+                           Grid.Column="1"
+                           Padding="6,6"
+                           HasShadow="True">
+                        <StackLayout Orientation="Vertical">
+                            <Image Source="homework.png">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="assignPlanButton_Clicked"/>
+                                </Image.GestureRecognizers>
+                            </Image>
+                            <Label Text="{x:Static i18n:ResxFile.btn_assignPlan}"
+                                   HorizontalOptions="CenterAndExpand"/>
+                        </StackLayout>
+                    </Frame>
+                </Grid>
+
+                <Grid HorizontalOptions="Center"
+                      ColumnSpacing="20"
+                      Margin="0,7">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Frame CornerRadius="6"
+                           BackgroundColor="White"
+                           Grid.Row="0"
+                           Grid.Column="0"
+                           Padding="6,6"
+                           HasShadow="True">
+                        <StackLayout Orientation="Vertical"
+                                     HorizontalOptions="Center">
+                            <Image Source="mailbox.png">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="checkRequestButton_Clicked"/>
+                                </Image.GestureRecognizers>
+                            </Image>
+                            <Label Text="{x:Static i18n:ResxFile.btn_checkRequest}"
+                                   HorizontalOptions="CenterAndExpand"/>
+                        </StackLayout>
+                    </Frame>
+                </Grid>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

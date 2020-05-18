@@ -14,6 +14,9 @@
                    BackgroundColor="White"
                    VerticalOptions="CenterAndExpand">
                 <StackLayout>
+                    <Image Source="signup.png"
+                           HorizontalOptions="CenterAndExpand"
+                           WidthRequest="100"/>
                     <Entry x:Name="email"
                            Placeholder="{x:Static i18n:ResxFile.lblEmail}"
                            Keyboard="Email"/>
