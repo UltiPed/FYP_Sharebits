@@ -59,6 +59,7 @@ namespace FYP_Sharebits.Models.Functional
             return result;
         }
 
+        /*
         public static async Task<Testing> GetAllPlans()
         {
             client = new HttpClient();
@@ -75,6 +76,7 @@ namespace FYP_Sharebits.Models.Functional
 
             return result;
         }
+        */
 
         public static async Task<BaseModel> Login(String email, String password)
         {
@@ -100,7 +102,7 @@ namespace FYP_Sharebits.Models.Functional
             return result;
         }
 
-        public static async  Task<BaseModel> Signup(User user)
+        public static async Task<BaseModel> Signup(User user)
         {
             client = new HttpClient();
             String query = String.Format("{{\"query\":\"mutation{{createUser(userInput: {{ userName: \\\"{0}\\\", email: \\\"{1}\\\", password: \\\"{2}\\\", height: {3}, weight: {4}, gender: \\\"{5}\\\" }}){{ _id }}}}\"}}", user.UserName, user.Email, user.Password, user.Height, user.Weight, user.Gender);
@@ -110,5 +112,28 @@ namespace FYP_Sharebits.Models.Functional
             var result = JsonConvert.DeserializeObject<BaseModel>(json);
             return result;
         }
+
+        public static async Task<BaseModel> searchPlan(String keywords)
+        {
+            client = new HttpClient();
+            String query = String.Format("{{\"query\":\"query{{ searchPlan(keyword: \"{0}\"){{ _id,  habitName,  habitType, creator{{ _id, email, userName, height, weight, gender}}, createdItems{{itemName, itemType, itemGoal}}}}}}\"}}", keywords);
+            StringContent stringContent = new StringContent(query, Encoding.UTF8, "application/json");
+            var httpResponse = await client.PostAsync(GraphQLURL, stringContent);
+            var json = await httpResponse.Content.ReadAsStringAsync();
+            var result = JsonConvert.DeserializeObject<BaseModel>(json);
+            return result;
+        }
+
+        public static async Task<BaseModel> findCoaches()
+        {
+            client = new HttpClient();
+            String query = String.Format("{{\"query\":\"query{{findCoaches{{_id, user{{ _id, email, userName, height, weight, gender}}}}}}\"}}");
+            StringContent stringContent = new StringContent(query, Encoding.UTF8, "application/json");
+            var httpResponse = await client.PostAsync(GraphQLURL, stringContent);
+            var json = await httpResponse.Content.ReadAsStringAsync();
+            var result = JsonConvert.DeserializeObject<BaseModel>(json);
+            return result;
+        }
+
     }
 }

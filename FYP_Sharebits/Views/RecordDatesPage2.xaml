@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:syncfusion="clr-namespace:Syncfusion.SfCalendar.XForms;assembly=Syncfusion.SfCalendar.XForms"
+             xmlns:viewModel="clr-namespace:FYP_Sharebits.ViewModels"
+             xmlns:behavior="clr-namespace:FYP_Sharebits.Behavior"
+             mc:Ignorable="d"
+             x:Class="FYP_Sharebits.Views.RecordDatesPage2"
+             xmlns:i18n="clr-namespace:FYP_Sharebits.Resources">
+    <ContentPage.BindingContext>
+        <viewModel:CalendarViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <syncfusion:SfCalendar x:Name="calendar" 
+                               DataSource="{Binding Appointments}" 
+                               VerticalOptions="FillAndExpand"
+                               HorizontalOptions="FillAndExpand"
+                               ShowInlineEvents="True"/>
+    </ContentPage.Content>
+    <ContentPage.Behaviors>
+        <behavior:CalendarBehavior />
+    </ContentPage.Behaviors>
+</ContentPage>

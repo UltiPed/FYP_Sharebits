@@ -72,7 +72,7 @@ namespace FYP_Sharebits.Views
             //await APIConnection.AuthTest();
             //await APIConnection.GetAllPlans_GraphQL(queryString);
 
-            await Navigation.PushAsync(new RecordDatesPage());
+            await Navigation.PushAsync(new RecordDatesPage2());
         }
 
         private async void testStep_Clicked(object sender, EventArgs e)
@@ -82,6 +82,7 @@ namespace FYP_Sharebits.Views
         private void Calendar_InlineItemTapped(object sender, InlineItemTappedEventArgs e)
         {
             var appointment = e.InlineEvent;
+            
             DisplayAlert(appointment.Subject, appointment.StartTime.ToString(), "ok");
         }
     }
