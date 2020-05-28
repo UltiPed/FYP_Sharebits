@@ -8,6 +8,10 @@ using Newtonsoft.Json;
 using GraphQL.Client.Http;
 using GraphQL;
 using Xamarin.Essentials;
+using System.Collections.ObjectModel;
+using FYP_Sharebits.Models.DBModels;
+using Xamarin.Forms;
+using System.Linq;
 
 namespace FYP_Sharebits.Models.Functional
 {
@@ -133,6 +137,71 @@ namespace FYP_Sharebits.Models.Functional
             var json = await httpResponse.Content.ReadAsStringAsync();
             var result = JsonConvert.DeserializeObject<BaseModel>(json);
             return result;
+        }
+
+        public static async Task<BaseModel> PushPlans(ObservableCollection<HabitPlans> plans, ObservableCollection<PlanItems> items, String userID)
+        {
+            String queryPart = PrepareQuery_pushPlans(plans, items, userID);
+            client = new HttpClient();
+            String query = String.Format("{{\"query\":\"mutation{{ {0}  {{ HabitPlan{{ _id, localID }} }} }}\"}}", queryPart);
+            StringContent stringContent = new StringContent(query, Encoding.UTF8, "application/json");
+            var httpResponse = await client.PostAsync(GraphQLURL, stringContent);
+            var json = await httpResponse.Content.ReadAsStringAsync();
+            var result = JsonConvert.DeserializeObject<BaseModel>(json);
+            return result;
+        }
+
+        public static String PrepareQuery_pushPlans(ObservableCollection<HabitPlans> plans, ObservableCollection<PlanItems> items, String userID)
+        {
+            String returnQuery = "pushPlans(creator: \"" + userID + "\", newPlans: [";
+            Boolean isFirst = true;
+
+            foreach(HabitPlans plan in plans)
+            {
+                if (!isFirst)
+                {
+                    returnQuery += ", ";
+                }
+                returnQuery += "{habitName: \"" + plan.habitName + "\", ";
+                returnQuery += "habitType: \"" + plan.habitType + "\", ";
+
+                DateTime startTime = plan.startDate;
+                startTime = DateTime.SpecifyKind(startTime, DateTimeKind.Local);
+                DateTimeOffset startTime2 = startTime;
+                returnQuery += "startDate: \"" + startTime2.ToString() + "\",";
+
+                if (plan.habitType.Equals("Challenge"))
+                {
+                    DateTime endTime = plan.endDate;
+                    startTime = DateTime.SpecifyKind(startTime, DateTimeKind.Local);
+                    DateTimeOffset endTime2 = endTime;
+                    returnQuery += "endDate: \"" + endTime2.ToString() + "\",";
+                }
+                returnQuery += "localID: " + plan.habitID + ",";
+
+                var items2 = items.Where(x => x.habitID == plan.habitID);
+                returnQuery += "Items: [";
+
+                Boolean isFirst2 = true;
+                foreach(PlanItems item in items2)
+                {
+                    if (!isFirst2)
+                    {
+                        returnQuery += ", ";
+                    }
+                    returnQuery += "{itemName: \"" + item.itemName + "\", ";
+                    returnQuery += "itemType: \"" + item.itemType + "\", ";
+                    returnQuery += "itemGoal: " + item.itemGoal + ", ";
+                    returnQuery += "localID: " + plan.habitID + "}";
+                    isFirst2 = false;
+                }
+
+                returnQuery += "]}";
+                isFirst = false;
+            }
+
+            returnQuery += "])";
+            return returnQuery;
         }
 
     }
