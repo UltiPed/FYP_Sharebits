@@ -39,6 +39,12 @@
                                HorizontalOptions="CenterAndExpand"
                                WidthRequest="100"
                                VerticalOptions="Start"/>
+                        <Button Text="{x:Static i18n:ResxFile.btn_beCoach}"
+                                x:Name="btn_beCoach"
+                                Clicked="btn_beCoach_Clicked"/>
+                        <Button Text="{x:Static i18n:ResxFile.btn_pushPlans}"
+                                x:Name="btn_pushPlans"
+                                Clicked="btn_pushPlans_Clicked"/>
                         <Button Text="{x:Static i18n:ResxFile.btn_Logout}"
                                 x:Name="btn_logout"
                                 Clicked="btn_logout_Clicked"

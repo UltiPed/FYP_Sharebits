@@ -423,4 +423,31 @@
   <data name="tbi_share" xml:space="preserve">
     <value>Share</value>
   </data>
+  <data name="btn_beCoach" xml:space="preserve">
+    <value>Become a coach</value>
+  </data>
+  <data name="btn_cancel" xml:space="preserve">
+    <value>CANCEL</value>
+  </data>
+  <data name="btn_pushPlans" xml:space="preserve">
+    <value>Push plans to server</value>
+  </data>
+  <data name="msg_coachResponsibility" xml:space="preserve">
+    <value>You have to take the responsibility of coaching people to build a good habit with a feasible plan.</value>
+  </data>
+  <data name="msg_confirm" xml:space="preserve">
+    <value>Confirmation</value>
+  </data>
+  <data name="msg_pushPlans" xml:space="preserve">
+    <value>Pushing all unpushed plans to the server?</value>
+  </data>
+  <data name="msg_rusure" xml:space="preserve">
+    <value>Are you sure?</value>
+  </data>
+  <data name="msg_beCoachSucc" xml:space="preserve">
+    <value>Becoming coach successfully!</value>
+  </data>
+  <data name="msg_pushPlanSucc" xml:space="preserve">
+    <value>Pushing plans to server successfully!</value>
+  </data>
 </root>

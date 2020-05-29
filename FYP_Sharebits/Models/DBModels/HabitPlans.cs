@@ -18,6 +18,8 @@ namespace FYP_Sharebits.Models.DBModels
 
         public DateTime endDate { get; set; }
 
+        public String habitID_DB { get; set; }
+
         public HabitPlans() { }
         /*
         public HabitPlans(String aHabitName, String aHabitType, DateTime aStartDate, DateTime anEndDate)

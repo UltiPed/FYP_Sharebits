@@ -139,6 +139,17 @@ namespace FYP_Sharebits.Models.Functional
             return result;
         }
 
+        public static async Task<BaseModel> beCoach(String userID)
+        {
+            client = new HttpClient();
+            String query = String.Format("{{\"query\":\"mutation{{ beCoach(userId: \"{0}\") {{ message }} }}\"}}", userID);
+            StringContent stringContent = new StringContent(query, Encoding.UTF8, "application/json");
+            var httpResponse = await client.PostAsync(GraphQLURL, stringContent);
+            var json = await httpResponse.Content.ReadAsStringAsync();
+            var result = JsonConvert.DeserializeObject<BaseModel>(json);
+            return result;
+        }
+
         public static async Task<BaseModel> PushPlans(ObservableCollection<HabitPlans> plans, ObservableCollection<PlanItems> items, String userID)
         {
             String queryPart = PrepareQuery_pushPlans(plans, items, userID);
