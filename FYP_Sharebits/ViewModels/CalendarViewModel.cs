@@ -68,51 +68,59 @@ namespace FYP_Sharebits.ViewModels
         public CalendarViewModel()
         {
             this.Appointments = new CalendarEventCollection();
-            LoadRecords().Wait();
-            AddRecordsToAppointment();
+            //LoadRecords().Wait();
+            //AddRecordsToAppointment();
         }
 
-        private async Task LoadRecords()
+        public async Task<Boolean> LoadRecords()
         {
-            records = new ObservableCollection<PlanRecords>(await App.Database.GetRecordsAsync());
-
-            String itemIDs = "(";
-            Boolean isFirst = true;
-            foreach (PlanRecords record in records)
+            try
             {
-                if (isFirst)
+                records = new ObservableCollection<PlanRecords>(await App.Database.GetRecordsAsync());
+
+                String itemIDs = "(";
+                Boolean isFirst = true;
+                foreach (PlanRecords record in records)
                 {
-                    itemIDs = itemIDs + record.itemID;
-                    isFirst = false;
+                    if (isFirst)
+                    {
+                        itemIDs = itemIDs + record.itemID;
+                        isFirst = false;
+                    }
+                    else
+                    {
+                        itemIDs = itemIDs + ", " + record.itemID;
+                    }
                 }
-                else
+                itemIDs = itemIDs + ")";
+
+                String itemQuery = "SELECT * FROM [PlanItems] WHERE itemID IN " + itemIDs;
+                items = new ObservableCollection<PlanItems>(await App.Database.QueryPlanItems(itemQuery));
+
+                String habitIDs = "(";
+                isFirst = true;
+                foreach (PlanItems item in items)
                 {
-                    itemIDs = itemIDs + ", " + record.itemID;
+                    if (isFirst)
+                    {
+                        habitIDs = habitIDs + item.habitID;
+                        isFirst = false;
+                    }
+                    else
+                    {
+                        habitIDs = habitIDs + ", " + item.habitID;
+                    }
                 }
+                habitIDs = habitIDs + ")";
+
+                String habitQuery = "SELECT * FROM HabitPlans WHERE habitID IN " + habitIDs;
+                plans = new ObservableCollection<HabitPlans>(await App.Database.QueryHabitPlans(habitQuery));
+                return true;
             }
-            itemIDs = itemIDs + ")";
-
-            String itemQuery = "SELECT * FROM [PlanItems] WHERE itemID IN " + itemIDs;
-            items = new ObservableCollection<PlanItems>(await App.Database.QueryPlanItems(itemQuery));
-
-            String habitIDs = "(";
-            isFirst = true;
-            foreach (PlanItems item in items)
+            catch (Exception)
             {
-                if (isFirst)
-                {
-                    habitIDs = habitIDs + item.habitID;
-                    isFirst = false;
-                }
-                else
-                {
-                    habitIDs = habitIDs + ", " + item.habitID;
-                }
+                return false;
             }
-            habitIDs = habitIDs + ")";
-
-            String habitQuery = "SELECT * FROM HabitPlans WHERE habitID IN " + habitIDs;
-            plans = new ObservableCollection<HabitPlans>(await App.Database.QueryHabitPlans(habitQuery));
         }
 
         private void AddAppointmentDetails()
@@ -171,7 +179,7 @@ namespace FYP_Sharebits.ViewModels
             }
         }
 
-        private void AddRecordsToAppointment()
+        public void AddRecordsToAppointment()
         {
             foreach (PlanRecords record in records)
             {
@@ -208,6 +216,7 @@ namespace FYP_Sharebits.ViewModels
                 }
 
             }
+            this.OnPropertyChanged("Appointments");
         }
 
         private void OnPropertyChanged(string propertyName)

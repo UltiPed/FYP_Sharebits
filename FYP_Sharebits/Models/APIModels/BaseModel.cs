@@ -67,6 +67,9 @@ namespace FYP_Sharebits.Models.APIModels
 
         [JsonProperty("pushRecords")]
         public PlanRecord[] PushRecords { get; set; }
+
+        [JsonProperty("beCoach")]
+        public Msg BeCoach { get; set; }
     }
 
     public partial class BaseModel

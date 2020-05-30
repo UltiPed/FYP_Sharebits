@@ -142,7 +142,7 @@ namespace FYP_Sharebits.Models.Functional
         public static async Task<BaseModel> beCoach(String userID)
         {
             client = new HttpClient();
-            String query = String.Format("{{\"query\":\"mutation{{ beCoach(userId: \"{0}\") {{ message }} }}\"}}", userID);
+            String query = String.Format("{{\"query\":\"mutation{{ beCoach(userId: \\\"{0}\\\") {{ message }} }}\"}}", userID);
             StringContent stringContent = new StringContent(query, Encoding.UTF8, "application/json");
             var httpResponse = await client.PostAsync(GraphQLURL, stringContent);
             var json = await httpResponse.Content.ReadAsStringAsync();
@@ -154,7 +154,7 @@ namespace FYP_Sharebits.Models.Functional
         {
             String queryPart = PrepareQuery_pushPlans(plans, items, userID);
             client = new HttpClient();
-            String query = String.Format("{{\"query\":\"mutation{{ {0}  {{ HabitPlan{{ _id, localID }} }} }}\"}}", queryPart);
+            String query = String.Format("{{\"query\":\"mutation{{ {0}  {{ _id, localID }} }}\"}}", queryPart);
             StringContent stringContent = new StringContent(query, Encoding.UTF8, "application/json");
             var httpResponse = await client.PostAsync(GraphQLURL, stringContent);
             var json = await httpResponse.Content.ReadAsStringAsync();
@@ -164,7 +164,7 @@ namespace FYP_Sharebits.Models.Functional
 
         public static String PrepareQuery_pushPlans(ObservableCollection<HabitPlans> plans, ObservableCollection<PlanItems> items, String userID)
         {
-            String returnQuery = "pushPlans(creator: \"" + userID + "\", newPlans: [";
+            String returnQuery = "pushPlans(creator: \\\"" + userID + "\\\", newPlans: [";
             Boolean isFirst = true;
 
             foreach(HabitPlans plan in plans)
@@ -173,20 +173,20 @@ namespace FYP_Sharebits.Models.Functional
                 {
                     returnQuery += ", ";
                 }
-                returnQuery += "{habitName: \"" + plan.habitName + "\", ";
-                returnQuery += "habitType: \"" + plan.habitType + "\", ";
+                returnQuery += "{habitName: \\\"" + plan.habitName + "\\\", ";
+                returnQuery += "habitType: \\\"" + plan.habitType + "\\\", ";
 
                 DateTime startTime = plan.startDate;
                 startTime = DateTime.SpecifyKind(startTime, DateTimeKind.Local);
                 DateTimeOffset startTime2 = startTime;
-                returnQuery += "startDate: \"" + startTime2.ToString() + "\",";
+                returnQuery += "startDate: \\\"" + startTime2.ToString() + "\\\",";
 
                 if (plan.habitType.Equals("Challenge"))
                 {
                     DateTime endTime = plan.endDate;
                     startTime = DateTime.SpecifyKind(startTime, DateTimeKind.Local);
                     DateTimeOffset endTime2 = endTime;
-                    returnQuery += "endDate: \"" + endTime2.ToString() + "\",";
+                    returnQuery += "endDate: \\\"" + endTime2.ToString() + "\\\",";
                 }
                 returnQuery += "localID: " + plan.habitID + ",";
 
@@ -200,8 +200,8 @@ namespace FYP_Sharebits.Models.Functional
                     {
                         returnQuery += ", ";
                     }
-                    returnQuery += "{itemName: \"" + item.itemName + "\", ";
-                    returnQuery += "itemType: \"" + item.itemType + "\", ";
+                    returnQuery += "{itemName: \\\"" + item.itemName + "\\\", ";
+                    returnQuery += "itemType: \\\"" + item.itemType + "\\\", ";
                     returnQuery += "itemGoal: " + item.itemGoal + ", ";
                     returnQuery += "localID: " + plan.habitID + "}";
                     isFirst2 = false;

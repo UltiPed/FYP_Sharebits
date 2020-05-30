@@ -81,7 +81,7 @@ namespace FYP_Sharebits.Views
                 {
                     await DisplayAlert(ResxFile.str_error, result2.Errors[0].Message, ResxFile.err_confirm);
                 }
-                else if (result2.Data.Logout.Message == "SUCC")
+                else if (result2.Data.BeCoach.Message == "SUCC")
                 {
                     await DisplayAlert(ResxFile.msg_Success, ResxFile.msg_beCoachSucc, ResxFile.btn_ok);
                     
