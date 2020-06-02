@@ -1,5 +1,7 @@
 ﻿using FYP_Sharebits.Models;
+using FYP_Sharebits.Models.APIModels;
 using FYP_Sharebits.Models.DBModels;
+using FYP_Sharebits.Models.Functional;
 using FYP_Sharebits.Resources;
 using System;
 using System.Collections.Generic;
@@ -16,8 +18,8 @@ namespace FYP_Sharebits.Views.Coach
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CheckRequestPage : ContentPage
     {
-        private ObservableCollection<CoachingRequest> requests;
-        private int coachID;
+        private ObservableCollection<CoachRequest> requests;
+        private String coachID;
         private String coachName;
 
         public CheckRequestPage()
@@ -32,21 +34,21 @@ namespace FYP_Sharebits.Views.Coach
             String userID = await Constants.GetUserId();
 
             coachName = await Constants.GetUserName();
+            coachID = await Constants.GetCoachID();
 
-            String coachQuery = "SELECT * FROM [Coachs] WHERE userID='" + userID + "'";
+            var getReq = await APIConnection.getCoachingReq(coachID);
 
-            var coachCheck = await App.Database.QueryCoachs(coachQuery);
-
-            if (coachCheck.Count > 0)
+            requests = new ObservableCollection<CoachRequest>();
+            if (getReq.Errors != null)
             {
-                coachID = coachCheck[0].coachID;
-
-                String studentQuery = "SELECT * FROM [CoachingRequest] WHERE coachID=" + coachID;
-
-                requests = new ObservableCollection<CoachingRequest>(await App.Database.QueryRequests(studentQuery));
-
-                RequestListView.ItemsSource = requests;
+                await DisplayAlert(ResxFile.str_error, getReq.Errors[0].Message, ResxFile.err_confirm);
+                await Navigation.PopAsync();
+            } else
+            {
+                requests = new ObservableCollection<CoachRequest>(getReq.Data.GetCoachingReq);
             }
+
+            RequestListView.ItemsSource = requests;
         }
 
         private async void RequestListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
@@ -56,58 +58,11 @@ namespace FYP_Sharebits.Views.Coach
                 return;
             }
 
-            var answer = await DisplayAlert(ResxFile.err_confirm, ResxFile.msg_acceptStudent, ResxFile.btn_yes, ResxFile.btn_no);
+            CoachRequest selectedReq = RequestListView.SelectedItem as CoachRequest;
 
-            Students newStu;
+            await Navigation.PushAsync(new ConfirmRequestPage(selectedReq));
 
-            newStu = new Students();
-
-            newStu.coachID = coachID;
-
-            newStu.coachName = coachName;
-
-            newStu.studentName = (e.SelectedItem as CoachingRequest).studentName;
-
-            newStu.studentID = (e.SelectedItem as CoachingRequest).studentID;
-
-            if (answer)
-            {
-                int result = await App.Database.InsertRow<Students>(newStu);
-
-                if (result > 0)
-                {
-                    String deleteQuery = "DELETE FROM [CoachingRequest] WHERE coachID=" + coachID + " AND studentID='" + newStu.studentID + "'";
-
-                    int result2 = await App.Database.ExecuteQuery(deleteQuery);
-
-                    if (result2 > 0)
-                    {
-                        await DisplayAlert(ResxFile.msg_Success, ResxFile.msg_acceptRequest, ResxFile.btn_ok);
-                    } else
-                    {
-                        await DisplayAlert(ResxFile.str_error, ResxFile.err_deleteRequest, ResxFile.btn_ok);
-                    }
-                } else
-                {
-                    await DisplayAlert(ResxFile.str_error, ResxFile.err_insertStudent, ResxFile.btn_ok);
-                }
-            } else
-            {
-                String deleteQuery = "DELETE FROM [CoachingRequest] WHERE coachID=" + coachID + " AND studentID='" + newStu.studentID + "'";
-
-                int result2 = await App.Database.ExecuteQuery(deleteQuery);
-
-                if (result2 > 0)
-                {
-                    await DisplayAlert(ResxFile.msg_Success, ResxFile.msg_declineRequest, ResxFile.btn_ok);
-                }
-                else
-                {
-                    await DisplayAlert(ResxFile.str_error, ResxFile.err_deleteRequest, ResxFile.btn_ok);
-                }
-            }
-
-            OnAppearing();
+            RequestListView.SelectedItem = null;
         }
     }
 }

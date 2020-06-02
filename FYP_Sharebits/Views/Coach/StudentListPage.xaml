@@ -8,7 +8,7 @@
              xmlns:i18n="clr-namespace:FYP_Sharebits.Resources">
     <ContentPage.Content>
         <StackLayout>
-            <ListView x:Name="StudentsListView" HasUnevenRows="True">
+            <ListView x:Name="StudentsListView" HasUnevenRows="True" ItemSelected="StudentsListView_ItemSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -21,8 +21,8 @@
                                     <ColumnDefinition Width="*" />
                                 </Grid.ColumnDefinitions>
 
-                                <Label Text="{Binding studentID}" Grid.Row="0" Grid.Column="0"/>
-                                <Label Text="{Binding studnetName}" Grid.Row="0" Grid.Column="1"/>
+                                <Label Text="{Binding user.Id}" Grid.Row="0" Grid.Column="0"/>
+                                <Label Text="{Binding user.UserName}" Grid.Row="0" Grid.Column="1"/>
 
 
                             </Grid>

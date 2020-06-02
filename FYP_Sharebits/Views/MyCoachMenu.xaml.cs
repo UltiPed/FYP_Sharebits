@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FYP_Sharebits.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,23 @@ namespace FYP_Sharebits.Views
         public MyCoachMenu()
         {
             InitializeComponent();
+        }
+
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+            var loggedIn = await Constants.IsAuth();
+            if (loggedIn)
+            {
+                var check = await Constants.CheckCoach();
+                if (!check)
+                {
+                    ManageStudentLayout.IsVisible = false;
+                } else
+                {
+                    ManageStudentLayout.IsVisible = true;
+                }
+            }
         }
 
         private async void coachListButton_Clicked(object sender, EventArgs e)

@@ -1,5 +1,6 @@
 ﻿using FYP_Sharebits.Models;
 using FYP_Sharebits.Models.DBModels;
+using FYP_Sharebits.Models.APIModels;
 using FYP_Sharebits.Resources;
 using System;
 using System.Collections.Generic;
@@ -10,13 +11,15 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using FYP_Sharebits.Models.Functional;
+using FYP_Sharebits.Views.Student;
 
 namespace FYP_Sharebits.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CoachListPage : ContentPage
     {
-        ObservableCollection<Coachs> coachs;
+        ObservableCollection<Models.APIModels.Coach> coachs;
 
         public CoachListPage()
         {
@@ -28,33 +31,31 @@ namespace FYP_Sharebits.Views
             base.OnAppearing();
 
             String userID = await Constants.GetUserId();
+            coachs = new ObservableCollection<Models.APIModels.Coach>();
 
-            String studentQuery = "SELECT * FROM [Students] WHERE studentID='" + userID + "'";
-
-            var students = await App.Database.QueryStudents(studentQuery);
-
-            coachs = new ObservableCollection<Coachs>();
-
-            if (students.Count > 0)
+            var getCoachs = await APIConnection.getCoaches(userID);
+            if (getCoachs.Errors != null)
             {
-                String arguments = "";
-                int count = 1;
-                foreach (Students student in students){
-                    if (count > 1)
-                    {
-                        arguments += ", " + student.coachID;
-                    } else
-                    {
-                        arguments += student.coachID;
-                    }
-                    count++;
-                }
-                String coachQuery = "SELECT * FROM [Coachs] WHERE coachID IN (" + arguments + ")";
-                coachs = new ObservableCollection<Coachs>(await App.Database.QueryCoachs(coachQuery));
+                await DisplayAlert(ResxFile.str_error, getCoachs.Errors[0].Message, ResxFile.err_confirm);
+                await Navigation.PopAsync();
+                return;
+            } else
+            {
+                coachs = new ObservableCollection<Models.APIModels.Coach>(getCoachs.Data.GetCoaches);
             }
-            
+
 
             CoachListView.ItemsSource = coachs;
+        }
+
+        private async void CoachListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            if (e.SelectedItem == null) { return; }
+
+            var selectedCoach = CoachListView.SelectedItem as Models.APIModels.Coach;
+            await Navigation.PushAsync(new CoachDetailPage(selectedCoach, false));
+
+            CoachListView.SelectedItem = null;
         }
     }
 }

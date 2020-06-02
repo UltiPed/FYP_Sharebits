@@ -91,7 +91,7 @@
                            Grid.Column="1"
                            Padding="4,5"
                            HasShadow="True">
-                        <StackLayout Orientation="Vertical">
+                        <StackLayout Orientation="Vertical" x:Name="ManageStudentLayout">
                             <Image Source="chain.png">
                                 <Image.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="manageStudentButton_Clicked"/>

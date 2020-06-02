@@ -18,12 +18,9 @@
                                 </Grid.RowDefinitions>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*" />
-                                    <ColumnDefinition Width="*" />
                                 </Grid.ColumnDefinitions>
 
-                                <Label Text="{Binding coachID}" Grid.Row="0" Grid.Column="0"/>
-
-                                <Label Text="{Binding userName}" Grid.Row="0" Grid.Column="1"/>
+                                <Label Text="{Binding User.UserName}" Grid.Row="0" Grid.Column="0"/>
 
 
                             </Grid>

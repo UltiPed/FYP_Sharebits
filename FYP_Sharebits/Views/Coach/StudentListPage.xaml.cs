@@ -1,6 +1,9 @@
 ﻿using FYP_Sharebits.Data;
 using FYP_Sharebits.Models;
+using FYP_Sharebits.Models.APIModels;
 using FYP_Sharebits.Models.DBModels;
+using FYP_Sharebits.Models.Functional;
+using FYP_Sharebits.Resources;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -16,7 +19,7 @@ namespace FYP_Sharebits.Views.Coach
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class StudentListPage : ContentPage
     {
-        private ObservableCollection<Students> students;
+        private ObservableCollection<Models.APIModels.Student> students;
 
         public StudentListPage()
         {
@@ -28,22 +31,33 @@ namespace FYP_Sharebits.Views.Coach
             base.OnAppearing();
 
             String userID = await Constants.GetUserId();
+            String coachID = await Constants.GetCoachID();
 
-            String coachQuery = "SELECT * FROM [Coachs] WHERE userID='" + userID + "'";
+            var getStu = await APIConnection.getStudents(coachID);
 
-            var coachCheck = await App.Database.QueryCoachs(coachQuery);
-
-            if (coachCheck.Count > 0)
+            if (getStu.Errors != null)
             {
-                int coachID = coachCheck[0].coachID;
-
-                String studentQuery = "SELECT * FROM [Students] WHERE coachID=" + coachID;
-
-                students = new ObservableCollection<Students>(await App.Database.QueryStudents(studentQuery));
-
-                StudentsListView.ItemsSource = students;
+                await DisplayAlert(ResxFile.str_error, getStu.Errors[0].Message, ResxFile.err_confirm);
+                await Navigation.PopAsync();
+                return;
+            } else
+            {
+                students = new ObservableCollection<Models.APIModels.Student>(getStu.Data.GetStudents);
             }
+            
+            StudentsListView.ItemsSource = students;
 
+        }
+
+        private async void StudentsListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            if (e.SelectedItem == null) { return; }
+
+            var aUser = StudentsListView.SelectedItem as Models.APIModels.Student;
+
+            await Navigation.PushAsync(new StudentDetailPage(aUser));
+
+            StudentsListView.SelectedItem = null;
         }
     }
 }

@@ -450,4 +450,52 @@
   <data name="msg_pushPlanSucc" xml:space="preserve">
     <value>Pushing plans to server successfully!</value>
   </data>
+  <data name="lbl_birthday" xml:space="preserve">
+    <value>Birthday</value>
+  </data>
+  <data name="lbl_commentDate" xml:space="preserve">
+    <value>Comment Time</value>
+  </data>
+  <data name="lbl_female" xml:space="preserve">
+    <value>Female</value>
+  </data>
+  <data name="lbl_male" xml:space="preserve">
+    <value>Male</value>
+  </data>
+  <data name="msg_addCoachSucc" xml:space="preserve">
+    <value>You have become his/her coach successfully! You may check it in your student list!</value>
+  </data>
+  <data name="msg_confirmCoachReq" xml:space="preserve">
+    <value>Do you want to accept his/her request?</value>
+  </data>
+  <data name="msg_confirmComment" xml:space="preserve">
+    <value>Finished weitting comment and want to post it?</value>
+  </data>
+  <data name="msg_confirmSendReq" xml:space="preserve">
+    <value>Do you want him/her to be your coach?</value>
+  </data>
+  <data name="msg_confirmSharePlan" xml:space="preserve">
+    <value>Do you want to share this plan to the public?</value>
+  </data>
+  <data name="msg_postCommentSucc" xml:space="preserve">
+    <value>Post comment successfully!</value>
+  </data>
+  <data name="tbi_addComment" xml:space="preserve">
+    <value>Add comment</value>
+  </data>
+  <data name="tbi_comment" xml:space="preserve">
+    <value>Comment</value>
+  </data>
+  <data name="tbi_post" xml:space="preserve">
+    <value>Post</value>
+  </data>
+  <data name="tbi_response" xml:space="preserve">
+    <value>Response</value>
+  </data>
+  <data name="tbi_sendReq" xml:space="preserve">
+    <value>Send Request</value>
+  </data>
+  <data name="title_comment" xml:space="preserve">
+    <value>Enter comment below!</value>
+  </data>
 </root>

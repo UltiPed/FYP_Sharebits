@@ -1,6 +1,8 @@
 ﻿using FYP_Sharebits.Models;
 using FYP_Sharebits.Models.DBModels;
+using FYP_Sharebits.Models.Functional;
 using FYP_Sharebits.Resources;
+using FYP_Sharebits.Views.Student;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -16,7 +18,7 @@ namespace FYP_Sharebits.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class FindCoachPage : ContentPage
     {
-        ObservableCollection<Coachs> coachs;
+        ObservableCollection<Models.APIModels.Coach> coachs;
 
         public FindCoachPage()
         {
@@ -27,7 +29,18 @@ namespace FYP_Sharebits.Views
         {
             base.OnAppearing();
 
-            coachs = new ObservableCollection<Coachs>(await App.Database.GetCoachs());
+            coachs = new ObservableCollection<Models.APIModels.Coach>();
+
+            var findCoach = await APIConnection.findCoaches();
+            if (findCoach.Errors != null)
+            {
+                await DisplayAlert(ResxFile.str_error, findCoach.Errors[0].Message, ResxFile.err_confirm);
+                await Navigation.PopAsync();
+                return;
+            } else
+            {
+                coachs = new ObservableCollection<Models.APIModels.Coach>(findCoach.Data.FindCoaches);
+            }
 
             CoachListView.ItemsSource = coachs;
         }
@@ -36,48 +49,9 @@ namespace FYP_Sharebits.Views
         {
             if (CoachListView.SelectedItem == null) { return; }
 
-            Coachs coach = CoachListView.SelectedItem as Coachs;
+            var selectedCoach = CoachListView.SelectedItem as Models.APIModels.Coach;
 
-            CoachingRequest request = new CoachingRequest();
-            request.coachID = coach.coachID;
-            request.studentID = await Constants.GetUserId();
-            request.studentName = await Constants.GetUserName();
-
-
-            //Checking the coach has coaching user already or not
-            String studentQuery = "SELECT * FROM [Students] WHERE coachID=" + coach.coachID + " AND studentID='" + request.studentID + "'";
-
-            var students = await App.Database.QueryStudents(studentQuery);
-
-            if (students.Count > 0)
-            {
-                await DisplayAlert(ResxFile.str_error, ResxFile.err_coachAlready, ResxFile.err_confirm);
-                CoachListView.SelectedItem = null;
-                return;
-            }
-
-
-            //Checking the same request has been made already or not
-            String requestQuery = "SELECT * FROM [CoachingRequest] WHERE coachID=" + coach.coachID + " AND studentID='" + request.studentID + "'";
-
-            var checkRequests = await App.Database.QueryRequests(requestQuery);
-
-            if (checkRequests.Count > 0)
-            {
-                await DisplayAlert(ResxFile.str_error, ResxFile.err_reqAlready, ResxFile.err_confirm);
-                CoachListView.SelectedItem = null;
-                return;
-            }
-
-            int result = await App.Database.InsertRow<CoachingRequest>(request);
-
-            if (result > 0)
-            {
-                await DisplayAlert(ResxFile.msg_Success, ResxFile.msg_sendCoachReq, ResxFile.btn_ok);
-            } else
-            {
-                await DisplayAlert(ResxFile.str_error, ResxFile.err_sendCoachReq, ResxFile.err_confirm);
-            }
+            await Navigation.PushAsync(new CoachDetailPage(selectedCoach, true));
 
             CoachListView.SelectedItem = null;
         }

@@ -273,6 +273,7 @@ namespace FYP_Sharebits.Models.Functional
         public static async Task<BaseModel> setPublish(String planID, String isPublish)
         {
             client = new HttpClient();
+            client.DefaultRequestHeaders.Add("Authorization", authenticationCode);
             String query = String.Format("{{\"query\":\"mutation{{ setPublish(plan_id: \\\"{0}\\\", isPublish: \\\"{1}\\\") {{ message }} }}\"}}", planID, isPublish);
             StringContent stringContent = new StringContent(query, Encoding.UTF8, "application/json");
             var httpResponse = await client.PostAsync(GraphQLURL, stringContent);

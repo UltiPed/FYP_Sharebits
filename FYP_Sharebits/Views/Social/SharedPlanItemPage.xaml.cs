@@ -1,4 +1,5 @@
-﻿using FYP_Sharebits.Models.DBModels;
+﻿using FYP_Sharebits.Models.APIModels;
+using FYP_Sharebits.Models.DBModels;
 using FYP_Sharebits.Resources;
 using System;
 using System.Collections.Generic;
@@ -15,33 +16,41 @@ namespace FYP_Sharebits.Views.Social
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SharedPlanItemPage : ContentPage
     {
-        HabitPlans selectedPlan;
-        ObservableCollection<PlanItems> items;
+        private HabitPlan selectedPlan;
+        private ObservableCollection<PlanItem> items;
         public SharedPlanItemPage()
         {
             InitializeComponent();
         }
 
-        public SharedPlanItemPage(HabitPlans plan)
+        public SharedPlanItemPage(HabitPlan plan)
         {
             InitializeComponent();
             selectedPlan = plan;
-            items = TempData.GetPlanItems(plan.habitID);
+
+            items = new ObservableCollection<PlanItem>(plan.CreatedItems);
+
             ItemListView.ItemsSource = items;
         }
 
         private async void userButton_Clicked(object sender, EventArgs e)
         {
-            Users user = TempData.GetUser(selectedPlan.habitID);
-            await Navigation.PushAsync(new SharedPlanUserPage(user));
+            User aUser = selectedPlan.Creator;
+            await Navigation.PushAsync(new SharedPlanUserPage(aUser));
         }
 
         private async void cloneButton_Clicked(object sender, EventArgs e)
         {
             HabitPlans toAddPlan = new HabitPlans();
-            toAddPlan.habitName = selectedPlan.habitName;
-            toAddPlan.habitType = selectedPlan.habitType;
+            toAddPlan.habitName = selectedPlan.HabitName;
+            toAddPlan.habitType = selectedPlan.HabitType;
             toAddPlan.startDate = DateTime.Now.Date;
+            if (selectedPlan.HabitType.Equals("Challenge"))
+            {
+                DateTime sdt = selectedPlan.StartDate.UtcDateTime;
+                DateTime edt = selectedPlan.EndDate.Value.UtcDateTime;
+                toAddPlan.endDate = toAddPlan.startDate.AddDays((edt - sdt).TotalDays).Date;
+            }
 
             int result = await App.Database.InsertRow<HabitPlans>(toAddPlan);
 
@@ -50,10 +59,14 @@ namespace FYP_Sharebits.Views.Social
                 var currentPlans = await App.Database.GetPlansAsync();
                 int newID = currentPlans.Count;
 
-                foreach (PlanItems item in items)
+                foreach (PlanItem item in items)
                 {
-                    item.habitID = newID;
-                    int result2 = await App.Database.InsertRow<PlanItems>(item);
+                    PlanItems toAddItem = new PlanItems();
+                    toAddItem.habitID = newID;
+                    toAddItem.itemGoal = item.ItemGoal.Value;
+                    toAddItem.itemType = item.ItemType;
+                    toAddItem.itemName = item.ItemName;
+                    int result2 = await App.Database.InsertRow<PlanItems>(toAddItem);
                     if (result2 == 0)
                     {
                         await DisplayAlert(ResxFile.str_error, ResxFile.str_error, ResxFile.err_confirm);
@@ -69,6 +82,11 @@ namespace FYP_Sharebits.Views.Social
                 return;
             }
             
+        }
+
+        private async void commentButton_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new CommentListPage(selectedPlan));
         }
     }
 }

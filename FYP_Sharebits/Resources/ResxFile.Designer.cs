@@ -385,6 +385,24 @@ namespace FYP_Sharebits.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Birthday.
+        /// </summary>
+        public static string lbl_birthday {
+            get {
+                return ResourceManager.GetString("lbl_birthday", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Comment Time.
+        /// </summary>
+        public static string lbl_commentDate {
+            get {
+                return ResourceManager.GetString("lbl_commentDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Confirm password.
         /// </summary>
         public static string lbl_confirm_password {
@@ -408,6 +426,15 @@ namespace FYP_Sharebits.Resources {
         public static string lbl_EndDate {
             get {
                 return ResourceManager.GetString("lbl_EndDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Female.
+        /// </summary>
+        public static string lbl_female {
+            get {
+                return ResourceManager.GetString("lbl_female", resourceCulture);
             }
         }
         
@@ -453,6 +480,15 @@ namespace FYP_Sharebits.Resources {
         public static string lbl_isDone {
             get {
                 return ResourceManager.GetString("lbl_isDone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Male.
+        /// </summary>
+        public static string lbl_male {
+            get {
+                return ResourceManager.GetString("lbl_male", resourceCulture);
             }
         }
         
@@ -619,6 +655,15 @@ namespace FYP_Sharebits.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to You have become his/her coach successfully! You may check it in your student list!.
+        /// </summary>
+        public static string msg_addCoachSucc {
+            get {
+                return ResourceManager.GetString("msg_addCoachSucc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Becoming coach successfully!.
         /// </summary>
         public static string msg_beCoachSucc {
@@ -642,6 +687,42 @@ namespace FYP_Sharebits.Resources {
         public static string msg_confirm {
             get {
                 return ResourceManager.GetString("msg_confirm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Do you want to accept his/her request?.
+        /// </summary>
+        public static string msg_confirmCoachReq {
+            get {
+                return ResourceManager.GetString("msg_confirmCoachReq", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Finished weitting comment and want to post it?.
+        /// </summary>
+        public static string msg_confirmComment {
+            get {
+                return ResourceManager.GetString("msg_confirmComment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Do you want him/her to be your coach?.
+        /// </summary>
+        public static string msg_confirmSendReq {
+            get {
+                return ResourceManager.GetString("msg_confirmSendReq", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Do you want to share this plan to the public?.
+        /// </summary>
+        public static string msg_confirmSharePlan {
+            get {
+                return ResourceManager.GetString("msg_confirmSharePlan", resourceCulture);
             }
         }
         
@@ -732,6 +813,15 @@ namespace FYP_Sharebits.Resources {
         public static string msg_operation_fail {
             get {
                 return ResourceManager.GetString("msg_operation_fail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Post comment successfully!.
+        /// </summary>
+        public static string msg_postCommentSucc {
+            get {
+                return ResourceManager.GetString("msg_postCommentSucc", resourceCulture);
             }
         }
         
@@ -1015,6 +1105,15 @@ namespace FYP_Sharebits.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add comment.
+        /// </summary>
+        public static string tbi_addComment {
+            get {
+                return ResourceManager.GetString("tbi_addComment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add Item.
         /// </summary>
         public static string tbi_AddItem {
@@ -1033,11 +1132,47 @@ namespace FYP_Sharebits.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Comment.
+        /// </summary>
+        public static string tbi_comment {
+            get {
+                return ResourceManager.GetString("tbi_comment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Post.
+        /// </summary>
+        public static string tbi_post {
+            get {
+                return ResourceManager.GetString("tbi_post", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Records.
         /// </summary>
         public static string tbi_records {
             get {
                 return ResourceManager.GetString("tbi_records", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Response.
+        /// </summary>
+        public static string tbi_response {
+            get {
+                return ResourceManager.GetString("tbi_response", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Send Request.
+        /// </summary>
+        public static string tbi_sendReq {
+            get {
+                return ResourceManager.GetString("tbi_sendReq", resourceCulture);
             }
         }
         
@@ -1056,6 +1191,15 @@ namespace FYP_Sharebits.Resources {
         public static string tbi_user {
             get {
                 return ResourceManager.GetString("tbi_user", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter comment below!.
+        /// </summary>
+        public static string title_comment {
+            get {
+                return ResourceManager.GetString("title_comment", resourceCulture);
             }
         }
     }

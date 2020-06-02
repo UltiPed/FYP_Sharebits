@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="FYP_Sharebits.Views.Social.CreateCommentPage"
+             xmlns:i18n="clr-namespace:FYP_Sharebits.Resources"
+             Title="{x:Static i18n:ResxFile.tbi_comment}">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="postButton"
+                     Text="{x:Static i18n:ResxFile.tbi_post}"
+                     Clicked="postButton_Clicked"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout>
+            <Editor x:Name="contentEditor" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

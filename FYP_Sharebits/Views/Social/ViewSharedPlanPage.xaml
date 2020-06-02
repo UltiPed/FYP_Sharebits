@@ -15,12 +15,20 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <Frame CornerRadius="5"
-                                   BackgroundColor="White"
-                                   HasShadow="False"
-                                   Margin="0,3,0,3">
-                                <Label Text="{Binding habitName}"/>
-                            </Frame>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                
+                                <Label Text="{Binding Creator.UserName}" Grid.Row="0" Grid.Column="0"/>
+                                <Label Text="{Binding HabitName}" Grid.Row="1" Grid.Column="0"/>
+
+                            </Grid>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>

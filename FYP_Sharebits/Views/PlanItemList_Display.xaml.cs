@@ -1,4 +1,5 @@
 ﻿using FYP_Sharebits.Models.DBModels;
+using FYP_Sharebits.Models.Functional;
 using FYP_Sharebits.Resources;
 using FYP_Sharebits.Views.Social;
 using System;
@@ -59,25 +60,20 @@ namespace FYP_Sharebits.Views
 
         private async void shareButton_Clicked(object sender, EventArgs e)
         {
-            HabitPlans aPlan = new HabitPlans();
-            int newTempID = TempData.plans.Count + 1;
-            aPlan.habitID = newTempID;
-            aPlan.habitName = selectedPlan.habitName;
-            aPlan.habitType = selectedPlan.habitType;
-            TempData.plans.Add(aPlan);
-
-            foreach(PlanItems item in currentItems)
+            var result = await DisplayAlert(ResxFile.msg_confirm, ResxFile.msg_confirmSharePlan, ResxFile.btn_yes, ResxFile.btn_cancel);
+            if (result)
             {
-                PlanItems newTempItem = new PlanItems();
-                newTempItem.habitID = newTempID;
-                newTempItem.itemGoal = item.itemGoal;
-                newTempItem.itemName = item.itemName;
-                newTempItem.itemType = item.itemType;
-                TempData.planItems.Add(newTempItem);
+                var sharePlan = await APIConnection.setPublish(selectedPlan.habitID_DB, "true");
+                if (sharePlan.Errors != null)
+                {
+                    await DisplayAlert(ResxFile.str_error, sharePlan.Errors[0].Message, ResxFile.err_confirm);
+                } else
+                {
+                    await DisplayAlert(ResxFile.msg_Success, ResxFile.msg_succShare, ResxFile.btn_ok);
+                }
+
             }
 
-            await DisplayAlert(ResxFile.msg_Success, ResxFile.msg_succShare, ResxFile.btn_ok);
-            await Navigation.PopToRootAsync();
         }
     }
 }
