@@ -29,6 +29,10 @@ namespace FYP_Sharebits.Views
         {
             InitializeComponent();
             selectedPlan = plan;
+            if (String.IsNullOrEmpty(plan.habitID_DB))
+            {
+                this.ToolbarItems.Remove(shareButton);
+            }
 
         }
 

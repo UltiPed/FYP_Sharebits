@@ -257,8 +257,32 @@ namespace FYP_Sharebits.Data
         {
             int result;
 
-            String queryString = "Update StepCounts SET stepCount=stepCount+1 WHERE recordDate = ?";
+            //String queryString = "Update StepCounts SET stepCount=stepCount+1 WHERE recordDate = ?";
 
+            String queryString2 = "SELECT * FROM [PlanItems] WHERE [itemType]='Steps'";
+            var result2 = await QueryPlanItems(queryString2);
+
+            String itemIDs = "(";
+            Boolean isFirst = true;
+            foreach (PlanItems item in result2)
+            {
+                if (isFirst)
+                {
+                    itemIDs = itemIDs + item.itemID;
+                    isFirst = false;
+                }
+                else
+                {
+                    itemIDs = itemIDs + ", " + item.itemID;
+                }
+            }
+            itemIDs = itemIDs + ")";
+
+            String queryString3 = "Update [PlanRecords] SET progress=progress+1 WHERE recordDate = ? AND itemID IN " + itemIDs;
+
+            result = await database.ExecuteAsync(queryString3, DateTime.Today.Date);
+
+            /*
             var StepCounts = await database.Table<StepCounts>().ToListAsync();
             var TodayCount = StepCounts.Find(x => x.recordDate == DateTime.Today.Date);
 
@@ -273,6 +297,7 @@ namespace FYP_Sharebits.Data
             {
                 result = await database.ExecuteAsync(queryString, DateTime.Today.Date);
             }
+            */
 
             if (result > 0)
             {
