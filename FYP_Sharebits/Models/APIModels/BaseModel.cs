@@ -70,6 +70,33 @@ namespace FYP_Sharebits.Models.APIModels
 
         [JsonProperty("beCoach")]
         public Msg BeCoach { get; set; }
+
+        [JsonProperty("addCoach")]
+        public Msg AddCoach { get; set; }
+
+        [JsonProperty("createCoachingReq")]
+        public Msg CreateCoachingReq { get; set; }
+
+        [JsonProperty("delCoachingReq")]
+        public Msg DelCoachingReq { get; set; }
+
+        [JsonProperty("commentPlan")]
+        public Msg CommentPlan { get; set; }
+
+        [JsonProperty("findCoaches")]
+        public Coach[] FindCoaches { get; set; }
+
+        [JsonProperty("getCoaches")]
+        public Coach[] GetCoaches { get; set; }
+
+        [JsonProperty("getStudents")]
+        public Student[] GetStudents { get; set; }
+
+        [JsonProperty("getCoachingReq")]
+        public CoachRequest[] GetCoachingReq { get; set; }
+
+        [JsonProperty("getComment")]
+        public Comment[] GetComment { get; set; }
     }
 
     public partial class BaseModel
