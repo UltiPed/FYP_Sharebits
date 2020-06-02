@@ -120,7 +120,7 @@ namespace FYP_Sharebits.Models.Functional
         public static async Task<BaseModel> searchPlan(String keywords)
         {
             client = new HttpClient();
-            String query = String.Format("{{\"query\":\"query{{ searchPlan(keyword: \"{0}\"){{ _id,  habitName,  habitType, creator{{ _id, email, userName, height, weight, gender}}, createdItems{{itemName, itemType, itemGoal}}}}}}\"}}", keywords);
+            String query = String.Format("{{\"query\":\"query{{ searchPlan(keyword: \\\"{0}\\\"){{ _id,  habitName,  habitType, creator{{ _id, email, userName, height, weight, gender}}, createdItems{{itemName, itemType, itemGoal}}}}}}\"}}", keywords);
             StringContent stringContent = new StringContent(query, Encoding.UTF8, "application/json");
             var httpResponse = await client.PostAsync(GraphQLURL, stringContent);
             var json = await httpResponse.Content.ReadAsStringAsync();
@@ -215,5 +215,114 @@ namespace FYP_Sharebits.Models.Functional
             return returnQuery;
         }
 
+        public static async Task<BaseModel> getStudents(String CoachID)
+        {
+            client = new HttpClient();
+            String query = String.Format("{{\"query\":\"query{{getStudents(coachId: \\\"{0}\\\"){{_id, user{{ _id, email, userName, height, weight, gender}}}}}}\"}}", CoachID);
+            StringContent stringContent = new StringContent(query, Encoding.UTF8, "application/json");
+            var httpResponse = await client.PostAsync(GraphQLURL, stringContent);
+            var json = await httpResponse.Content.ReadAsStringAsync();
+            var result = JsonConvert.DeserializeObject<BaseModel>(json);
+            return result;
+        }
+
+        public static async Task<BaseModel> getCoaches(String userId)
+        {
+            client = new HttpClient();
+            String query = String.Format("{{\"query\":\"query{{getCoaches(userId: \\\"{0}\\\"){{ Coach{{ _id, user {{email, userName, height, weight, gender}} }} }} }}\"}}", userId);
+            StringContent stringContent = new StringContent(query, Encoding.UTF8, "application/json");
+            var httpResponse = await client.PostAsync(GraphQLURL, stringContent);
+            var json = await httpResponse.Content.ReadAsStringAsync();
+            var result = JsonConvert.DeserializeObject<BaseModel>(json);
+            return result;
+        }
+
+        public static async Task<BaseModel> getCoachingReq(String CoachID)
+        {
+            client = new HttpClient();
+            String query = String.Format("{{\"query\":\"query{{getCoachingReq(coachId: \\\"{0}\\\"){{_id, user{{ _id, email, userName, height, weight, gender}}}}}}\"}}", CoachID);
+            StringContent stringContent = new StringContent(query, Encoding.UTF8, "application/json");
+            var httpResponse = await client.PostAsync(GraphQLURL, stringContent);
+            var json = await httpResponse.Content.ReadAsStringAsync();
+            var result = JsonConvert.DeserializeObject<BaseModel>(json);
+            return result;
+        }
+
+        public static async Task<BaseModel> getComment(String planID)
+        {
+            client = new HttpClient();
+            String query = String.Format("{{\"query\":\"query{{getComment(planId: \\\"{0}\\\"){{user{{ _id, email, userName, height, weight, gender}}, content, recordDate}}}}\"}}", planID);
+            StringContent stringContent = new StringContent(query, Encoding.UTF8, "application/json");
+            var httpResponse = await client.PostAsync(GraphQLURL, stringContent);
+            var json = await httpResponse.Content.ReadAsStringAsync();
+            var result = JsonConvert.DeserializeObject<BaseModel>(json);
+            return result;
+        }
+
+        public static async Task<BaseModel> pullPlans(String userID)
+        {
+            client = new HttpClient();
+            String query = String.Format("{{\"query\":\"query{{ pullPlans(userID: \\\"{0}\\\"){{ _id,  habitName,  habitType, startDate, endDate, createdItems{{itemName, itemType, itemGoal}}}}}}\"}}", userID);
+            StringContent stringContent = new StringContent(query, Encoding.UTF8, "application/json");
+            var httpResponse = await client.PostAsync(GraphQLURL, stringContent);
+            var json = await httpResponse.Content.ReadAsStringAsync();
+            var result = JsonConvert.DeserializeObject<BaseModel>(json);
+            return result;
+        }
+
+        public static async Task<BaseModel> setPublish(String planID, String isPublish)
+        {
+            client = new HttpClient();
+            String query = String.Format("{{\"query\":\"mutation{{ setPublish(plan_id: \\\"{0}\\\", isPublish: \\\"{1}\\\") {{ message }} }}\"}}", planID, isPublish);
+            StringContent stringContent = new StringContent(query, Encoding.UTF8, "application/json");
+            var httpResponse = await client.PostAsync(GraphQLURL, stringContent);
+            var json = await httpResponse.Content.ReadAsStringAsync();
+            var result = JsonConvert.DeserializeObject<BaseModel>(json);
+            return result;
+        }
+
+        public static async Task<BaseModel> addCoach(String userID, String CoachID)
+        {
+            client = new HttpClient();
+            String query = String.Format("{{\"query\":\"mutation{{ addCoach(userId: \\\"{0}\\\", coachId: \\\"{1}\\\") {{ message }} }}\"}}", userID, CoachID);
+            StringContent stringContent = new StringContent(query, Encoding.UTF8, "application/json");
+            var httpResponse = await client.PostAsync(GraphQLURL, stringContent);
+            var json = await httpResponse.Content.ReadAsStringAsync();
+            var result = JsonConvert.DeserializeObject<BaseModel>(json);
+            return result;
+        }
+
+        public static async Task<BaseModel> createCoachingReq(String userID, String CoachID)
+        {
+            client = new HttpClient();
+            String query = String.Format("{{\"query\":\"mutation{{ createCoachingReq(userId: \\\"{0}\\\", coachId: \\\"{1}\\\") {{ message }} }}\"}}", userID, CoachID);
+            StringContent stringContent = new StringContent(query, Encoding.UTF8, "application/json");
+            var httpResponse = await client.PostAsync(GraphQLURL, stringContent);
+            var json = await httpResponse.Content.ReadAsStringAsync();
+            var result = JsonConvert.DeserializeObject<BaseModel>(json);
+            return result;
+        }
+
+        public static async Task<BaseModel> delCoachingReq(String reqId)
+        {
+            client = new HttpClient();
+            String query = String.Format("{{\"query\":\"mutation{{ delCoachingReq(reqId: \\\"{0}\\\") {{ message }} }}\"}}", reqId);
+            StringContent stringContent = new StringContent(query, Encoding.UTF8, "application/json");
+            var httpResponse = await client.PostAsync(GraphQLURL, stringContent);
+            var json = await httpResponse.Content.ReadAsStringAsync();
+            var result = JsonConvert.DeserializeObject<BaseModel>(json);
+            return result;
+        }
+
+        public static async Task<BaseModel> commentPlan(String userID, String planID, String commentTime, String content)
+        {
+            client = new HttpClient();
+            String query = String.Format("{{\"query\":\"mutation{{ commentPlan(planId: \\\"{0}\\\", userId: \\\"{1}\\\", createDate: \\\"{2}\\\", content: \\\"{3}\\\") {{ message }} }}\"}}", planID, userID, commentTime, content);
+            StringContent stringContent = new StringContent(query, Encoding.UTF8, "application/json");
+            var httpResponse = await client.PostAsync(GraphQLURL, stringContent);
+            var json = await httpResponse.Content.ReadAsStringAsync();
+            var result = JsonConvert.DeserializeObject<BaseModel>(json);
+            return result;
+        }
     }
 }
