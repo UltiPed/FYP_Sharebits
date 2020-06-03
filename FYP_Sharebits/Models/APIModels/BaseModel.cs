@@ -62,6 +62,9 @@ namespace FYP_Sharebits.Models.APIModels
         [JsonProperty("pushPlans")]
         public HabitPlan[] PushPlans { get; set; }
 
+        [JsonProperty("pullPlans")]
+        public HabitPlan[] PullPlans { get; set; }
+
         [JsonProperty("pushItems")]
         public PlanItem[] PushItems { get; set; }
 
@@ -97,6 +100,9 @@ namespace FYP_Sharebits.Models.APIModels
 
         [JsonProperty("getComment")]
         public Comment[] GetComment { get; set; }
+
+        [JsonProperty("assignPlan")]
+        public Msg AssignPlan { get; set; }
 
         [JsonProperty("getAssigned")]
         public CoachPlan[] GetAssigned { get; set; }

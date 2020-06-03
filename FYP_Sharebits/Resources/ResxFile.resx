@@ -498,4 +498,16 @@
   <data name="title_comment" xml:space="preserve">
     <value>Enter comment below!</value>
   </data>
+  <data name="btn_pullPlan" xml:space="preserve">
+    <value>Pull plans from server</value>
+  </data>
+  <data name="err_noPlanPull" xml:space="preserve">
+    <value>There is no plan in the server from you!</value>
+  </data>
+  <data name="err_noPlanPush" xml:space="preserve">
+    <value>All plans have been pushed to server already!</value>
+  </data>
+  <data name="msg_pullPlanSucc" xml:space="preserve">
+    <value>Pulling plans from server successfully!</value>
+  </data>
 </root>
