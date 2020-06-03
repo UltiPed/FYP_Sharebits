@@ -258,8 +258,7 @@ namespace FYP_Sharebits.Models.Functional
                 }
                 returnQuery += "{itemName: \\\"" + item.itemName + "\\\", ";
                 returnQuery += "itemType: \\\"" + item.itemType + "\\\", ";
-                returnQuery += "itemGoal: " + item.itemGoal + ", ";
-                returnQuery += "localID: " + plan.habitID + "}";
+                returnQuery += "itemGoal: " + item.itemGoal + "}";
                 isFirst = false;
             }
 

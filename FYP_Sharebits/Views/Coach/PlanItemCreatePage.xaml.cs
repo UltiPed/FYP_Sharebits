@@ -105,7 +105,7 @@ namespace FYP_Sharebits.Views.Coach
                 return;
             }
 
-            CoachPlanItems item = new CoachPlanItems();
+            PlanItems item = new PlanItems();
 
 
 

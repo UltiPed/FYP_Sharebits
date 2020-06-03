@@ -72,7 +72,7 @@ namespace FYP_Sharebits.Views.Coach
 
             plan.startDate = StartDatePicker.Date;
 
-            await Navigation.PushAsync(new PlanItemsPage(plan));
+            await Navigation.PushAsync(new PlanItemsPage(plan, coachID, selectedStudent));
 
         }
 

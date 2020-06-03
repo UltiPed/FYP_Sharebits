@@ -286,6 +286,15 @@ namespace FYP_Sharebits.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string err_assignPlan {
+            get {
+                return ResourceManager.GetString("err_assignPlan", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to He/She is coaching you already!.
         /// </summary>
         public static string err_coachAlready {

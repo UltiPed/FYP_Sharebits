@@ -501,6 +501,9 @@
   <data name="btn_pullPlan" xml:space="preserve">
     <value>Pull plans from server</value>
   </data>
+  <data name="err_assignPlan" xml:space="preserve">
+    <value />
+  </data>
   <data name="err_noPlanPull" xml:space="preserve">
     <value>There is no plan in the server from you!</value>
   </data>
