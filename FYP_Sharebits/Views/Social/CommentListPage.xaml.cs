@@ -26,6 +26,7 @@ namespace FYP_Sharebits.Views.Social
 
         public CommentListPage(HabitPlan aPlan)
         {
+            InitializeComponent();
             plan = aPlan;
         }
 

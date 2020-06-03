@@ -313,7 +313,7 @@ namespace FYP_Sharebits.Models.Functional
         public static async Task<BaseModel> pullPlans(String userID)
         {
             client = new HttpClient();
-            String query = String.Format("{{\"query\":\"query{{ pullPlans(userID: \\\"{0}\\\"){{ _id,  habitName,  habitType, startDate, endDate, createdItems{{itemName, itemType, itemGoal}}}}}}\"}}", userID);
+            String query = String.Format("{{\"query\":\"query{{ pullPlans(userId: \\\"{0}\\\"){{ _id,  habitName,  habitType, startDate, endDate, createdItems{{itemName, itemType, itemGoal}}}}}}\"}}", userID);
             StringContent stringContent = new StringContent(query, Encoding.UTF8, "application/json");
             var httpResponse = await client.PostAsync(GraphQLURL, stringContent);
             var json = await httpResponse.Content.ReadAsStringAsync();
@@ -324,7 +324,7 @@ namespace FYP_Sharebits.Models.Functional
         public static async Task<BaseModel> GetAssigned(String userID)
         {
             client = new HttpClient();
-            String query = String.Format("{{\"query\":\"query{{ getAssigned(userId: \\\"{0}\\\"){{ _id, Coach{{ _id, User {{ _id, email, userName, height, weight, gender }} }}, habitName,  habitType, startDate, endDate, createdItems{{itemName, itemType, itemGoal}}}}}}\"}}", userID);
+            String query = String.Format("{{\"query\":\"query{{ getAssigned(userId: \\\"{0}\\\"){{ _id, coach{{ _id, user {{ _id, email, userName, height, weight, gender }} }}, habitName,  habitType, startDate, endDate, createdItems{{itemName, itemType, itemGoal}}}}}}\"}}", userID);
             StringContent stringContent = new StringContent(query, Encoding.UTF8, "application/json");
             var httpResponse = await client.PostAsync(GraphQLURL, stringContent);
             var json = await httpResponse.Content.ReadAsStringAsync();
@@ -335,8 +335,8 @@ namespace FYP_Sharebits.Models.Functional
         public static async Task<BaseModel> setPublish(String planID, String isPublish)
         {
             client = new HttpClient();
-            client.DefaultRequestHeaders.Add("Authorization", authenticationCode);
-            String query = String.Format("{{\"query\":\"mutation{{ setPublish(plan_id: \\\"{0}\\\", isPublish: \\\"{1}\\\") {{ message }} }}\"}}", planID, isPublish);
+            //client.DefaultRequestHeaders.Add("Authorization", authenticationCode);
+            String query = String.Format("{{\"query\":\"mutation{{ setPublish(plan_id: \\\"{0}\\\", isPublish: {1}) {{ message }} }}\"}}", planID, (isPublish == "true") ? "true": "false" );
             StringContent stringContent = new StringContent(query, Encoding.UTF8, "application/json");
             var httpResponse = await client.PostAsync(GraphQLURL, stringContent);
             var json = await httpResponse.Content.ReadAsStringAsync();

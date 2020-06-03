@@ -102,30 +102,25 @@ namespace FYP_Sharebits.Models
         {
             String result = String.Empty;
             String userID = await GetUserId();
-            try
+
+            result = await SecureStorage.GetAsync("CoachID");
+
+            if (result == null)
             {
-                result = await SecureStorage.GetAsync("CoachID");
-            } catch (Exception)
-            {
-                try
+
+                var findCoach = await APIConnection.findCoaches();
+                if (findCoach.Errors == null)
                 {
-                    var findCoach = await APIConnection.findCoaches();
-                    if (findCoach.Errors == null)
+                    var coachs = new ObservableCollection<Coach>(findCoach.Data.FindCoaches);
+                    var targetCoach = coachs.Where(x => x.User.Id.Equals(userID)).FirstOrDefault();
+                    if (targetCoach != null)
                     {
-                        var coachs = new ObservableCollection<Coach>(findCoach.Data.FindCoaches);
-                        var targetCoach = coachs.Where(x => x.User.Id.Equals(userID)).FirstOrDefault();
-                        if (targetCoach != null)
-                        {
-                            result = targetCoach.Id;
-                            await SecureStorage.SetAsync("CoachID", result);
-                        }
+                        result = targetCoach.Id;
+                        await SecureStorage.SetAsync("CoachID", result);
                     }
                 }
-                catch (Exception)
-                {
-
-                }
             }
+
             return result;
         }
 

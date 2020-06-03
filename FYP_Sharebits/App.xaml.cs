@@ -23,7 +23,7 @@ namespace FYP_Sharebits
                 DependencyService.Get<IStepCounter>().InitSensorService();
             }
 
-            TempData.createDummyPlans();
+            //TempData.createDummyPlans();
         }
 
         protected override void OnStart()

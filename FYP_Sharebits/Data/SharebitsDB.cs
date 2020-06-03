@@ -41,9 +41,9 @@ namespace FYP_Sharebits.Data
             database.DropTableAsync<CoachPlanItems>().Wait();
             database.DropTableAsync<Students>().Wait();
             database.DropTableAsync<CoachingRequest>().Wait();
-            
             */
-            ///*
+            
+            /*
             database.CreateTableAsync<Coachs>().Wait();
             database.CreateTableAsync<CoachPlans>().Wait();
             database.CreateTableAsync<CoachPlanItems>().Wait();
@@ -53,7 +53,7 @@ namespace FYP_Sharebits.Data
             //Just execute once only for every time you create tables first time or after dropping them for demo
             //InsertDemoCoach().Wait();
 
-            //*/
+            */
             //////////////////////////////////////////////////
 
             //Do it if you need a demo user
@@ -76,7 +76,7 @@ namespace FYP_Sharebits.Data
         {
             return database.Table<HabitPlans>().ToListAsync();
         }
-
+        /*
         public Task<List<CoachPlans>> GetCoachPlansAsync()
         {
             return database.Table<CoachPlans>().ToListAsync();
@@ -86,6 +86,7 @@ namespace FYP_Sharebits.Data
         {
             return database.Table<Coachs>().ToListAsync();
         }
+        */
 
         public Task<List<PlanItems>> GetItemsAsync()
         {
@@ -122,7 +123,7 @@ namespace FYP_Sharebits.Data
         {
             return database.QueryAsync<HabitPlans>(QueryString);
         }
-
+        /*
         public Task<List<Coachs>> QueryCoachs(String QueryString)
         {
             return database.QueryAsync<Coachs>(QueryString);
@@ -137,6 +138,7 @@ namespace FYP_Sharebits.Data
         {
             return database.QueryAsync<CoachingRequest>(QueryString);
         }
+        
         public Task<List<CoachPlans>> QueryCoachPlans(String QueryString)
         {
             return database.QueryAsync<CoachPlans>(QueryString);
@@ -146,7 +148,7 @@ namespace FYP_Sharebits.Data
         {
             return database.QueryAsync<CoachPlanItems>(QueryString);
         }
-
+        */
         public Task<List<PlanRecords>> QueryPlanRecords(String QueryString, int itemID, DateTime todayDate)
         {
             return database.QueryAsync<PlanRecords>(QueryString, itemID, todayDate);
@@ -177,56 +179,6 @@ namespace FYP_Sharebits.Data
         public Task<int> UpdateRow<T>(T aRow)
         {
             return database.UpdateAsync(aRow);
-        }
-
-        public Task<int> InsertDemoUser()
-        {
-            Users user = new Users();
-            user.birthday = new DateTime(1989, 6, 4);
-            user.userID = "DemoUser01";
-            user.userName = "01DemoUser";
-            user.gender = "M";
-            user.height = 165;
-            user.weight = 55;
-            user.sessionToken = "";
-
-            return InsertRow(user);
-        }
-
-        public Task<int> InsertDemoCoach()
-        {
-            Coachs coach = new Coachs();
-            coach.birthday = new DateTime(1989, 6, 4);
-            coach.userID = "test@test.com";
-            coach.password = "tester";
-            coach.userName = "democoach_1";
-            coach.gender = "M";
-            coach.height = 165;
-            coach.weight = 55;
-
-            InsertRow(coach);
-
-            Coachs coach2 = new Coachs();
-            coach2.birthday = new DateTime(1989, 6, 4);
-            coach2.userID = "test2@test.com";
-            coach2.password = "tester";
-            coach2.userName = "democoach_2";
-            coach2.gender = "M";
-            coach2.height = 165;
-            coach2.weight = 55;
-
-            InsertRow(coach2);
-
-            Coachs coach3 = new Coachs();
-            coach3.birthday = new DateTime(1989, 6, 4);
-            coach3.userID = "5e38108179c493001751aabb";
-            coach3.password = "tester";
-            coach3.userName = "democoach_3";
-            coach3.gender = "M";
-            coach3.height = 165;
-            coach3.weight = 55;
-
-            return InsertRow(coach3);
         }
 
         public async Task<Boolean> SetSessionToken(String tokenString)

@@ -24,6 +24,7 @@ namespace FYP_Sharebits.Views.Social
 
         public CreateCommentPage(HabitPlan aPlan)
         {
+            InitializeComponent();
             plan = aPlan;
         }
 

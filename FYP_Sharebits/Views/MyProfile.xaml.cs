@@ -49,7 +49,7 @@ namespace FYP_Sharebits.Views
             }
             else if(result.Data.Logout.Message == "SUCC")
             {
-                if(SecureStorage.Remove("UserId") && SecureStorage.Remove("Token"))
+                if(SecureStorage.Remove("UserId") && SecureStorage.Remove("Token") && SecureStorage.Remove("CoachID"))
                 {
                     await Navigation.PushAsync(new LoginPage());
                     await Navigation.PopToRootAsync();

@@ -23,11 +23,6 @@ namespace FYP_Sharebits.Views
             await Navigation.PushAsync(new StudentListPage());
         }
 
-        private async void assignPlanButton_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new PlanCreatePage());
-        }
-
         private async void checkRequestButton_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new CheckRequestPage());

@@ -36,6 +36,7 @@
                         </StackLayout>
                     </Frame>
 
+                    <!--
                     <Frame CornerRadius="6"
                            BackgroundColor="White"
                            Grid.Row="0"
@@ -52,6 +53,7 @@
                                    HorizontalOptions="CenterAndExpand"/>
                         </StackLayout>
                     </Frame>
+                    -->
                 </Grid>
 
                 <Grid HorizontalOptions="Center"

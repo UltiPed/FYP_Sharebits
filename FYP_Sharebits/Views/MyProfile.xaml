@@ -8,6 +8,7 @@
              Title="Profile"
              xmlns:i18n="clr-namespace:FYP_Sharebits.Resources">
     <ContentPage.Content>
+        <ScrollView>
         <StackLayout BackgroundColor="LightGray"
                      Padding="5">
             <StackLayout x:Name="unauthenticated_layout"
@@ -56,5 +57,6 @@
                 </Frame>
             </StackLayout>
         </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
