@@ -177,14 +177,14 @@ namespace FYP_Sharebits.Models.Functional
                 returnQuery += "habitType: \\\"" + plan.habitType + "\\\", ";
 
                 DateTime startTime = plan.startDate;
-                startTime = DateTime.SpecifyKind(startTime, DateTimeKind.Local);
+                startTime = DateTime.SpecifyKind(startTime, DateTimeKind.Utc);
                 DateTimeOffset startTime2 = startTime;
                 returnQuery += "startDate: \\\"" + startTime2.ToString() + "\\\",";
 
                 if (plan.habitType.Equals("Challenge"))
                 {
                     DateTime endTime = plan.endDate;
-                    startTime = DateTime.SpecifyKind(startTime, DateTimeKind.Local);
+                    startTime = DateTime.SpecifyKind(startTime, DateTimeKind.Utc);
                     DateTimeOffset endTime2 = endTime;
                     returnQuery += "endDate: \\\"" + endTime2.ToString() + "\\\",";
                 }
@@ -212,6 +212,58 @@ namespace FYP_Sharebits.Models.Functional
             }
 
             returnQuery += "])";
+            return returnQuery;
+        }
+
+        public static async Task<BaseModel> AssignPlan(HabitPlans plan, ObservableCollection<PlanItems> items, String coachID, String studentID)
+        {
+            String queryPart = PrepareQuery_assignPlan(plan, items, coachID, studentID);
+            client = new HttpClient();
+            String query = String.Format("{{\"query\":\"mutation{{ {0}  {{ message }} }}\"}}", queryPart);
+            StringContent stringContent = new StringContent(query, Encoding.UTF8, "application/json");
+            var httpResponse = await client.PostAsync(GraphQLURL, stringContent);
+            var json = await httpResponse.Content.ReadAsStringAsync();
+            var result = JsonConvert.DeserializeObject<BaseModel>(json);
+            return result;
+        }
+
+        public static String PrepareQuery_assignPlan(HabitPlans plan, ObservableCollection<PlanItems> items, String coachID, String studentID)
+        {
+            String returnQuery = "assignPlan(coachId: \\\"" + coachID + "\\\", studentId: \\\"" + studentID + "\\\", newPlan: {";
+
+            returnQuery += "habitName: \\\"" + plan.habitName + "\\\", ";
+            returnQuery += "habitType: \\\"" + plan.habitType + "\\\", ";
+
+            DateTime startTime = plan.startDate;
+            startTime = DateTime.SpecifyKind(startTime, DateTimeKind.Utc);
+            DateTimeOffset startTime2 = startTime;
+            returnQuery += "startDate: \\\"" + startTime2.ToString() + "\\\",";
+
+            if (plan.habitType.Equals("Challenge"))
+            {
+                DateTime endTime = plan.endDate;
+                startTime = DateTime.SpecifyKind(startTime, DateTimeKind.Utc);
+                DateTimeOffset endTime2 = endTime;
+                returnQuery += "endDate: \\\"" + endTime2.ToString() + "\\\",";
+            }
+
+            returnQuery += "Items: [";
+
+            Boolean isFirst = true;
+            foreach (PlanItems item in items)
+            {
+                if (!isFirst)
+                {
+                    returnQuery += ", ";
+                }
+                returnQuery += "{itemName: \\\"" + item.itemName + "\\\", ";
+                returnQuery += "itemType: \\\"" + item.itemType + "\\\", ";
+                returnQuery += "itemGoal: " + item.itemGoal + ", ";
+                returnQuery += "localID: " + plan.habitID + "}";
+                isFirst = false;
+            }
+
+            returnQuery += "]})";
             return returnQuery;
         }
 

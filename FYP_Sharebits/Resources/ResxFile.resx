@@ -510,4 +510,7 @@
   <data name="msg_pullPlanSucc" xml:space="preserve">
     <value>Pulling plans from server successfully!</value>
   </data>
+  <data name="tbi_assignPlan" xml:space="preserve">
+    <value>Assign a plan</value>
+  </data>
 </root>

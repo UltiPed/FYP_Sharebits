@@ -16,21 +16,20 @@ namespace FYP_Sharebits.Views.Coach
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PlanCreatePage : ContentPage
     {
+        private Models.APIModels.Student selectedStudent;
+
         ObservableCollection<String> pickerContents;
 
-        ObservableCollection<Students> students;
+        private String coachID;
+        private String userID;
 
-        ObservableCollection<String> studentNames = new ObservableCollection<string>();
-
-        String selectedID;
-
-        int coachId;
-
-        public PlanCreatePage()
+        public PlanCreatePage(Models.APIModels.Student aStudent)
         {
             InitializeComponent();
 
             pickerContents = new ObservableCollection<string>();
+
+            selectedStudent = aStudent;
 
             pickerContents.Add(ResxFile.pker_Normal);
             pickerContents.Add(ResxFile.pker_Challenge);
@@ -42,33 +41,12 @@ namespace FYP_Sharebits.Views.Coach
         {
             base.OnAppearing();
 
-            String userID = await Constants.GetUserId();
+            userID = await Constants.GetUserId();
+            coachID = await Constants.GetCoachID();
 
-            String coachQuery = "SELECT * FROM [Coachs] WHERE userID='" + userID + "'";
-
-            var coachCheck = await App.Database.QueryCoachs(coachQuery);
-
-            if (coachCheck.Count > 0)
-            {
-                coachId = coachCheck[0].coachID;
-
-                String studentQuery = "SELECT * FROM [Students] WHERE coachID=" + coachId;
-
-                students = new ObservableCollection<Students>(await App.Database.QueryStudents(studentQuery));
-
-                foreach(Students stu in students)
-                {
-                    studentNames.Add(stu.studentName);
-                }
-
-                StudentPicker.ItemsSource = studentNames;
-            }
+            
         }
 
-        private void StudentPicker_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            selectedID = students[StudentPicker.SelectedIndex].studentID;
-        }
 
         private async void proceedButton_Clicked(object sender, EventArgs e)
         {
@@ -78,7 +56,7 @@ namespace FYP_Sharebits.Views.Coach
                 return;
             }
 
-            CoachPlans plan = new CoachPlans();
+            HabitPlans plan = new HabitPlans();
             plan.habitName = NameEntry.Text;
 
             if (TypePicker.SelectedItem.ToString().Equals(ResxFile.pker_Normal))
@@ -91,8 +69,6 @@ namespace FYP_Sharebits.Views.Coach
                 plan.habitType = "Challenge";
                 plan.endDate = EndDatePicker.Date;
             }
-            plan.coachID = coachId;
-            plan.studentID = selectedID;
 
             plan.startDate = StartDatePicker.Date;
 

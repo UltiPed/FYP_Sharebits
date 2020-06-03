@@ -1159,6 +1159,15 @@ namespace FYP_Sharebits.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Assign a plan.
+        /// </summary>
+        public static string tbi_assignPlan {
+            get {
+                return ResourceManager.GetString("tbi_assignPlan", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Clone.
         /// </summary>
         public static string tbi_clone {

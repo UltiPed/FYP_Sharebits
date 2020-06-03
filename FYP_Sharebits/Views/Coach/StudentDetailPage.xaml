@@ -81,6 +81,7 @@
                            Style="{StaticResource LabelStyle}"/>
 
                     </Grid>
+                    <Button x:Name="AssignPlanButton" Text="{x:Static i18n:ResxFile.btn_assignPlan}" Clicked="AssignPlanButton_Clicked"/>
                 </StackLayout>
             </Frame>
         </StackLayout>

@@ -48,11 +48,10 @@
                            Grid.Row="0" 
                            Grid.Column="0" 
                            Style="{StaticResource LabelStyle}"/>
-                        <Picker x:Name="StudentPicker" 
+                        <Label x:Name="StudentNameLabel" 
                             Grid.Row="0" 
                             Grid.Column="1" 
-                            SelectedIndexChanged="StudentPicker_SelectedIndexChanged"
-                            Style="{StaticResource PickerStyle}"/>
+                            Style="{StaticResource LabelStyle}"/>
                         
                         <Label Text="{x:Static i18n:ResxFile.lbl_PlanName}"
                            Grid.Row="1"

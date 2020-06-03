@@ -14,6 +14,7 @@ namespace FYP_Sharebits.Views.Coach
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class StudentDetailPage : ContentPage
     {
+        private Models.APIModels.Student aStudent;
         public StudentDetailPage()
         {
             InitializeComponent();
@@ -22,6 +23,7 @@ namespace FYP_Sharebits.Views.Coach
         public StudentDetailPage(Models.APIModels.Student student)
         {
             InitializeComponent();
+            aStudent = student;
             User user = student.User;
             NameLabel.Text = user.UserName;
             if (user.Gender.Equals("M"))
@@ -33,6 +35,11 @@ namespace FYP_Sharebits.Views.Coach
             }
             heightLabel.Text = user.Height.ToString();
             weightLabel.Text = user.Weight.ToString();
+        }
+
+        private async void AssignPlanButton_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new PlanCreatePage(aStudent));
         }
     }
 }
