@@ -214,6 +214,15 @@ namespace FYP_Sharebits.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Pull plans from server.
+        /// </summary>
+        public static string btn_pullPlan {
+            get {
+                return ResourceManager.GetString("btn_pullPlan", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Push plans to server.
         /// </summary>
         public static string btn_pushPlans {
@@ -327,6 +336,24 @@ namespace FYP_Sharebits.Resources {
         public static string err_NoPlanItem {
             get {
                 return ResourceManager.GetString("err_NoPlanItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There is no plan in the server from you!.
+        /// </summary>
+        public static string err_noPlanPull {
+            get {
+                return ResourceManager.GetString("err_noPlanPull", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to All plans have been pushed to server already!.
+        /// </summary>
+        public static string err_noPlanPush {
+            get {
+                return ResourceManager.GetString("err_noPlanPush", resourceCulture);
             }
         }
         
@@ -822,6 +849,15 @@ namespace FYP_Sharebits.Resources {
         public static string msg_postCommentSucc {
             get {
                 return ResourceManager.GetString("msg_postCommentSucc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pulling plans from server successfully!.
+        /// </summary>
+        public static string msg_pullPlanSucc {
+            get {
+                return ResourceManager.GetString("msg_pullPlanSucc", resourceCulture);
             }
         }
         

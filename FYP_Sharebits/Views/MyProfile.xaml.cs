@@ -96,6 +96,11 @@ namespace FYP_Sharebits.Views
             {
                 String queryString = "SELECT * FROM [HabitPlans] WHERE habitID_DB IS NULL";
                 ObservableCollection<HabitPlans> plans = new ObservableCollection<HabitPlans>(await App.Database.QueryHabitPlans(queryString));
+                if (plans.Count == 0)
+                {
+                    await DisplayAlert(ResxFile.str_error, ResxFile.err_noPlanPush, ResxFile.err_confirm);
+                    return;
+                }
 
                 String planIDs = "(";
                 Boolean isFirst = true;
@@ -138,6 +143,72 @@ namespace FYP_Sharebits.Views
                     }
 
                     await DisplayAlert(ResxFile.msg_Success, ResxFile.msg_pushPlanSucc, ResxFile.btn_ok);
+                }
+            }
+        }
+
+        private async void btn_pullPlans_Clicked(object sender, EventArgs e)
+        {
+            var result1 = await DisplayAlert(ResxFile.msg_rusure, ResxFile.msg_coachResponsibility, ResxFile.btn_yes, ResxFile.btn_cancel);
+            if (result1)
+            {
+                String userID = await Constants.GetUserId();
+                var pullPlan = await APIConnection.pullPlans(userID);
+                if (pullPlan.Errors != null)
+                {
+                    await DisplayAlert(ResxFile.str_error, pullPlan.Errors[0].Message, ResxFile.err_confirm);
+                    return;
+                } else
+                {
+                    ObservableCollection<HabitPlan> plans = new ObservableCollection<HabitPlan>(pullPlan.Data.PullPlans);
+                    if (plans.Count == 0)
+                    {
+                        await DisplayAlert(ResxFile.str_error, ResxFile.err_noPlanPull, ResxFile.err_confirm);
+                        return;
+                    }
+                    foreach (HabitPlan plan in plans)
+                    {
+                        String query1 = "SELECT * FROM [HabitPlans] WHERE habitID_DB='" + plan.Id + "'";
+                        ObservableCollection<HabitPlans> checkPlan = new ObservableCollection<HabitPlans>(await App.Database.QueryHabitPlans(query1));
+                        if (checkPlan.Count == 0)
+                        {
+                            HabitPlans newPlan = new HabitPlans();
+                            newPlan.habitID_DB = plan.Id;
+                            newPlan.habitName = plan.HabitName;
+                            newPlan.habitType = plan.HabitType;
+                            newPlan.startDate = DateTime.Now.Date;
+                            if (newPlan.habitType.Equals("Challenge"))
+                            {
+                                DateTime sdt = plan.StartDate.UtcDateTime.Date;
+                                DateTime edt = plan.EndDate.Value.UtcDateTime.Date;
+                                newPlan.startDate = sdt;
+                                newPlan.endDate = edt;
+                            }
+
+                            var result2 = await App.Database.InsertRow<HabitPlans>(newPlan);
+                            if (result2 != 0)
+                            {
+                                checkPlan = new ObservableCollection<HabitPlans>(await App.Database.QueryHabitPlans(query1));
+                                var localID = checkPlan[0].habitID;
+                                foreach (PlanItem item in plan.CreatedItems)
+                                {
+                                    PlanItems newItem = new PlanItems();
+                                    newItem.habitID = localID;
+                                    newItem.itemGoal = item.ItemGoal.Value;
+                                    newItem.itemName = item.ItemName;
+                                    newItem.itemType = item.ItemType;
+
+                                    var result3 = await App.Database.InsertRow<PlanItems>(newItem);
+                                    if (result3 == 0)
+                                    {
+                                        await DisplayAlert(ResxFile.str_error, "result3", ResxFile.err_confirm);
+                                        return;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    await DisplayAlert(ResxFile.msg_Success, ResxFile.msg_pullPlanSucc, ResxFile.btn_ok);
                 }
             }
         }
