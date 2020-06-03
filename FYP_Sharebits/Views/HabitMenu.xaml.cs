@@ -50,8 +50,17 @@ namespace FYP_Sharebits.Views
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-            Plans = new ObservableCollection<HabitPlans>(await App.Database.GetPlansAsync());
-           PlanList.ItemsSource = Plans;
+            var TodayDate = DateTime.Now.Date;
+            var temp = new ObservableCollection<HabitPlans>(await App.Database.GetPlansAsync());
+            Plans = new ObservableCollection<HabitPlans>(temp.Where(x => x.startDate <= TodayDate && x.habitType.Equals("Normal")));
+            var temp2 = temp.Where(x => x.habitType.Equals("Challenge"));
+            temp2 = temp2.Where(x => x.startDate <= TodayDate && x.endDate >= TodayDate);
+            foreach (HabitPlans plan in temp2)
+            {
+                Plans.Add(plan);
+            }
+            PlanList.ItemsSource = new ObservableCollection<HabitPlans>();
+            PlanList.ItemsSource = Plans;
         }
 
         private async void PlanList_ItemSelected(object sender, SelectedItemChangedEventArgs e)
