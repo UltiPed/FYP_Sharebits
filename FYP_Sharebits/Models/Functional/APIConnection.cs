@@ -387,5 +387,16 @@ namespace FYP_Sharebits.Models.Functional
             var result = JsonConvert.DeserializeObject<BaseModel>(json);
             return result;
         }
+
+        public static async Task<BaseModel> replyCoachPlan(String coachPlanID, String status)
+        {
+            client = new HttpClient();
+            String query = String.Format("{{\"query\":\"mutation{{ replyCoachPlan(coachPlanId: \\\"{0}\\\", status: \\\"{1}\\\") {{ message }} }}\"}}", coachPlanID, status);
+            StringContent stringContent = new StringContent(query, Encoding.UTF8, "application/json");
+            var httpResponse = await client.PostAsync(GraphQLURL, stringContent);
+            var json = await httpResponse.Content.ReadAsStringAsync();
+            var result = JsonConvert.DeserializeObject<BaseModel>(json);
+            return result;
+        }
     }
 }

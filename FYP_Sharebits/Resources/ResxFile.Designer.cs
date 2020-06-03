@@ -286,15 +286,6 @@ namespace FYP_Sharebits.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        public static string err_assignPlan {
-            get {
-                return ResourceManager.GetString("err_assignPlan", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to He/She is coaching you already!.
         /// </summary>
         public static string err_coachAlready {
@@ -727,6 +718,15 @@ namespace FYP_Sharebits.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Accept this plan or decline it?.
+        /// </summary>
+        public static string msg_confirmCoachPlan {
+            get {
+                return ResourceManager.GetString("msg_confirmCoachPlan", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Do you want to accept his/her request?.
         /// </summary>
         public static string msg_confirmCoachReq {
@@ -759,6 +759,15 @@ namespace FYP_Sharebits.Resources {
         public static string msg_confirmSharePlan {
             get {
                 return ResourceManager.GetString("msg_confirmSharePlan", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Declined the assigned plan successfully!.
+        /// </summary>
+        public static string msg_DeclinePlanSucc {
+            get {
+                return ResourceManager.GetString("msg_DeclinePlanSucc", resourceCulture);
             }
         }
         
