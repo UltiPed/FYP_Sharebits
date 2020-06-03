@@ -103,6 +103,9 @@ namespace FYP_Sharebits.Models.APIModels
 
         [JsonProperty("assignPlan")]
         public Msg AssignPlan { get; set; }
+
+        [JsonProperty("getAssigned")]
+        public CoachPlan[] GetAssigned { get; set; }
     }
 
     public partial class BaseModel
