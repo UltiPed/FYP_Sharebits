@@ -97,6 +97,9 @@ namespace FYP_Sharebits.Models.APIModels
 
         [JsonProperty("getComment")]
         public Comment[] GetComment { get; set; }
+
+        [JsonProperty("getAssigned")]
+        public CoachPlan[] GetAssigned { get; set; }
     }
 
     public partial class BaseModel
