@@ -28,13 +28,13 @@
                                     <ColumnDefinition Width="*" />
                                 </Grid.ColumnDefinitions>
 
-                                <Label Text="{Binding itemName}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1"/>
+                                <Label Text="{Binding ItemName}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1"/>
 
                                 <Label Text="{x:Static i18n:ResxFile.lbl_ActType}" Grid.Row="1" Grid.Column="0"/>
-                                <Label Text="{Binding itemType}" Grid.Row="1" Grid.Column="1"/>
+                                <Label Text="{Binding ItemType}" Grid.Row="1" Grid.Column="1"/>
 
                                 <Label Text="{x:Static i18n:ResxFile.lbl_workAmt}" Grid.Row="2" Grid.Column="0"/>
-                                <Label Text="{Binding itemGoal}" Grid.Row="2" Grid.Column="1"/>
+                                <Label Text="{Binding ItemGoal}" Grid.Row="2" Grid.Column="1"/>
 
                             </Grid>
                         </ViewCell>

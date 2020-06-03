@@ -52,7 +52,7 @@ namespace FYP_Sharebits.Views.Coach
                 return;
             }
 
-            var assignPlan = await APIConnection.AssignPlan(ToAddPlan, ToAddItems, coachID, selectedStudent.User.Id);
+            var assignPlan = await APIConnection.AssignPlan(ToAddPlan, ToAddItems, coachID, selectedStudent.Id);
             if (assignPlan.Errors != null)
             {
                 await DisplayAlert(ResxFile.str_error, assignPlan.Errors[0].Message, ResxFile.err_confirm);

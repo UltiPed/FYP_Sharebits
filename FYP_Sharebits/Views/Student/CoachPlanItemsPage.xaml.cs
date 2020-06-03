@@ -1,4 +1,5 @@
-﻿using FYP_Sharebits.Models.DBModels;
+﻿using FYP_Sharebits.Models.APIModels;
+using FYP_Sharebits.Models.DBModels;
 using FYP_Sharebits.Resources;
 using System;
 using System.Collections.Generic;
@@ -15,38 +16,35 @@ namespace FYP_Sharebits.Views.Student
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CoachPlanItemsPage : ContentPage
     {
-        ObservableCollection<CoachPlanItems> ToAddItems;
+        ObservableCollection<CoachItem> ToAddItems;
 
-        private CoachPlans ToAddPlan;
+        private CoachPlan ToAddPlan;
 
         public CoachPlanItemsPage()
         {
             InitializeComponent();
         }
 
-        public CoachPlanItemsPage(CoachPlans plan)
+        public CoachPlanItemsPage(CoachPlan plan)
         {
             InitializeComponent();
             ToAddPlan = plan;
-        }
-
-        protected override async void OnAppearing()
-        {
-            base.OnAppearing();
-            int planID = ToAddPlan.planID;
-            String itemQuery = "SELECT * FROM [CoachPlanItems] WHERE planID=" + planID;
-            ToAddItems = new ObservableCollection<CoachPlanItems>(await App.Database.QueryCoachPlanItems(itemQuery));
-
+            ToAddItems = new ObservableCollection<CoachItem>(plan.CreatedItems);
+            ItemListView.ItemsSource = new ObservableCollection<CoachItem>();
             ItemListView.ItemsSource = ToAddItems;
         }
+
 
         private async void ProceedButton_Clicked(object sender, EventArgs e)
         {
             HabitPlans newPlan = new HabitPlans();
-            newPlan.habitName = ToAddPlan.habitName;
-            newPlan.habitType = ToAddPlan.habitType;
-            newPlan.startDate = ToAddPlan.startDate;
-            newPlan.endDate = ToAddPlan.endDate;
+            newPlan.habitName = ToAddPlan.HabitName;
+            newPlan.habitType = ToAddPlan.HabitType;
+            newPlan.startDate = ToAddPlan.StartDate.UtcDateTime.Date;
+            if (ToAddPlan.HabitType.Equals("Challenge"))
+            {
+                newPlan.endDate = ToAddPlan.EndDate.Value.UtcDateTime.Date;
+            }
 
             int result = await App.Database.InsertRow<HabitPlans>(newPlan);
             if (result == 0)
@@ -57,16 +55,16 @@ namespace FYP_Sharebits.Views.Student
 
             var temp = await App.Database.GetPlansAsync();
             int newID = temp.Count;
-            foreach (CoachPlanItems item in ToAddItems)
+            foreach (CoachItem item in ToAddItems)
             {
                 PlanItems newItem = new PlanItems();
                 newItem.habitID = newID;
-                newItem.itemGoal = item.itemGoal;
-                newItem.itemName = item.itemName;
-                newItem.itemType = item.itemType;
+                newItem.itemGoal = item.ItemGoal.Value;
+                newItem.itemName = item.ItemName;
+                newItem.itemType = item.ItemType;
 
                 int result2 = await App.Database.InsertRow<PlanItems>(newItem);
-                if (result2 == 9)
+                if (result2 == 0)
                 {
                     await DisplayAlert(ResxFile.str_error, ResxFile.str_error, ResxFile.err_confirm);
                     return;

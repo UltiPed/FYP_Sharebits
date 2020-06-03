@@ -20,8 +20,8 @@
                                    HasShadow="False"
                                    Margin="0,3,0,3">
                                 <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-                                    <Label Text="{Binding coachName}" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" />
-                                    <Label Text="{Binding habitName}" HorizontalOptions="End" />
+                                    <Label Text="{Binding Coach.User.UserName}" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" />
+                                    <Label Text="{Binding HabitName}" HorizontalOptions="End" />
                                 </StackLayout>
                             </Frame>
                         </ViewCell>

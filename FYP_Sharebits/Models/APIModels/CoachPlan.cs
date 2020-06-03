@@ -13,6 +13,9 @@ namespace FYP_Sharebits.Models.APIModels
         [JsonProperty("habitName")]
         public string HabitName { get; set; }
 
+        [JsonProperty("habitType")]
+        public string HabitType { get; set; }
+
         [JsonProperty("startDate")]
         public DateTimeOffset StartDate { get; set; }
 

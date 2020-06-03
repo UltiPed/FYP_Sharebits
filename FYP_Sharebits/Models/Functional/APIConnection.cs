@@ -280,7 +280,7 @@ namespace FYP_Sharebits.Models.Functional
         public static async Task<BaseModel> getCoaches(String userId)
         {
             client = new HttpClient();
-            String query = String.Format("{{\"query\":\"query{{getCoaches(userId: \\\"{0}\\\"){{ Coach{{ _id, user {{email, userName, height, weight, gender}} }} }} }}\"}}", userId);
+            String query = String.Format("{{\"query\":\"query{{getCoaches(userId: \\\"{0}\\\"){{ _id, user {{email, userName, height, weight, gender}} }} }}\"}}", userId);
             StringContent stringContent = new StringContent(query, Encoding.UTF8, "application/json");
             var httpResponse = await client.PostAsync(GraphQLURL, stringContent);
             var json = await httpResponse.Content.ReadAsStringAsync();
@@ -314,6 +314,17 @@ namespace FYP_Sharebits.Models.Functional
         {
             client = new HttpClient();
             String query = String.Format("{{\"query\":\"query{{ pullPlans(userID: \\\"{0}\\\"){{ _id,  habitName,  habitType, startDate, endDate, createdItems{{itemName, itemType, itemGoal}}}}}}\"}}", userID);
+            StringContent stringContent = new StringContent(query, Encoding.UTF8, "application/json");
+            var httpResponse = await client.PostAsync(GraphQLURL, stringContent);
+            var json = await httpResponse.Content.ReadAsStringAsync();
+            var result = JsonConvert.DeserializeObject<BaseModel>(json);
+            return result;
+        }
+
+        public static async Task<BaseModel> GetAssigned(String userID)
+        {
+            client = new HttpClient();
+            String query = String.Format("{{\"query\":\"query{{ getAssigned(userId: \\\"{0}\\\"){{ _id, Coach{{ _id, User {{ _id, email, userName, height, weight, gender }} }}, habitName,  habitType, startDate, endDate, createdItems{{itemName, itemType, itemGoal}}}}}}\"}}", userID);
             StringContent stringContent = new StringContent(query, Encoding.UTF8, "application/json");
             var httpResponse = await client.PostAsync(GraphQLURL, stringContent);
             var json = await httpResponse.Content.ReadAsStringAsync();

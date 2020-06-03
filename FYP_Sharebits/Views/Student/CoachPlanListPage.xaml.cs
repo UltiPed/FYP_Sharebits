@@ -1,5 +1,8 @@
 ﻿using FYP_Sharebits.Models;
+using FYP_Sharebits.Models.APIModels;
 using FYP_Sharebits.Models.DBModels;
+using FYP_Sharebits.Models.Functional;
+using FYP_Sharebits.Resources;
 using FYP_Sharebits.Views.Student;
 using System;
 using System.Collections.Generic;
@@ -16,7 +19,7 @@ namespace FYP_Sharebits.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CoachPlanListPage : ContentPage
     {
-        ObservableCollection<CoachPlans> coachPlans;
+        ObservableCollection<CoachPlan> coachPlans;
         String userID;
 
         public CoachPlanListPage()
@@ -30,15 +33,21 @@ namespace FYP_Sharebits.Views
 
             userID = await Constants.GetUserId();
 
-            String planQuery = "SELECT * FROM [CoachPlans] WHERE studentID='" + userID + "'";
-            coachPlans = new ObservableCollection<CoachPlans>(await App.Database.QueryCoachPlans(planQuery));
+            var getAssigned = await APIConnection.GetAssigned(userID);
+            if (getAssigned.Errors != null)
+            {
+                await DisplayAlert(ResxFile.str_error, getAssigned.Errors[0].Message, ResxFile.err_confirm);
+                await Navigation.PopAsync();
+                return;
+            }
+            coachPlans = new ObservableCollection<CoachPlan>(getAssigned.Data.GetAssigned);
 
             PlanList.ItemsSource = coachPlans;
         }
 
         private async void PlanList_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            CoachPlans selectedPlan = PlanList.SelectedItem as CoachPlans;
+            CoachPlan selectedPlan = PlanList.SelectedItem as CoachPlan;
             await Navigation.PushAsync(new CoachPlanItemsPage(selectedPlan));
         }
     }
