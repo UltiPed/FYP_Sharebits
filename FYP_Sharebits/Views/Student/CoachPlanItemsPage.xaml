@@ -12,11 +12,17 @@
                      Clicked="ProceedButton_Clicked"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout BackgroundColor="LightGray"
+                     Padding="5">
             <ListView x:Name="ItemListView" HasUnevenRows="True">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
+                            <Frame CornerRadius="5"
+                                       BackgroundColor="White"
+                                       HasShadow="False"
+                                       Margin="0,3,0,3"
+                                       Padding="5">
                             <Grid>
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="Auto" />
@@ -37,6 +43,7 @@
                                 <Label Text="{Binding ItemGoal}" Grid.Row="2" Grid.Column="1"/>
 
                             </Grid>
+                            </Frame>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>

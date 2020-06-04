@@ -29,8 +29,13 @@ namespace FYP_Sharebits.Views.Social
         {
             base.OnAppearing();
             if(!(await Constants.IsAuth())){
+                authenticated_layout.IsVisible = false;
+                unauthenticated_layout.IsVisible = true;
                 return;
             }
+            authenticated_layout.IsVisible = true;
+            unauthenticated_layout.IsVisible = false;
+
             var findPlan = await APIConnection.searchPlan("");
             if (findPlan.Errors != null)
             {
@@ -49,6 +54,11 @@ namespace FYP_Sharebits.Views.Social
         {
             HabitPlan plan = PlanList.SelectedItem as HabitPlan;
             await Navigation.PushAsync(new SharedPlanItemPage(plan));
+        }
+
+        private async void toLogin_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new LoginPage());
         }
     }
 }

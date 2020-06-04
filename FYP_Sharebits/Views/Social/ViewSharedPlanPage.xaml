@@ -9,37 +9,58 @@
     <ContentPage.Content>
         <StackLayout BackgroundColor="LightGray"
                      Padding="5">
-            <ListView x:Name="PlanList"
-                      Margin="5,0,5,0"
-                      HasUnevenRows="True"
-                      ItemSelected="PlanList_ItemSelected">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <Frame CornerRadius="5"
-                                   BackgroundColor="White"
-                                   HasShadow="False"
-                                   Margin="0,3,0,3"
-                                   Padding="5">
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="Auto" />
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*" />
-                                </Grid.ColumnDefinitions>
+            <StackLayout x:Name="unauthenticated_layout"
+                         IsVisible="True"
+                         VerticalOptions="CenterAndExpand">
+                <Frame CornerRadius="3"
+                       BackgroundColor="White">
+                    <StackLayout>
+                        <Image Source="unauthenticated.png"
+                               HorizontalOptions="CenterAndExpand"
+                               WidthRequest="100"/>
+                        <Label Text="{x:Static i18n:ResxFile.msg_Unauthenticated}"
+                               VerticalOptions="CenterAndExpand" 
+                               HorizontalOptions="CenterAndExpand" />
+                        <Button x:Name="toLogin"
+                                Text="{x:Static i18n:ResxFile.btnLogin}"
+                                Clicked="toLogin_Clicked"/>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+            <StackLayout x:Name="authenticated_layout" 
+                         IsVisible="False">
+                <ListView x:Name="PlanList"
+                          Margin="5,0,5,0"
+                          HasUnevenRows="True"
+                          ItemSelected="PlanList_ItemSelected">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Frame CornerRadius="5"
+                                       BackgroundColor="White"
+                                       HasShadow="False"
+                                       Margin="0,3,0,3"
+                                       Padding="5">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
 
-                                
-                                <Label Text="{Binding Creator.UserName}" Grid.Row="0" Grid.Column="0"/>
-                                <Label Text="{Binding HabitName}" Grid.Row="1" Grid.Column="0"/>
 
-                            </Grid>
-                            </Frame>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+                                        <Label Text="{Binding Creator.UserName}" Grid.Row="0" Grid.Column="0"/>
+                                        <Label Text="{Binding HabitName}" Grid.Row="1" Grid.Column="0"/>
+
+                                    </Grid>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -10,10 +10,9 @@
     <ContentPage.Content>
         <ScrollView BackgroundColor="LightGray"
                     Padding="5">
-            <StackLayout>
+            <StackLayout VerticalOptions="CenterAndExpand">
                 <StackLayout x:Name="unauthenticated_layout"
-                         IsVisible="True"
-                         VerticalOptions="CenterAndExpand">
+                         IsVisible="True">
                     <Frame CornerRadius="3"
                        BackgroundColor="White">
                         <StackLayout>
@@ -51,13 +50,16 @@
                                HasShadow="True">
                             <StackLayout Orientation="Vertical">
                                 <Image Source="coach.png">
-                                    <Image.GestureRecognizers>
+                                    <!--<Image.GestureRecognizers>
                                         <TapGestureRecognizer Tapped="coachListButton_Clicked"/>
-                                    </Image.GestureRecognizers>
+                                    </Image.GestureRecognizers>-->
                                 </Image>
                                 <Label Text="{x:Static i18n:ResxFile.btn_coachList}"
                                        HorizontalOptions="CenterAndExpand"/>
                             </StackLayout>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="coachListButton_Clicked"/>
+                            </Frame.GestureRecognizers>
                         </Frame>
 
                         <Frame CornerRadius="6"
@@ -68,13 +70,16 @@
                                HasShadow="True">
                             <StackLayout Orientation="Vertical">
                                 <Image Source="find.png">
-                                    <Image.GestureRecognizers>
+                                    <!--<Image.GestureRecognizers>
                                         <TapGestureRecognizer Tapped="findCoachButton_Clicked"/>
-                                    </Image.GestureRecognizers>
+                                    </Image.GestureRecognizers>-->
                                 </Image>
                                 <Label Text="{x:Static i18n:ResxFile.btn_findCoach}"
                                        HorizontalOptions="CenterAndExpand"/>
                             </StackLayout>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="findCoachButton_Clicked"/>
+                            </Frame.GestureRecognizers>
                         </Frame>
                     </Grid>
 
@@ -97,13 +102,15 @@
                                HasShadow="True">
                             <StackLayout Orientation="Vertical">
                                 <Image Source="check.png">
-                                    <Image.GestureRecognizers>
+                                    <!--<Image.GestureRecognizers>
                                         <TapGestureRecognizer Tapped="checkRecommendButton_Clicked"/>
-                                    </Image.GestureRecognizers>
+                                    </Image.GestureRecognizers>-->
                                 </Image>
-                                <Label Text="{x:Static i18n:ResxFile.btn_checkNewRec}"
-                                       />
+                                <Label Text="{x:Static i18n:ResxFile.btn_checkNewRec}"/>
                             </StackLayout>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="checkRecommendButton_Clicked"/>
+                            </Frame.GestureRecognizers>
                         </Frame>
 
                         <Frame CornerRadius="6"
@@ -115,13 +122,16 @@
                                x:Name="ManageStudentLayout">
                             <StackLayout Orientation="Vertical">
                                 <Image Source="chain.png">
-                                    <Image.GestureRecognizers>
+                                    <!--<Image.GestureRecognizers>
                                         <TapGestureRecognizer Tapped="manageStudentButton_Clicked"/>
-                                    </Image.GestureRecognizers>
+                                    </Image.GestureRecognizers>-->
                                 </Image>
                                 <Label Text="{x:Static i18n:ResxFile.btn_my_student}"
                                        HorizontalOptions="CenterAndExpand"/>
                             </StackLayout>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="manageStudentButton_Clicked"/>
+                            </Frame.GestureRecognizers>
                         </Frame>
                     </Grid>
                 </StackLayout>

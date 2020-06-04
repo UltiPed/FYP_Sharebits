@@ -20,31 +20,38 @@
                      Clicked="cloneButton_Clicked"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout BackgroundColor="LightGray"
+                     Padding="5">
             <ListView x:Name="ItemListView" HasUnevenRows="True">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="Auto" />
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*" />
-                                    <ColumnDefinition Width="*" />
-                                </Grid.ColumnDefinitions>
+                            <Frame CornerRadius="5"
+                                   BackgroundColor="White"
+                                   HasShadow="False"
+                                   Margin="0,3,0,3"
+                                   Padding="5">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
 
-                                <Label Text="{Binding ItemName}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1"/>
+                                    <Label Text="{Binding ItemName}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="1"/>
 
-                                <Label Text="{x:Static i18n:ResxFile.lbl_ActType}" Grid.Row="1" Grid.Column="0"/>
-                                <Label Text="{Binding ItemType}" Grid.Row="1" Grid.Column="1"/>
+                                    <Label Text="{x:Static i18n:ResxFile.lbl_ActType}" Grid.Row="1" Grid.Column="0"/>
+                                    <Label Text="{Binding ItemType}" Grid.Row="1" Grid.Column="1"/>
 
-                                <Label Text="{x:Static i18n:ResxFile.lbl_workAmt}" Grid.Row="2" Grid.Column="0"/>
-                                <Label Text="{Binding ItemGoal}" Grid.Row="2" Grid.Column="1"/>
+                                    <Label Text="{x:Static i18n:ResxFile.lbl_workAmt}" Grid.Row="2" Grid.Column="0"/>
+                                    <Label Text="{Binding ItemGoal}" Grid.Row="2" Grid.Column="1"/>
 
-                            </Grid>
+                                </Grid>
+                            </Frame>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>

@@ -27,13 +27,16 @@
                            HasShadow="True">
                         <StackLayout Orientation="Vertical">
                             <Image Source="studentList.png">
-                                <Image.GestureRecognizers>
+                                <!--<Image.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="studentListButton_Clicked"/>
-                                </Image.GestureRecognizers>
+                                </Image.GestureRecognizers>-->
                             </Image>
                             <Label Text="{x:Static i18n:ResxFile.btn_studentList}"
                                    HorizontalOptions="CenterAndExpand"/>
                         </StackLayout>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="studentListButton_Clicked"/>
+                        </Frame.GestureRecognizers>
                     </Frame>
 
                     <!--
@@ -63,13 +66,16 @@
                         <StackLayout Orientation="Vertical"
                                      HorizontalOptions="Center">
                             <Image Source="mailbox.png">
-                                <Image.GestureRecognizers>
+                                <!--<Image.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="checkRequestButton_Clicked"/>
-                                </Image.GestureRecognizers>
+                                </Image.GestureRecognizers>-->
                             </Image>
                             <Label Text="{x:Static i18n:ResxFile.btn_checkRequest}"
                                    HorizontalOptions="CenterAndExpand"/>
                         </StackLayout>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="checkRequestButton_Clicked"/>
+                        </Frame.GestureRecognizers>
                     </Frame>
                 </Grid>
 

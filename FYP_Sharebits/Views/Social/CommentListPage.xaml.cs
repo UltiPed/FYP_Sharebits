@@ -79,6 +79,7 @@ namespace FYP_Sharebits.Views.Social
                     {
                         await DisplayAlert(ResxFile.msg_Success, ResxFile.msg_postCommentSucc, ResxFile.btn_ok);
                         contentEditor.Text = String.Empty;
+                        contentEditor.Unfocus();
                     }
                     await LoadComment();
                 }

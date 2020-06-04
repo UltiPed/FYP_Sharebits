@@ -7,26 +7,33 @@
              x:Class="FYP_Sharebits.Views.CoachListPage"
              xmlns:i18n="clr-namespace:FYP_Sharebits.Resources">
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout BackgroundColor="LightGray"
+                     Padding="5">
             <ListView x:Name="CoachListView" HasUnevenRows="True" ItemSelected="CoachListView_ItemSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto" />
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*" />
-                                    <ColumnDefinition Width="*" />
-                                </Grid.ColumnDefinitions>
+                            <Frame CornerRadius="5"
+                                       BackgroundColor="White"
+                                       HasShadow="False"
+                                       Margin="0,3,0,3"
+                                       Padding="5">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
 
-                                <Label Text="{Binding User.UserName}" Grid.Row="0" Grid.Column="0"/>
+                                    <Label Text="{Binding User.UserName}" Grid.Row="0" Grid.Column="0"/>
 
-                                <Label Text="{Binding User.Email}" Grid.Row="0" Grid.Column="1"/>
+                                    <Label Text="{Binding User.Email}" Grid.Row="0" Grid.Column="1"/>
 
 
-                            </Grid>
+                                </Grid>
+                            </Frame>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
