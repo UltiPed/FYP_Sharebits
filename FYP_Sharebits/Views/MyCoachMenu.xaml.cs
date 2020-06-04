@@ -24,6 +24,8 @@ namespace FYP_Sharebits.Views
             var loggedIn = await Constants.IsAuth();
             if (loggedIn)
             {
+                authenticated_layout.IsVisible = true;
+                unauthenticated_layout.IsVisible = false;
                 var check = await Constants.CheckCoach();
                 if (!check)
                 {
@@ -32,6 +34,11 @@ namespace FYP_Sharebits.Views
                 {
                     ManageStudentLayout.IsVisible = true;
                 }
+            }
+            else
+            {
+                authenticated_layout.IsVisible = false;
+                unauthenticated_layout.IsVisible = true;
             }
         }
 
@@ -53,6 +60,11 @@ namespace FYP_Sharebits.Views
         private async void manageStudentButton_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new CoachPage());
+        }
+
+        private async void toLogin_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new LoginPage());
         }
     }
 }

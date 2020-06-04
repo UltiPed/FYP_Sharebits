@@ -10,98 +10,121 @@
     <ContentPage.Content>
         <ScrollView BackgroundColor="LightGray"
                     Padding="5">
-            <StackLayout Orientation="Vertical">
-                <Grid HorizontalOptions="Center"
-                      ColumnSpacing="20"
-                      Margin="0,7">
-                    <Grid.RowDefinitions>
-                        <RowDefinition/>                        
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="100"/>
-                        <ColumnDefinition Width="100"/>
-                    </Grid.ColumnDefinitions>
-                    
-                    <Frame CornerRadius="6"
-                           BackgroundColor="White"
-                           Grid.Row="0"
-                           Grid.Column="0"
-                           Padding="3,6"
-                           HasShadow="True">
-                        <StackLayout Orientation="Vertical">
-                            <Image Source="coach.png">
-                                <Image.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="coachListButton_Clicked"/>
-                                </Image.GestureRecognizers>
-                            </Image>
-                            <Label Text="{x:Static i18n:ResxFile.btn_coachList}"
-                                   HorizontalOptions="CenterAndExpand"/>
+            <StackLayout>
+                <StackLayout x:Name="unauthenticated_layout"
+                         IsVisible="True"
+                         VerticalOptions="CenterAndExpand">
+                    <Frame CornerRadius="3"
+                       BackgroundColor="White">
+                        <StackLayout>
+                            <Image Source="unauthenticated.png"
+                               HorizontalOptions="CenterAndExpand"
+                               WidthRequest="100"/>
+                            <Label Text="{x:Static i18n:ResxFile.msg_Unauthenticated}"
+                               VerticalOptions="CenterAndExpand" 
+                               HorizontalOptions="CenterAndExpand" />
+                            <Button x:Name="toLogin"
+                                Text="{x:Static i18n:ResxFile.btnLogin}"
+                                Clicked="toLogin_Clicked"/>
                         </StackLayout>
                     </Frame>
+                </StackLayout>
+                <StackLayout Orientation="Vertical"
+                             x:Name="authenticated_layout"
+                             IsVisible="False">
+                    <Grid HorizontalOptions="Center"
+                          ColumnSpacing="20"
+                          Margin="0,7">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="100"/>
+                        </Grid.ColumnDefinitions>
 
-                    <Frame CornerRadius="6"
-                           BackgroundColor="White"
-                           Grid.Row="0"
-                           Grid.Column="1"
-                           Padding="4,5"
-                           HasShadow="True">
-                        <StackLayout Orientation="Vertical">
-                            <Image Source="find.png">
-                                <Image.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="findCoachButton_Clicked"/>
-                                </Image.GestureRecognizers>
-                            </Image>
-                            <Label Text="{x:Static i18n:ResxFile.btn_findCoach}"
-                                   HorizontalOptions="CenterAndExpand"/>
-                        </StackLayout>
-                    </Frame>
-                </Grid>
-                
-                <Grid HorizontalOptions="Center"
-                      ColumnSpacing="20"
-                      Margin="0,7">
-                    <Grid.RowDefinitions>
-                        <RowDefinition />
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="100"/>
-                        <ColumnDefinition Width="100"/>
-                    </Grid.ColumnDefinitions>
+                        <Frame CornerRadius="6"
+                               BackgroundColor="White"
+                               Grid.Row="0"
+                               Grid.Column="0"
+                               Padding="3,6"
+                               HasShadow="True">
+                            <StackLayout Orientation="Vertical">
+                                <Image Source="coach.png">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="coachListButton_Clicked"/>
+                                    </Image.GestureRecognizers>
+                                </Image>
+                                <Label Text="{x:Static i18n:ResxFile.btn_coachList}"
+                                       HorizontalOptions="CenterAndExpand"/>
+                            </StackLayout>
+                        </Frame>
 
-                    <Frame CornerRadius="6"
-                           BackgroundColor="White"
-                           Grid.Row="0"
-                           Grid.Column="0"
-                           Padding="4,5"
-                           HasShadow="True">
-                        <StackLayout Orientation="Vertical">
-                            <Image Source="check.png">
-                                <Image.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="checkRecommendButton_Clicked"/>
-                                </Image.GestureRecognizers>
-                            </Image>
-                            <Label Text="{x:Static i18n:ResxFile.btn_checkNewRec}"
-                                   />
-                        </StackLayout>
-                    </Frame>
+                        <Frame CornerRadius="6"
+                               BackgroundColor="White"
+                               Grid.Row="0"
+                               Grid.Column="1"
+                               Padding="4,5"
+                               HasShadow="True">
+                            <StackLayout Orientation="Vertical">
+                                <Image Source="find.png">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="findCoachButton_Clicked"/>
+                                    </Image.GestureRecognizers>
+                                </Image>
+                                <Label Text="{x:Static i18n:ResxFile.btn_findCoach}"
+                                       HorizontalOptions="CenterAndExpand"/>
+                            </StackLayout>
+                        </Frame>
+                    </Grid>
 
-                    <Frame CornerRadius="6"
-                           BackgroundColor="White"
-                           Grid.Row="0"
-                           Grid.Column="1"
-                           Padding="4,5"
-                           HasShadow="True">
-                        <StackLayout Orientation="Vertical" x:Name="ManageStudentLayout">
-                            <Image Source="chain.png">
-                                <Image.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="manageStudentButton_Clicked"/>
-                                </Image.GestureRecognizers>
-                            </Image>
-                            <Label Text="{x:Static i18n:ResxFile.btn_my_student}"
-                                   HorizontalOptions="CenterAndExpand"/>
-                        </StackLayout>
-                    </Frame>
-                </Grid>
+                    <Grid HorizontalOptions="Center"
+                          ColumnSpacing="20"
+                          Margin="0,7">
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="100"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Frame CornerRadius="6"
+                               BackgroundColor="White"
+                               Grid.Row="0"
+                               Grid.Column="0"
+                               Padding="4,5"
+                               HasShadow="True">
+                            <StackLayout Orientation="Vertical">
+                                <Image Source="check.png">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="checkRecommendButton_Clicked"/>
+                                    </Image.GestureRecognizers>
+                                </Image>
+                                <Label Text="{x:Static i18n:ResxFile.btn_checkNewRec}"
+                                       />
+                            </StackLayout>
+                        </Frame>
+
+                        <Frame CornerRadius="6"
+                               BackgroundColor="White"
+                               Grid.Row="0"
+                               Grid.Column="1"
+                               Padding="4,5"
+                               HasShadow="True"
+                               x:Name="ManageStudentLayout">
+                            <StackLayout Orientation="Vertical">
+                                <Image Source="chain.png">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="manageStudentButton_Clicked"/>
+                                    </Image.GestureRecognizers>
+                                </Image>
+                                <Label Text="{x:Static i18n:ResxFile.btn_my_student}"
+                                       HorizontalOptions="CenterAndExpand"/>
+                            </StackLayout>
+                        </Frame>
+                    </Grid>
+                </StackLayout>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

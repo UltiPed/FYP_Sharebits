@@ -1,4 +1,5 @@
-﻿using FYP_Sharebits.Models.APIModels;
+﻿using FYP_Sharebits.Models;
+using FYP_Sharebits.Models.APIModels;
 using FYP_Sharebits.Models.DBModels;
 using FYP_Sharebits.Models.Functional;
 using FYP_Sharebits.Resources;
@@ -27,6 +28,9 @@ namespace FYP_Sharebits.Views.Social
         protected override async void OnAppearing()
         {
             base.OnAppearing();
+            if(!(await Constants.IsAuth())){
+                return;
+            }
             var findPlan = await APIConnection.searchPlan("");
             if (findPlan.Errors != null)
             {

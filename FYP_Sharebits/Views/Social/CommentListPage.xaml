@@ -5,45 +5,95 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="FYP_Sharebits.Views.Social.CommentListPage"
-             xmlns:i18n="clr-namespace:FYP_Sharebits.Resources">
-    <ContentPage.ToolbarItems>
+             xmlns:i18n="clr-namespace:FYP_Sharebits.Resources"
+             xmlns:conv="clr-namespace:FYP_Sharebits.Converters">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <conv:DateToStringConverter x:Key="dateToString" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <!--<ContentPage.ToolbarItems>
         <ToolbarItem x:Name="commentButton"
                      Text="{x:Static i18n:ResxFile.tbi_addComment}"
                      Clicked="commentButton_Clicked"/>
-    </ContentPage.ToolbarItems>
+    </ContentPage.ToolbarItems>-->
     <ContentPage.Content>
-        <StackLayout>
-            <ListView x:Name="CommentListView" HasUnevenRows="True">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="Auto" />
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*" />
-                                    <ColumnDefinition Width="*" />
-                                </Grid.ColumnDefinitions>
+        <StackLayout BackgroundColor="LightGray"
+                     Padding="5">
+            <StackLayout>
+                <ListView x:Name="CommentListView" 
+                          HasUnevenRows="True"
+                          Margin="5,0,5,0">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Frame CornerRadius="5"
+                                       BackgroundColor="White"
+                                       HasShadow="False"
+                                       Margin="0,3,0,3"
+                                       Padding="5">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                            <!--<RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />-->
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <!--<ColumnDefinition Width="*" />-->
+                                        </Grid.ColumnDefinitions>
 
 
-                                <Label Text="{x:Static i18n:ResxFile.lbl_username}" Grid.Row="0" Grid.Column="0"/>
-                                <Label Text="{Binding User.UserName}" Grid.Row="0" Grid.Column="1"/>
+                                        <!--<Label Text="{x:Static i18n:ResxFile.lbl_username}" Grid.Row="0" Grid.Column="0"/>-->
+                                        <Label Text="{Binding User.UserName}" Grid.Row="0"  FontAttributes="Bold"/>
 
-                                <Label Text="{x:Static i18n:ResxFile.lbl_commentDate}" Grid.Row="1" Grid.Column="0"/>
-                                <Label Text="{Binding RecordDate}" Grid.Row="1" Grid.Column="1"/>
+                                        <!--<Label Text="{x:Static i18n:ResxFile.lbl_commentDate}" Grid.Row="1" Grid.Column="0"/>-->
+                                        <Label Text="{Binding RecordDate, Converter={StaticResource dateToString}}" Grid.Row="1" TextColor="LightSlateGray"/>
 
-                                <Label Text="{Binding Content}" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="1" Grid.RowSpan="2"/>
+                                        <Label Text="{Binding Content}" Grid.Row="2" TextColor="DarkSlateGray"/>
 
-                            </Grid>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+                                    </Grid>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>    
+            </StackLayout>
+            <StackLayout>
+                <Frame CornerRadius="5"
+                       BackgroundColor="White"
+                       HasShadow="False"
+                       Margin="0,3,0,3"
+                       Padding="5">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Editor x:Name="contentEditor" 
+                                AutoSize="TextChanges"
+                                HeightRequest="80"
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                Margin="0"/>
+                        <Image Source="send.png"
+                               Grid.Row="0"
+                               Grid.Column="1"
+                               VerticalOptions="Center"                       
+                               WidthRequest="20"
+                               Margin="0">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="postButton_Clicked"/>
+                            </Image.GestureRecognizers>
+                        </Image>
+                    </Grid>
+                </Frame>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

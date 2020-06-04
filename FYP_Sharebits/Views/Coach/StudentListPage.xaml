@@ -17,12 +17,12 @@
                                     <RowDefinition Height="Auto" />
                                 </Grid.RowDefinitions>
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*" />
+                                    <!--<ColumnDefinition Width="*" />-->
                                     <ColumnDefinition Width="*" />
                                 </Grid.ColumnDefinitions>
 
-                                <Label Text="{Binding user.Id}" Grid.Row="0" Grid.Column="0"/>
-                                <Label Text="{Binding user.UserName}" Grid.Row="0" Grid.Column="1"/>
+                                <!--<Label Text="{Binding User.Id}" Grid.Row="0" Grid.Column="0"/>-->
+                                <Label Text="{Binding User.UserName}" Grid.Row="0" Grid.Column="0"/>
 
 
                             </Grid>

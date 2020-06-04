@@ -7,7 +7,8 @@
              x:Class="FYP_Sharebits.Views.Social.ViewSharedPlanPage"
              xmlns:i18n="clr-namespace:FYP_Sharebits.Resources">
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout BackgroundColor="LightGray"
+                     Padding="5">
             <ListView x:Name="PlanList"
                       Margin="5,0,5,0"
                       HasUnevenRows="True"
@@ -15,6 +16,11 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
+                            <Frame CornerRadius="5"
+                                   BackgroundColor="White"
+                                   HasShadow="False"
+                                   Margin="0,3,0,3"
+                                   Padding="5">
                             <Grid>
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="Auto" />
@@ -29,6 +35,7 @@
                                 <Label Text="{Binding HabitName}" Grid.Row="1" Grid.Column="0"/>
 
                             </Grid>
+                            </Frame>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>

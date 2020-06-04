@@ -54,6 +54,23 @@
                         </StackLayout>
                     </Frame>
                     -->
+                    <Frame CornerRadius="6"
+                           BackgroundColor="White"
+                           Grid.Row="0"
+                           Grid.Column="1"
+                           Padding="6,6"
+                           HasShadow="True">
+                        <StackLayout Orientation="Vertical"
+                                     HorizontalOptions="Center">
+                            <Image Source="mailbox.png">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="checkRequestButton_Clicked"/>
+                                </Image.GestureRecognizers>
+                            </Image>
+                            <Label Text="{x:Static i18n:ResxFile.btn_checkRequest}"
+                                   HorizontalOptions="CenterAndExpand"/>
+                        </StackLayout>
+                    </Frame>
                 </Grid>
 
                 <Grid HorizontalOptions="Center"
@@ -63,7 +80,7 @@
                         <ColumnDefinition Width="100"/>
                     </Grid.ColumnDefinitions>
 
-                    <Frame CornerRadius="6"
+                    <!--<Frame CornerRadius="6"
                            BackgroundColor="White"
                            Grid.Row="0"
                            Grid.Column="0"
@@ -79,7 +96,7 @@
                             <Label Text="{x:Static i18n:ResxFile.btn_checkRequest}"
                                    HorizontalOptions="CenterAndExpand"/>
                         </StackLayout>
-                    </Frame>
+                    </Frame>-->
                 </Grid>
             </StackLayout>
         </ScrollView>

@@ -20,7 +20,7 @@
     </NavigationPage>
     <NavigationPage Title="{x:Static i18n:ResxFile.lblSocial}" IconImageSource="social.png">
         <x:Arguments>
-            <views:SocialMenu/>
+            <views:Social.ViewSharedPlanPage/>
         </x:Arguments>
     </NavigationPage>
     <NavigationPage Title="{x:Static i18n:ResxFile.lblCoach}" IconImageSource="mycoach.png">
