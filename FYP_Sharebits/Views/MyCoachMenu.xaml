@@ -11,6 +11,10 @@
         <ScrollView BackgroundColor="LightGray"
                     Padding="5">
             <StackLayout VerticalOptions="CenterAndExpand">
+                <StackLayout x:Name="no_wifi">
+                    <Image Source="no_wifi.png"
+                           WidthRequest="100"/>
+                </StackLayout>
                 <StackLayout x:Name="unauthenticated_layout"
                          IsVisible="True">
                     <Frame CornerRadius="3"

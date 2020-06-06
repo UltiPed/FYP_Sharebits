@@ -9,9 +9,15 @@
     <ContentPage.Content>
         <StackLayout BackgroundColor="LightGray"
                      Padding="5">
-            <StackLayout x:Name="unauthenticated_layout"
-                         IsVisible="True"
+            <StackLayout x:Name="no_wifi"
                          VerticalOptions="CenterAndExpand">
+                <Image Source="no_wifi.png"
+                       WidthRequest="100"/>
+            </StackLayout>
+            <StackLayout x:Name="unauthenticated_layout"
+                         IsVisible="False"
+                         VerticalOptions="CenterAndExpand">
+                
                 <Frame CornerRadius="3"
                        BackgroundColor="White">
                     <StackLayout>

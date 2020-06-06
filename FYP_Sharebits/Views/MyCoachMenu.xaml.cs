@@ -1,10 +1,6 @@
 ﻿using FYP_Sharebits.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -21,6 +17,17 @@ namespace FYP_Sharebits.Views
         protected override async void OnAppearing()
         {
             base.OnAppearing();
+            if(Connectivity.NetworkAccess != NetworkAccess.Internet)
+            {
+                no_wifi.IsVisible = true;
+                authenticated_layout.IsVisible = false;
+                unauthenticated_layout.IsVisible = false;
+                return;
+            }
+            else
+            {
+                no_wifi.IsVisible = false;
+            }
             var loggedIn = await Constants.IsAuth();
             if (loggedIn)
             {
